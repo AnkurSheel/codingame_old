@@ -11,6 +11,9 @@
     <ClCompile Include="..\src\Easy\Onboarding.cpp">
       <Filter>Easy\Onboarding</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\Descent.cpp">
+      <Filter>Easy\Descent</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -21,6 +24,9 @@
     </Filter>
     <Filter Include="Easy\Onboarding">
       <UniqueIdentifier>{0c98d491-8b04-4890-bd9a-39a48736a350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\Descent">
+      <UniqueIdentifier>{86b48fcc-1a59-482b-8c0f-ef6e506e46b2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,6 +41,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\Onboarding.h">
       <Filter>Easy\Onboarding</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\Descent.h">
+      <Filter>Easy\Descent</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -23,6 +23,12 @@
     <ClCompile Include="..\tests\Easy\ChuckNorrisTest.cpp">
       <Filter>Easy\ChuckNorris</Filter>
     </ClCompile>
+    <ClCompile Include="..\tests\Easy\MimeTypeTest.cpp">
+      <Filter>Easy\MimeType</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Easy\MimeType.cpp">
+      <Filter>Easy\MimeType</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -40,6 +46,15 @@
     <Filter Include="Easy\ChuckNorris">
       <UniqueIdentifier>{83acec5a-f3a2-4c1b-b720-e3d6239bef62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Easy\MimeType">
+      <UniqueIdentifier>{e826fdce-143b-44d8-a1b1-b6ab057ed8f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\AsciiArt\DataFiles">
+      <UniqueIdentifier>{4817625d-f81f-4c49-bf1f-c3107b3d04d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\MimeType\DataFiles">
+      <UniqueIdentifier>{be1a7126-1cf0-4068-9607-611f13d3c05e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -54,37 +69,70 @@
     <ClInclude Include="..\src\Easy\ChuckNorris.h">
       <Filter>Easy\ChuckNorris</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Easy\MimeType.h">
+      <Filter>Easy\MimeType</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_in.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_out.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanMixedCase_in.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanMixedCase_out.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanNonLetter_in.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanNonLetter_out.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanUpperCase_in.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanUpperCase_out.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\OneLetter_E_in.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\OneLetter_E_out.txt">
-      <Filter>Easy\AsciiArt</Filter>
+      <Filter>Easy\AsciiArt\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\SimpleCase_in.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\SimpleCase_out.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\CorrectDivision_in.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\CorrectDivision_out.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\CaseSensitivity_in.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\CaseSensitivity_out.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\LargeDataset_in.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\LargeDataset_out.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_in.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_out.txt">
+      <Filter>Easy\MimeType\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

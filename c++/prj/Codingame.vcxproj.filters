@@ -29,6 +29,9 @@
     <ClCompile Include="..\src\Easy\ChuckNorris.cpp">
       <Filter>Easy\ChuckNorris</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\MimeType.cpp">
+      <Filter>Easy\MimeType</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -57,6 +60,9 @@
     </Filter>
     <Filter Include="Easy\ChuckNorris">
       <UniqueIdentifier>{db1272ea-dc0c-4268-8d9c-27025289df0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\MimeType">
+      <UniqueIdentifier>{f6236298-643c-4af2-bcc0-0922f7bef36c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\ChuckNorris.h">
       <Filter>Easy\ChuckNorris</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\MimeType.h">
+      <Filter>Easy\MimeType</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

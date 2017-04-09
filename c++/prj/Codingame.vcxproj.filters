@@ -23,6 +23,9 @@
     <ClCompile Include="..\src\Easy\MarsLanderEpisode1.cpp">
       <Filter>Easy\MarsLanderEpisode1</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\AsciiArt.cpp">
+      <Filter>Easy\AsciiArt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -45,6 +48,9 @@
     </Filter>
     <Filter Include="Easy\MarsLanderEpisode1">
       <UniqueIdentifier>{d917aadf-e39c-4c12-9885-299f617c476a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\AsciiArt">
+      <UniqueIdentifier>{298cd3f4-e84c-4e6a-8f4b-ac9361ad2ab5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +77,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\MarsLanderEpisode1.h">
       <Filter>Easy\MarsLanderEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\AsciiArt.h">
+      <Filter>Easy\AsciiArt</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

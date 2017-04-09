@@ -11,6 +11,12 @@
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp">
       <Filter>Easy</Filter>
     </ClCompile>
+    <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp">
+      <Filter>Easy\AsciiArt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Easy\AsciiArt.cpp">
+      <Filter>Easy\AsciiArt</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -22,6 +28,9 @@
     <Filter Include="Easy\Temperatures">
       <UniqueIdentifier>{7071de33-67de-425a-8dbe-baf6be38b18a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Easy\AsciiArt">
+      <UniqueIdentifier>{4c9943af-857e-433d-bc5c-4a8047bae6e9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -30,5 +39,40 @@
     <ClInclude Include="..\src\Easy\Temperatures.h">
       <Filter>Easy\Temperatures</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Easy\AsciiArt.h">
+      <Filter>Easy\AsciiArt</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_in.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_out.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanMixedCase_in.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanMixedCase_out.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanNonLetter_in.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanNonLetter_out.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanUpperCase_in.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanUpperCase_out.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\OneLetter_E_in.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\OneLetter_E_out.txt">
+      <Filter>Easy\AsciiArt</Filter>
+    </Text>
   </ItemGroup>
 </Project>

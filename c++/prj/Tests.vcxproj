@@ -20,13 +20,28 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
+    <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
+    <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h" />
+    <ClInclude Include="..\src\Easy\AsciiArt.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_out.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanMixedCase_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanMixedCase_out.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanNonLetter_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanNonLetter_out.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanUpperCase_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanUpperCase_out.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\OneLetter_E_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\AsciiArt\OneLetter_E_out.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{717E39A2-73EE-4545-AE6C-CAA56AA7DD42}</ProjectGuid>

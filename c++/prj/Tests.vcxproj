@@ -20,10 +20,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
+    <ClCompile Include="..\src\Easy\Temperatures.cpp" />
+    <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h" />
+    <ClInclude Include="..\src\Easy\Temperatures.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{717E39A2-73EE-4545-AE6C-CAA56AA7DD42}</ProjectGuid>

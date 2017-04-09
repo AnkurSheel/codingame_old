@@ -17,6 +17,9 @@
     <ClCompile Include="..\src\Easy\PowerofThorEpisode1.cpp">
       <Filter>Easy\PowerOfThorEpisode1</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\Temperatures.cpp">
+      <Filter>Easy\Temperatures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -33,6 +36,9 @@
     </Filter>
     <Filter Include="Easy\PowerOfThorEpisode1">
       <UniqueIdentifier>{982c6ac1-2fc2-4e7f-af95-2c44989d8a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\Temperatures">
+      <UniqueIdentifier>{1c76241f-961d-4c12-815a-0551591964d6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\PowerofThorEpisode1.h">
       <Filter>Easy\PowerOfThorEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\Temperatures.h">
+      <Filter>Easy\Temperatures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

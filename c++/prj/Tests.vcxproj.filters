@@ -5,15 +5,30 @@
     <ClCompile Include="..\src\Common\RedirectIO.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\Temperatures.cpp">
+      <Filter>Easy\Temperatures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp">
+      <Filter>Easy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
       <UniqueIdentifier>{daae9480-48ef-4650-8aa2-300c21775299}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Easy">
+      <UniqueIdentifier>{019e6873-2b24-404c-9abf-4a401f85b989}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\Temperatures">
+      <UniqueIdentifier>{7071de33-67de-425a-8dbe-baf6be38b18a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\Temperatures.h">
+      <Filter>Easy\Temperatures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

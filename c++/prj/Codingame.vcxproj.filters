@@ -8,10 +8,19 @@
     <ClCompile Include="..\src\Common\RedirectIO.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\Onboarding.cpp">
+      <Filter>Easy\Onboarding</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
       <UniqueIdentifier>{6ef5fbcc-e04d-4046-94a3-e3daf7ea67a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy">
+      <UniqueIdentifier>{45e799ad-895f-4cfc-a1ce-6800d872e1fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\Onboarding">
+      <UniqueIdentifier>{0c98d491-8b04-4890-bd9a-39a48736a350}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -23,6 +32,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Common\RedirectIO.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\Onboarding.h">
+      <Filter>Easy\Onboarding</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

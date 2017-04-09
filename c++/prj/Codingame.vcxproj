@@ -155,12 +155,14 @@
   <ItemGroup>
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Common\Utils.cpp" />
+    <ClCompile Include="..\src\Easy\Onboarding.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\Includes.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
     <ClInclude Include="..\src\Common\Utils.h" />
+    <ClInclude Include="..\src\Easy\Onboarding.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

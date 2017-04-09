@@ -35,6 +35,12 @@
     <ClCompile Include="..\tests\Easy\DefibrillatorsTest.cpp">
       <Filter>Easy\Defibrillators</Filter>
     </ClCompile>
+    <ClCompile Include="..\tests\Easy\HorseRacingDualsTest.cpp">
+      <Filter>Easy\HorseRacingDuals</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp">
+      <Filter>Easy\HorseRacingDuals</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -67,6 +73,12 @@
     <Filter Include="Easy\Defibrillators\DataFiles">
       <UniqueIdentifier>{49f9d9d3-c985-4c66-aae2-6690df7240b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Easy\HorseRacingDuals">
+      <UniqueIdentifier>{cdbf82c7-2613-4421-a3f9-a077ad77ae20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\HorseRacingDuals\DataFiles">
+      <UniqueIdentifier>{735624c5-64cd-4556-bb73-bbe8d10e72a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -86,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\Defibrillators.h">
       <Filter>Easy\Defibrillators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\HorseRacingDuals.h">
+      <Filter>Easy\HorseRacingDuals</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +169,15 @@
     </Text>
     <Text Include="..\tests\DataFiles\Easy\Defibrillators\ExactPosition_in.txt">
       <Filter>Easy\Defibrillators\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\HorseRacingDuals\Simple_in.txt">
+      <Filter>Easy\HorseRacingDuals\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\HorseRacingDuals\RandomOrder_in.txt">
+      <Filter>Easy\HorseRacingDuals\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\HorseRacingDuals\LargeDataset_in.txt">
+      <Filter>Easy\HorseRacingDuals\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Easy\Defibrillators\LargeDataset_in.txt">
       <Filter>Easy\Defibrillators\DataFiles</Filter>

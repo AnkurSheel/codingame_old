@@ -83,7 +83,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ Defibrillators.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -100,7 +100,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ Defibrillators.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -127,7 +127,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ Defibrillators.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,7 +149,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ Defibrillators.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -159,6 +159,7 @@
     <ClCompile Include="..\src\Easy\ChuckNorris.cpp" />
     <ClCompile Include="..\src\Easy\Defibrillators.cpp" />
     <ClCompile Include="..\src\Easy\Descent.cpp" />
+    <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp" />
     <ClCompile Include="..\src\Easy\MarsLanderEpisode1.cpp" />
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Onboarding.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="..\src\Easy\ChuckNorris.h" />
     <ClInclude Include="..\src\Easy\Defibrillators.h" />
     <ClInclude Include="..\src\Easy\Descent.h" />
+    <ClInclude Include="..\src\Easy\HorseRacingDuals.h" />
     <ClInclude Include="..\src\Easy\MarsLanderEpisode1.h" />
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Onboarding.h" />

@@ -23,11 +23,13 @@
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
     <ClCompile Include="..\src\Easy\ChuckNorris.cpp" />
     <ClCompile Include="..\src\Easy\Defibrillators.cpp" />
+    <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp" />
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
     <ClCompile Include="..\tests\Easy\ChuckNorrisTest.cpp" />
     <ClCompile Include="..\tests\Easy\DefibrillatorsTest.cpp" />
+    <ClCompile Include="..\tests\Easy\HorseRacingDualsTest.cpp" />
     <ClCompile Include="..\tests\Easy\MimeTypeTest.cpp" />
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
@@ -37,6 +39,7 @@
     <ClInclude Include="..\src\Easy\AsciiArt.h" />
     <ClInclude Include="..\src\Easy\ChuckNorris.h" />
     <ClInclude Include="..\src\Easy\Defibrillators.h" />
+    <ClInclude Include="..\src\Easy\HorseRacingDuals.h" />
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
   </ItemGroup>
@@ -55,6 +58,9 @@
     <Text Include="..\tests\DataFiles\Easy\Defibrillators\LargeDataset_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\Defibrillators\ExactPosition_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\Defibrillators\Example_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\HorseRacingDuals\LargeDataset_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\HorseRacingDuals\RandomOrder_in.txt" />
+    <Text Include="..\tests\DataFiles\Easy\HorseRacingDuals\Simple_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\CaseSensitivity_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\CaseSensitivity_out.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\CorrectDivision_in.txt" />

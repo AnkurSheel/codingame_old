@@ -21,14 +21,17 @@
   <ItemGroup>
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
+    <ClCompile Include="..\src\Easy\ChuckNorris.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
+    <ClCompile Include="..\tests\Easy\ChuckNorrisTest.cpp" />
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />
+    <ClInclude Include="..\src\Easy\ChuckNorris.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
   </ItemGroup>
   <ItemGroup>

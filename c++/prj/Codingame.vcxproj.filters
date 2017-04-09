@@ -26,6 +26,9 @@
     <ClCompile Include="..\src\Easy\AsciiArt.cpp">
       <Filter>Easy\AsciiArt</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\ChuckNorris.cpp">
+      <Filter>Easy\ChuckNorris</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -51,6 +54,9 @@
     </Filter>
     <Filter Include="Easy\AsciiArt">
       <UniqueIdentifier>{298cd3f4-e84c-4e6a-8f4b-ac9361ad2ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\ChuckNorris">
+      <UniqueIdentifier>{db1272ea-dc0c-4268-8d9c-27025289df0e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +86,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\AsciiArt.h">
       <Filter>Easy\AsciiArt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\ChuckNorris.h">
+      <Filter>Easy\ChuckNorris</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

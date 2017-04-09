@@ -8,14 +8,20 @@
     <ClCompile Include="..\src\Easy\Temperatures.cpp">
       <Filter>Easy\Temperatures</Filter>
     </ClCompile>
-    <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp">
-      <Filter>Easy</Filter>
-    </ClCompile>
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp">
       <Filter>Easy\AsciiArt</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Easy\AsciiArt.cpp">
       <Filter>Easy\AsciiArt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Easy\ChuckNorris.cpp">
+      <Filter>Easy\ChuckNorris</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp">
+      <Filter>Easy\Temperatures</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Easy\ChuckNorrisTest.cpp">
+      <Filter>Easy\ChuckNorris</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -31,6 +37,9 @@
     <Filter Include="Easy\AsciiArt">
       <UniqueIdentifier>{4c9943af-857e-433d-bc5c-4a8047bae6e9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Easy\ChuckNorris">
+      <UniqueIdentifier>{83acec5a-f3a2-4c1b-b720-e3d6239bef62}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -41,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\AsciiArt.h">
       <Filter>Easy\AsciiArt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\ChuckNorris.h">
+      <Filter>Easy\ChuckNorris</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

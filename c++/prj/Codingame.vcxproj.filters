@@ -14,6 +14,9 @@
     <ClCompile Include="..\src\Easy\Descent.cpp">
       <Filter>Easy\Descent</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\PowerofThorEpisode1.cpp">
+      <Filter>Easy\PowerOfThorEpisode1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -27,6 +30,9 @@
     </Filter>
     <Filter Include="Easy\Descent">
       <UniqueIdentifier>{86b48fcc-1a59-482b-8c0f-ef6e506e46b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\PowerOfThorEpisode1">
+      <UniqueIdentifier>{982c6ac1-2fc2-4e7f-af95-2c44989d8a63}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\Descent.h">
       <Filter>Easy\Descent</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\PowerofThorEpisode1.h">
+      <Filter>Easy\PowerOfThorEpisode1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -157,6 +157,7 @@
     <ClCompile Include="..\src\Common\Utils.cpp" />
     <ClCompile Include="..\src\Easy\Descent.cpp" />
     <ClCompile Include="..\src\Easy\Onboarding.cpp" />
+    <ClCompile Include="..\src\Easy\PowerofThorEpisode1.cpp" />
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +166,7 @@
     <ClInclude Include="..\src\Common\Utils.h" />
     <ClInclude Include="..\src\Easy\Descent.h" />
     <ClInclude Include="..\src\Easy\Onboarding.h" />
+    <ClInclude Include="..\src\Easy\PowerofThorEpisode1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

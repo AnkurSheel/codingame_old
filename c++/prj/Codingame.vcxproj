@@ -156,6 +156,7 @@
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Common\Utils.cpp" />
     <ClCompile Include="..\src\Easy\Descent.cpp" />
+    <ClCompile Include="..\src\Easy\MarsLanderEpisode1.cpp" />
     <ClCompile Include="..\src\Easy\Onboarding.cpp" />
     <ClCompile Include="..\src\Easy\PowerofThorEpisode1.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="..\src\Common\RedirectIO.h" />
     <ClInclude Include="..\src\Common\Utils.h" />
     <ClInclude Include="..\src\Easy\Descent.h" />
+    <ClInclude Include="..\src\Easy\MarsLanderEpisode1.h" />
     <ClInclude Include="..\src\Easy\Onboarding.h" />
     <ClInclude Include="..\src\Easy\PowerofThorEpisode1.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />

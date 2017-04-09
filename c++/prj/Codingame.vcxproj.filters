@@ -20,6 +20,9 @@
     <ClCompile Include="..\src\Easy\Temperatures.cpp">
       <Filter>Easy\Temperatures</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\MarsLanderEpisode1.cpp">
+      <Filter>Easy\MarsLanderEpisode1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -39,6 +42,9 @@
     </Filter>
     <Filter Include="Easy\Temperatures">
       <UniqueIdentifier>{1c76241f-961d-4c12-815a-0551591964d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\MarsLanderEpisode1">
+      <UniqueIdentifier>{d917aadf-e39c-4c12-9885-299f617c476a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\Temperatures.h">
       <Filter>Easy\Temperatures</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\MarsLanderEpisode1.h">
+      <Filter>Easy\MarsLanderEpisode1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

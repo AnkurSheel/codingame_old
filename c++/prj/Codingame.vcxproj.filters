@@ -32,6 +32,9 @@
     <ClCompile Include="..\src\Easy\MimeType.cpp">
       <Filter>Easy\MimeType</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\Defibrillators.cpp">
+      <Filter>Easy\Defibrillators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -63,6 +66,9 @@
     </Filter>
     <Filter Include="Easy\MimeType">
       <UniqueIdentifier>{f6236298-643c-4af2-bcc0-0922f7bef36c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\Defibrillators">
+      <UniqueIdentifier>{1ab88bac-6869-4c78-8ffb-f9ac16094081}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\MimeType.h">
       <Filter>Easy\MimeType</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\Defibrillators.h">
+      <Filter>Easy\Defibrillators</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

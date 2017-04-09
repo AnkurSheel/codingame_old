@@ -29,6 +29,12 @@
     <ClCompile Include="..\src\Easy\MimeType.cpp">
       <Filter>Easy\MimeType</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Easy\Defibrillators.cpp">
+      <Filter>Easy\Defibrillators</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Easy\DefibrillatorsTest.cpp">
+      <Filter>Easy\Defibrillators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -55,6 +61,12 @@
     <Filter Include="Easy\MimeType\DataFiles">
       <UniqueIdentifier>{be1a7126-1cf0-4068-9607-611f13d3c05e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Easy\Defibrillators">
+      <UniqueIdentifier>{d3bdc180-8347-440d-9105-21c39717f039}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Easy\Defibrillators\DataFiles">
+      <UniqueIdentifier>{49f9d9d3-c985-4c66-aae2-6690df7240b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -71,6 +83,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Easy\MimeType.h">
       <Filter>Easy\MimeType</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Easy\Defibrillators.h">
+      <Filter>Easy\Defibrillators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +148,18 @@
     </Text>
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_out.txt">
       <Filter>Easy\MimeType\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\Defibrillators\Example_in.txt">
+      <Filter>Easy\Defibrillators\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\Defibrillators\ExactPosition_in.txt">
+      <Filter>Easy\Defibrillators\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\Defibrillators\LargeDataset_in.txt">
+      <Filter>Easy\Defibrillators\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Easy\Defibrillators\LargeDataset2_in.txt">
+      <Filter>Easy\Defibrillators\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

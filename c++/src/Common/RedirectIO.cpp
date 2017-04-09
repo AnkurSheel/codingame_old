@@ -5,6 +5,7 @@ using namespace std;
 
 streambuf* cinbuf = nullptr;
 streambuf* coutbuf = nullptr;
+streambuf* cerrbuf = nullptr;
 
 void RedirectIO::RedirectCin(istream& stream)
 {
@@ -20,6 +21,14 @@ void RedirectIO::RedirectCout(ostream& stream)
   cout.rdbuf(stream.rdbuf());
 }
 
+void RedirectIO::RedirectCerr(std::ostream& stream)
+{
+  cerrbuf = cerr.rdbuf();
+  ios_base::sync_with_stdio(false);
+  std::cerr.tie(0);
+  std::cerr.rdbuf(stream.rdbuf());
+}
+
 void RedirectIO::ResetCin()
 {
   cin.rdbuf(cinbuf);
@@ -28,4 +37,9 @@ void RedirectIO::ResetCin()
 void RedirectIO::ResetCout()
 {
   cout.rdbuf(coutbuf);
+}
+
+void RedirectIO::ResetCerr()
+{
+  cerr.rdbuf(cerrbuf);
 }

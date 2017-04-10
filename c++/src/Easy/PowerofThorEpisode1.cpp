@@ -1,5 +1,5 @@
 #include "PowerofThorEpisode1.h"
-#include "..\Common\Includes.h"
+#include "Common/Includes.h"
 
 using namespace std;
 

@@ -1,5 +1,6 @@
 #include "AsciiArt.h"
 #include "../Common/Includes.h"
+#include <vector>
 
 using namespace std;
 using namespace AsciiArt;

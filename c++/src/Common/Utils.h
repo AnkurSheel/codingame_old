@@ -1,7 +1,8 @@
 #ifndef _UTILS_H
 #define _UTILS_H
-#include "Includes.h"
 
+#include <vector>
+#include "Includes.h"
 
 inline bool isEqual(const double a, const double b)
 {

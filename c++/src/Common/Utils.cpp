@@ -14,20 +14,3 @@ void ConvertNumber(ll number, int newBase, std::vector<int>& convertedNumber)
     convertedNumber.push_back(remainder);
   }
 }
-
-int RoundToInt(double value)
-{
-  // double roundedValue = 0;
-  double roundedValue = 0;
-  if (value > 0)
-  {
-    // roundedValue = floor(value + 0.5);
-    roundedValue = round(value);
-  }
-  else
-  {
-    // roundedValue = ceil(value - 0.5) ;
-    roundedValue = round(value);
-  }
-  return static_cast<int>(roundedValue);
-}

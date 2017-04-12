@@ -35,5 +35,5 @@ inline void SafeDelete(Interface** ppInterfaceToDelete)
 }
 
 void ConvertNumber(ll number, int newBase, std::vector<int>& convertedNumber);
-int RoundToInt(double value);
+
 #endif  // !_UTILS_H

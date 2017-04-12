@@ -1,6 +1,8 @@
-#include <iosfwd>
 #ifndef Point_H__
 #define Point_H__
+
+#include <iosfwd>
+#include <math.h>
 
 template <typename T>
 class cPoint
@@ -8,9 +10,12 @@ class cPoint
 public:
   cPoint(T x, T y);
   cPoint(const cPoint<T>& other);
+  cPoint& operator=(const cPoint<T>& other);
   T Dot(cPoint other) const { return m_x * other.m_x + m_y * other.m_y; }
   T GetX() const { return m_x; }
+  void SetX(T x) { m_x = x; }
   T GetY() const { return m_y; }
+  void SetY(T y) { m_y = y; }
   cPoint Negate() { return cPoint(-m_x, -m_y); }
   cPoint Ortho() { return cPoint(-m_y, m_x); }
   cPoint operator+(const cPoint& other) const { return cPoint(m_x + other.m_x, m_y + other.m_y); }
@@ -32,6 +37,7 @@ public:
   double Length() const;
   cPoint Normalize() const;
   void NormalizeInplace();
+  cPoint GetClosestPointOnLine(cPoint a, cPoint b, bool lineSegment);
 
 private:
   static double toDegrees(double radians) { return radians * 180.0 / M_PI; }
@@ -47,12 +53,22 @@ cPoint<T>::cPoint(T x, T y)
   , m_y(y)
 {
 }
+
 template <typename T>
 cPoint<T>::cPoint(const cPoint<T>& other)
   : m_x(other.m_x)
   , m_y(other.m_y)
 {
 }
+
+template <typename T>
+cPoint<T>& cPoint<T>::operator=(const cPoint<T>& other)
+{
+  m_x = other.m_x;
+  m_y = other.m_y;
+  return *this;
+}
+
 template <typename T>
 void cPoint<T>::operator+=(const cPoint& other)
 {
@@ -132,7 +148,7 @@ bool cPoint<T>::operator!=(const cPoint<T>& other) const
 template <typename T>
 cPoint<T> cPoint<T>::GetDirection(const cPoint& inVec) const
 {
-  cPoint vec(inVec.x - m_x, inVec.y - m_y);
+  cPoint vec(inVec.m_x - m_x, inVec.m_y - m_y);
   vec.NormalizeInplace();
   return vec;
 }
@@ -175,7 +191,31 @@ void cPoint<T>::NormalizeInplace()
   }
 }
 
-template<typename T>
+template <typename T>
+inline cPoint<T> cPoint<T>::GetClosestPointOnLine(cPoint<T> a, cPoint<T> b, bool lineSegment)
+{
+  cPoint<T> ap = *this - a;
+  cPoint<T> ab = b - a;
+
+  float ab2 = ab.m_x * ab.m_x + ab.m_y * ab.m_y;
+  float ap_ab = ap.m_x * ab.m_x + ap.m_y * ab.m_y;
+  float t = ap_ab / ab2;
+  if (lineSegment)
+  {
+    if (t < 0.0f)
+    {
+      t = 0.0f;
+    }
+    else if (t > 1.0f)
+    {
+      t = 1.0f;
+    }
+  }
+  cPoint<T> closest = a + ab * t;
+  return closest;
+}
+
+template <typename T>
 std::ostream& operator<<(std::ostream& os, const cPoint<T>& point)
 {
   os << "[" << point.GetX() << "," << point.GetY() << "]";

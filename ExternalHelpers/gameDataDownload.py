@@ -22,9 +22,14 @@ with open("../c++/prj/temp.txt", 'w') as output_file:
 			
 with open("../c++/prj/temp.txt", 'r') as input_file:
     with open("../c++/prj/in.txt", 'w') as output_file:
+        writeLine = False
         lines = input_file.readlines()
         for i, line in enumerate(lines):
             line = line.rstrip()
-            if line != "IN" and line != "/IN":
+            if line == "IN":
+                writeLine = True
+            elif line == "/IN":
+                writeLine = False
+            elif writeLine:   
                 output_file.write(line + "\n")
 

@@ -142,11 +142,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ExternalHelpers\GoogleTest\googletest\include;..\src;..\..\ExternalHelpers\GoogleTest\googlemock\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gmock_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ExternalHelpers\GoogleTest\bin\x64\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gmock_d.lib;gmock_main_d.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -154,12 +155,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ExternalHelpers\GoogleTest\googletest\include;..\src;..\..\ExternalHelpers\GoogleTest\googlemock\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gmock_d.lib;gmock_main_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ExternalHelpers\GoogleTest\bin\x64\Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gmock_d.lib;gmock_main_d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -170,13 +172,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ExternalHelpers\GoogleTest\googletest\include;..\src;..\..\ExternalHelpers\GoogleTest\googlemock\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock</AdditionalLibraryDirectories>
-      <AdditionalDependencies>gmock.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\ExternalHelpers\GoogleTest\bin\x64\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>gmock.lib;gmock_main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -186,13 +189,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\ExternalHelpers\GoogleTest\googletest\include;..\src;..\..\ExternalHelpers\GoogleTest\googlemock\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\ExternalHelpers\GoogleTest\bin\x64\Release</AdditionalLibraryDirectories>
       <AdditionalDependencies>gmock.lib;gmock_main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>

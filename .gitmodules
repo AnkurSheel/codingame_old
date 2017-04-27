@@ -1,3 +1,6 @@
 [submodule "ExternalHelpers/GoogleTest"]
 	path = ExternalHelpers/GoogleTest
 	url = https://github.com/AnkurSheel/googletest.git
+[submodule "ExternalHelpers/CombineFiles"]
+	path = ExternalHelpers/CombineFiles
+	url = https://github.com/AnkurSheel/CombineFiles.git

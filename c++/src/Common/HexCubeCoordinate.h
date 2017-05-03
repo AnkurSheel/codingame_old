@@ -4,7 +4,7 @@
 #include "Common/Point.h"
 
 // http://www.redblobgames.com/grids/hexagons/implementation.html
-namespace HexCubeCoordinate
+namespace Common
 {
   struct Hex
   {
@@ -40,7 +40,7 @@ namespace HexCubeCoordinate
   int rOddOffsetDistance(int xPos1, int yPos1, int xPos2, int yPos2);
   Hex HexDirection(int direction);
   Hex HexNeighbor(const Hex& hex, int direction);
-  Hex HexOddNeighbor(int x, int y, int direction, int turns);
+  cPoint<int> OddOffsetNeighbor(int x, int y, int direction, int turns);
   Hex HexAdd(const Hex& a, const Hex& b);
 }
 #endif  // HexCubeCoordinate_H__

@@ -1,7 +1,7 @@
 #include "Common/HexCubeCoordinate.h"
 #include "gtest/gtest.h"
 
-using namespace HexCubeCoordinate;
+using namespace Common;
 
 class HexCubeCoordinateTest : public ::testing::Test
 {
@@ -58,9 +58,9 @@ TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation0)
   const int xPos = 2;
   const int yPos = 2;
   const int direction = 0;
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 1)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 1));
   pointB = cPoint<int>(4, 2);
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 2)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 2));
 }
 
 TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation1)
@@ -69,9 +69,9 @@ TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation1)
   const int xPos = 2;
   const int yPos = 2;
   const int direction = 1;
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 1)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 1));
   pointB = cPoint<int>(3, 0);
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 2)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 2));
 }
 
 TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation2)
@@ -80,9 +80,9 @@ TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation2)
   const int xPos = 2;
   const int yPos = 2;
   const int direction = 2;
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 1)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 1));
   pointB = cPoint<int>(1, 0);
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 2)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 2));
 }
 
 TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation3)
@@ -91,9 +91,9 @@ TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation3)
   const int xPos = 2;
   const int yPos = 2;
   const int direction = 3;
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 1)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 1));
   pointB = cPoint<int>(0, 2);
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 2)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 2));
 }
 
 TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation4)
@@ -102,9 +102,9 @@ TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation4)
   const int xPos = 2;
   const int yPos = 2;
   const int direction = 4;
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 1)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 1));
   pointB = cPoint<int>(1, 4);
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 2)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 2));
 }
 
 TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation5)
@@ -113,7 +113,7 @@ TEST_F(HexCubeCoordinateTest, HexOddNeighborOrientation5)
   const int xPos = 2;
   const int yPos = 2;
   const int direction = 5;
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 1)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 1));
   pointB = cPoint<int>(3, 4);
-  EXPECT_EQ(pointB, rOddOffsetFromCube(HexOddNeighbor(xPos, yPos, direction, 2)));
+  EXPECT_EQ(pointB, OddOffsetNeighbor(xPos, yPos, direction, 2));
 }

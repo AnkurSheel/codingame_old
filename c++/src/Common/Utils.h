@@ -4,36 +4,51 @@
 #include <vector>
 #include "Includes.h"
 
-inline bool isEqual(const double a, const double b)
+namespace Utils
 {
-  if (fabs(a - b) < 0.0001)
+  inline bool isEqual(const double a, const double b)
   {
-    return true;
+    if (fabs(a - b) < 0.0001)
+    {
+      return true;
+    }
+
+    return false;
   }
 
-  return false;
-}
-
-template <typename Interface>
-inline void SafeDeleteArray(Interface** ppArrayToDelete)
-{
-  if (*ppArrayToDelete != NULL)
+  template <typename Interface>
+  inline void SafeDeleteArray(Interface** ppArrayToDelete)
   {
-    delete[](*ppArrayToDelete);
-    (*ppArrayToDelete) = NULL;
+    if (*ppArrayToDelete != NULL)
+    {
+      delete[](*ppArrayToDelete);
+      (*ppArrayToDelete) = NULL;
+    }
+  }
+
+  template <typename Interface>
+  inline void SafeDelete(Interface** ppInterfaceToDelete)
+  {
+    if (*ppInterfaceToDelete != NULL)
+    {
+      delete (*ppInterfaceToDelete);
+      (*ppInterfaceToDelete) = NULL;
+    }
+  }
+
+  void ConvertNumber(ll number, int newBase, std::vector<int>& convertedNumber);
+
+  template <typename T>
+  void Clamp(T& val, const T& min, const T& max)
+  {
+    if (val < min)
+    {
+      val = min;
+    }
+    else if (val > max)
+    {
+      val = max;
+    }
   }
 }
-
-template <typename Interface>
-inline void SafeDelete(Interface** ppInterfaceToDelete)
-{
-  if (*ppInterfaceToDelete != NULL)
-  {
-    delete (*ppInterfaceToDelete);
-    (*ppInterfaceToDelete) = NULL;
-  }
-}
-
-void ConvertNumber(ll number, int newBase, std::vector<int>& convertedNumber);
-
 #endif  // !_UTILS_H

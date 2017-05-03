@@ -157,6 +157,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Common\Utils.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
@@ -172,6 +173,7 @@
     <ClCompile Include="..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\Includes.h" />
     <ClInclude Include="..\src\Common\Point.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />

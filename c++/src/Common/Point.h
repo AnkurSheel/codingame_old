@@ -1,8 +1,9 @@
 #ifndef Point_H__
 #define Point_H__
 
-#include <iosfwd>
 #include <math.h>
+#include <iosfwd>
+#include "Utils.h"
 
 template <typename T>
 class cPoint
@@ -136,13 +137,13 @@ double cPoint<T>::AngleInRadian() const
 template <typename T>
 bool cPoint<T>::operator==(const cPoint<T>& other) const
 {
-  return (isEqual(m_x, other.x) && isEqual(m_y, other.y));
+  return (Utils::isEqual(m_x, other.m_x) && Utils::isEqual(m_y, other.m_y));
 }
 
 template <typename T>
 bool cPoint<T>::operator!=(const cPoint<T>& other) const
 {
-  return (!(isEqual(m_x, other.x) && isEqual(m_y, other.y)));
+  return (!(Utils::isEqual(m_x, other.m_x) && Utils::isEqual(m_y, other.m_y)));
 }
 
 template <typename T>

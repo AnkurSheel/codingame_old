@@ -38,6 +38,9 @@
     <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp">
       <Filter>Easy\HorseRacingDuals</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -118,6 +121,9 @@
       <Filter>Easy\HorseRacingDuals</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Common\Point.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\HexCubeCoordinate.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>

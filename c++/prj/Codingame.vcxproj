@@ -81,6 +81,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
       <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
@@ -98,6 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
       <Command>..\..\ExternalHelpers\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
@@ -118,6 +120,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -139,6 +142,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\..\ExternalHelpers\Includes;..\src</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -169,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\Includes.h" />
+    <ClInclude Include="..\src\Common\Point.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
     <ClInclude Include="..\src\Common\Utils.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />

@@ -117,5 +117,8 @@
     <ClInclude Include="..\src\Easy\HorseRacingDuals.h">
       <Filter>Easy\HorseRacingDuals</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Common\Point.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

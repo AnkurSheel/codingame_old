@@ -27,21 +27,20 @@ namespace HexCubeCoordinate
     }
   };
 
-  int HexDistance(Hex a, Hex b);
-  int HexLength(Hex hex);
-  Hex HexSubtract(Hex a, Hex b);
+  int HexDistance(const Hex& a, const Hex& b);
+  int HexLength(const Hex& hex);
+  Hex HexSubtract(const Hex& a, const Hex& b);
 
   // rtype = pointy top
-  cPoint<int> roffsetFromCube(int offset, Hex cube);
+  cPoint<int> rOddOffsetFromCube(const Hex& cube);
+  cPoint<int> roffsetFromCube(int offset, const Hex& cube);
+  Hex rOddOffsetToCube(int x, int y);
   Hex roffsetToCube(int offset, int x, int y);
 
-  const int EVEN = 1;
-  const int ODD = -1;
-
-  int rOddOffsetDistance(const cPoint<double>& pointA, const cPoint<double>& pointB);
+  int rOddOffsetDistance(int xPos1, int yPos1, int xPos2, int yPos2);
   Hex HexDirection(int direction);
-  Hex HexNeighbor(Hex hex, int direction);
-  Hex HexNeighbor(Hex hex, int direction, int turns);
-  Hex HexAdd(Hex a, Hex b);
+  Hex HexNeighbor(const Hex& hex, int direction);
+  Hex HexOddNeighbor(int x, int y, int direction, int turns);
+  Hex HexAdd(const Hex& a, const Hex& b);
 }
 #endif  // HexCubeCoordinate_H__

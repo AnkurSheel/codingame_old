@@ -1,7 +1,7 @@
 #ifndef HexCubeCoordinate_H__
 #define HexCubeCoordinate_H__
 
-#include "Common/Point.h"
+#include "Point.h"
 
 // http://www.redblobgames.com/grids/hexagons/implementation.html
 namespace Common

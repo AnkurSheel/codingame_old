@@ -4,7 +4,7 @@
 #include <vector>
 #include "Includes.h"
 
-namespace Utils
+namespace Common
 {
   inline bool isEqual(const double a, const double b)
   {

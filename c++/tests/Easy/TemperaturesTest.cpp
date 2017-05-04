@@ -9,15 +9,15 @@ class TemperaturesTest : public ::testing::Test
 {
   virtual void SetUp() override
   {
-    RedirectIO::RedirectCin(inputstream);
+    Common::RedirectCin(inputstream);
 
-    RedirectIO::RedirectCout(outputstream);
+    Common::RedirectCout(outputstream);
   }
 
   virtual void TearDown() override
   {
-    RedirectIO::ResetCin();
-    RedirectIO::ResetCout();
+    Common::ResetCin();
+    Common::ResetCout();
   }
 
 protected:

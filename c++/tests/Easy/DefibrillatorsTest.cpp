@@ -11,16 +11,16 @@ class DefibrillatorsTest : public ::testing::Test
 {
   virtual void SetUp() override
   {
-    RedirectIO::RedirectCin(inputFile);
-    RedirectIO::RedirectCout(outputstream);
-    RedirectIO::RedirectCerr(errstream);
+    Common::RedirectCin(inputFile);
+    Common::RedirectCout(outputstream);
+    Common::RedirectCerr(errstream);
   }
 
   virtual void TearDown() override
   {
-    RedirectIO::ResetCin();
-    RedirectIO::ResetCout();
-    RedirectIO::ResetCerr();
+    Common::ResetCin();
+    Common::ResetCout();
+    Common::ResetCerr();
   }
 
 protected:

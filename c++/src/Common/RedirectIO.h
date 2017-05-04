@@ -3,7 +3,7 @@
 
 #include <iosfwd>
 
-namespace RedirectIO
+namespace Common
 {
   void RedirectCin(std::istream& stream);
   void RedirectCout(std::ostream& stream);

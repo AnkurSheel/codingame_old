@@ -10,12 +10,12 @@ int main(int argc, char** argv)
 {
 #ifdef _LOCAL
   static ifstream stream = ifstream("in.txt");
-  RedirectIO::RedirectCin(stream);
+  Common::RedirectCin(stream);
 #endif  // _LOCAL
 
   static_assert(std::chrono::treat_as_floating_point<FpMilliSeconds::rep>::value, "Rep required to be floating point");
 
 #ifdef _LOCAL
-  RedirectIO::ResetCin();
+  Common::ResetCin();
 #endif  // _LOCAL
 }

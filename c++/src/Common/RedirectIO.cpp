@@ -7,7 +7,7 @@ streambuf* cinbuf = nullptr;
 streambuf* coutbuf = nullptr;
 streambuf* cerrbuf = nullptr;
 
-void RedirectIO::RedirectCin(istream& stream)
+void Common::RedirectCin(istream& stream)
 {
   cinbuf = cin.rdbuf();
   ios_base::sync_with_stdio(false);
@@ -15,13 +15,13 @@ void RedirectIO::RedirectCin(istream& stream)
   std::cin.rdbuf(stream.rdbuf());
 }
 
-void RedirectIO::RedirectCout(ostream& stream)
+void Common::RedirectCout(ostream& stream)
 {
   ios_base::sync_with_stdio(false);
   cout.rdbuf(stream.rdbuf());
 }
 
-void RedirectIO::RedirectCerr(std::ostream& stream)
+void Common::RedirectCerr(std::ostream& stream)
 {
   cerrbuf = cerr.rdbuf();
   ios_base::sync_with_stdio(false);
@@ -29,17 +29,17 @@ void RedirectIO::RedirectCerr(std::ostream& stream)
   std::cerr.rdbuf(stream.rdbuf());
 }
 
-void RedirectIO::ResetCin()
+void Common::ResetCin()
 {
   cin.rdbuf(cinbuf);
 }
 
-void RedirectIO::ResetCout()
+void Common::ResetCout()
 {
   cout.rdbuf(coutbuf);
 }
 
-void RedirectIO::ResetCerr()
+void Common::ResetCerr()
 {
   cerr.rdbuf(cerrbuf);
 }

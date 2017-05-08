@@ -4,3 +4,6 @@
 [submodule "ExternalHelpers/CombineFiles"]
 	path = ExternalHelpers/CombineFiles
 	url = https://github.com/AnkurSheel/CombineFiles.git
+[submodule "DebuggerVisualisers"]
+	path = DebuggerVisualisers
+	url = https://github.com/AnkurSheel/DebuggerVisualisers.git

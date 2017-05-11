@@ -127,7 +127,6 @@
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
       <Filter>Medium</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Common\Custom2DArray.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>

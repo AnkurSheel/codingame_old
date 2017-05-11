@@ -16,28 +16,6 @@ namespace Common
     return false;
   }
 
-  template <typename Interface>
-  inline void SafeDeleteArray(Interface** ppArrayToDelete)
-  {
-    if (*ppArrayToDelete != NULL)
-    {
-      delete[](*ppArrayToDelete);
-      (*ppArrayToDelete) = NULL;
-    }
-  }
-
-  template <typename Interface>
-  inline void SafeDelete(Interface** ppInterfaceToDelete)
-  {
-    if (*ppInterfaceToDelete != NULL)
-    {
-      delete (*ppInterfaceToDelete);
-      (*ppInterfaceToDelete) = NULL;
-    }
-  }
-
-  void ConvertNumber(ll number, int newBase, std::vector<int>& convertedNumber);
-
   template <typename T>
   void Clamp(T& val, const T& min, const T& max)
   {

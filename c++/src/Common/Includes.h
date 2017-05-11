@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <chrono>
 #include <iostream>
+#include <memory>
 #include <string>
 
 #ifndef _LOCAL

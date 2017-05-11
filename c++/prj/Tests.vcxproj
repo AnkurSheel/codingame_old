@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Common\Custom2DArray.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
@@ -27,6 +28,7 @@
     <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp" />
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
+    <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp" />
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
     <ClCompile Include="..\tests\Easy\ChuckNorrisTest.cpp" />
@@ -35,8 +37,10 @@
     <ClCompile Include="..\tests\Easy\MimeTypeTest.cpp" />
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
+    <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Common\Custom2DArray.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />
@@ -45,6 +49,7 @@
     <ClInclude Include="..\src\Easy\HorseRacingDuals.h" />
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
+    <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_in.txt" />
@@ -74,6 +79,22 @@
     <Text Include="..\tests\DataFiles\Easy\MimeType\SimpleCase_out.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Example_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Example_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Horizontal_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Horizontal_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Shuriken_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Shuriken_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Square_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Square_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_out.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{717E39A2-73EE-4545-AE6C-CAA56AA7DD42}</ProjectGuid>

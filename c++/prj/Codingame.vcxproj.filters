@@ -41,6 +41,12 @@
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp">
+      <Filter>Medium</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Custom2DArray.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -78,6 +84,12 @@
     </Filter>
     <Filter Include="Easy\HorseRacingDuals">
       <UniqueIdentifier>{a8682bd3-c1c9-477c-bced-986db91b3c91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium">
+      <UniqueIdentifier>{e21d59d9-baa1-4c3a-b593-163ba47e6f34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Visualisers">
+      <UniqueIdentifier>{007db750-65a9-496e-94ef-15c5ab4ab8f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -126,5 +138,19 @@
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
+      <Filter>Medium</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\Custom2DArray.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\..\DebuggerVisualisers\c++\stringstream.natvis">
+      <Filter>Visualisers</Filter>
+    </Natvis>
+    <Natvis Include="..\..\DebuggerVisualisers\c++\Custom2DArray.natvis">
+      <Filter>Visualisers</Filter>
+    </Natvis>
   </ItemGroup>
 </Project>

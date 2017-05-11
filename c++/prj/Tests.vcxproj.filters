@@ -47,6 +47,15 @@
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp">
+      <Filter>Medium</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp">
+      <Filter>Medium</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Custom2DArray.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -85,6 +94,12 @@
     <Filter Include="Easy\HorseRacingDuals\DataFiles">
       <UniqueIdentifier>{735624c5-64cd-4556-bb73-bbe8d10e72a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium">
+      <UniqueIdentifier>{cc2c54b1-bd38-4d98-99ed-9a23e030e9ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\DataFiles">
+      <UniqueIdentifier>{cb726f4c-ac40-49b4-8f54-f927f2256e67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -109,6 +124,12 @@
       <Filter>Easy\HorseRacingDuals</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
+      <Filter>Medium</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\Custom2DArray.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
@@ -193,6 +214,54 @@
     </Text>
     <Text Include="..\tests\DataFiles\Easy\Defibrillators\LargeDataset2_in.txt">
       <Filter>Easy\Defibrillators\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Example_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Example_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Horizontal_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Horizontal_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Shuriken_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Shuriken_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Square_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Square_out.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_in.txt">
+      <Filter>Medium\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_out.txt">
+      <Filter>Medium\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

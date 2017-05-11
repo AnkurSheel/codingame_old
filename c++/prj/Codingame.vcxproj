@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ ThereIsNoSpoonEpisode1.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -102,7 +102,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ ThereIsNoSpoonEpisode1.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,7 +130,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ ThereIsNoSpoonEpisode1.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,10 +153,11 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Easy\ HorseRacingDuals.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ ThereIsNoSpoonEpisode1.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Common\Custom2DArray.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Common\Utils.cpp" />
@@ -171,8 +172,10 @@
     <ClCompile Include="..\src\Easy\PowerofThorEpisode1.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Common\Custom2DArray.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\Includes.h" />
     <ClInclude Include="..\src\Common\Point.h" />
@@ -188,6 +191,11 @@
     <ClInclude Include="..\src\Easy\Onboarding.h" />
     <ClInclude Include="..\src\Easy\PowerofThorEpisode1.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
+    <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="..\..\DebuggerVisualisers\c++\Custom2DArray.natvis" />
+    <Natvis Include="..\..\DebuggerVisualisers\c++\stringstream.natvis" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

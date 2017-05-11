@@ -27,6 +27,7 @@
     <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp" />
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
+    <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp" />
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
@@ -36,9 +37,11 @@
     <ClCompile Include="..\tests\Easy\MimeTypeTest.cpp" />
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
+    <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp" />
     <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\src\Common\BitOperations.h" />
     <ClInclude Include="..\src\Common\Custom2DArray.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
@@ -48,6 +51,7 @@
     <ClInclude Include="..\src\Easy\HorseRacingDuals.h" />
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
+    <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +82,30 @@
     <Text Include="..\tests\DataFiles\Easy\MimeType\SimpleCase_out.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\AdditionWithCarry_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\AdditionWithCarry_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Base20_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Base20_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Division_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Division_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\GreatMultiplication_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\GreatMultiplication_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\MissingPower_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\MissingPower_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Multiplication_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Multiplication_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\OtherSymbols_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\OtherSymbols_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleAddition_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleAddition_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleDivision_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleDivision_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleSubtraction_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleSubtraction_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Subtraction_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Subtraction_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Zero_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Zero_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_in.txt" />

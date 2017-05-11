@@ -8,7 +8,7 @@ using namespace std;
 using namespace ThereIsNoSpoonEpisode1;
 using namespace Common;
 
-static cCustom2DArray cells;
+static cCustom2DArray<int> cells;
 static stringstream output;
 
 void AddRightNode(int currentRow, int rightIndex, int width)

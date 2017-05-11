@@ -47,12 +47,17 @@
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp">
-      <Filter>Medium</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp">
-      <Filter>Medium</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1</Filter>
     </ClCompile>
+    <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp">
+      <Filter>Medium\ThereIsNoSpoonEpisode1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Medium\MayanCalculation.cpp">
+      <Filter>Medium\MayanCalculation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp">
+      <Filter>Medium\MayanCalculation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -95,8 +100,17 @@
     <Filter Include="Medium">
       <UniqueIdentifier>{cc2c54b1-bd38-4d98-99ed-9a23e030e9ef}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Medium\DataFiles">
+    <Filter Include="Medium\ThereIsNoSpoonEpisode1">
+      <UniqueIdentifier>{335fb13a-cb1e-4511-96a5-77ae191c96bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\ThereIsNoSpoonEpisode1\DataFiles">
       <UniqueIdentifier>{cb726f4c-ac40-49b4-8f54-f927f2256e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\MayanCalculation">
+      <UniqueIdentifier>{69c67916-5548-4bc9-b0c3-d969fe5e1447}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\MayanCalculation\DataFiles">
+      <UniqueIdentifier>{27bb93b4-971d-46e6-9610-533a52a920fd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -124,9 +138,16 @@
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
-      <Filter>Medium</Filter>
+    <ClInclude Include="..\src\Common\Custom2DArray.h">
+      <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
+      <Filter>Medium\ThereIsNoSpoonEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\MayanCalculation.h">
+      <Filter>Medium\MayanCalculation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\BitOperations.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
@@ -213,52 +234,124 @@
       <Filter>Easy\Defibrillators\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Example_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Example_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Horizontal_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Horizontal_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Shuriken_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Shuriken_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Square_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Square_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_in.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
     </Text>
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_out.txt">
-      <Filter>Medium\DataFiles</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleAddition_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleAddition_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\AdditionWithCarry_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\AdditionWithCarry_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Multiplication_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Multiplication_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleSubtraction_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleSubtraction_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Subtraction_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Subtraction_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleDivision_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\SimpleDivision_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Division_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Division_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\GreatMultiplication_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\GreatMultiplication_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Zero_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Zero_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\MissingPower_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\MissingPower_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Base20_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Base20_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\OtherSymbols_in.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\MayanCalculation\OtherSymbols_out.txt">
+      <Filter>Medium\MayanCalculation\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

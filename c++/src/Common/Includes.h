@@ -23,7 +23,6 @@
 #else
 #define DEBUGPRINTSTDIN(format, ...) DEBUGPRINT(format, ##__VA_ARGS__)
 #endif  //  _INPUT
-#define MS0(m_x) memset(m_x, 0, sizeof(m_x))
 #define ll long long
 
 typedef std::chrono::high_resolution_clock Clock;

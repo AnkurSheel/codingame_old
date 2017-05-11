@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="..\src\Common\Utils.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Common\RedirectIO.cpp">
       <Filter>Common</Filter>
     </ClCompile>
@@ -42,10 +39,10 @@
       <Filter>Common</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp">
-      <Filter>Medium</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Common\Custom2DArray.cpp">
-      <Filter>Common</Filter>
+    <ClCompile Include="..\src\Medium\MayanCalculation.cpp">
+      <Filter>Medium\MayanCalculation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +87,12 @@
     </Filter>
     <Filter Include="Visualisers">
       <UniqueIdentifier>{007db750-65a9-496e-94ef-15c5ab4ab8f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\ThereIsNoSpoonEpisode1">
+      <UniqueIdentifier>{432f0910-d349-42b2-950f-0e46f11ec6da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\MayanCalculation">
+      <UniqueIdentifier>{a2bf97e8-a44a-40af-964e-fa55cf8a2ad5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -142,11 +145,15 @@
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
-      <Filter>Medium</Filter>
+      <Filter>Medium\ThereIsNoSpoonEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\MayanCalculation.h">
+      <Filter>Medium\MayanCalculation</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Common\MemoryUtils.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Common\BitOperations.h">
       <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>

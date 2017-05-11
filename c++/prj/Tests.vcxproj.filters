@@ -53,8 +53,6 @@
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp">
       <Filter>Medium</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Common\Custom2DArray.cpp">
-      <Filter>Common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

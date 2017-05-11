@@ -138,6 +138,9 @@
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Common\Custom2DArray.h">
+      <Filter>Common</Filter>
+    </ClInclude>
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h">
       <Filter>Medium</Filter>
     </ClInclude>

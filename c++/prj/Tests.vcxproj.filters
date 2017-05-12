@@ -89,6 +89,15 @@
     <ClCompile Include="..\tests\Medium\TelephoneNumbersTest.cpp">
       <Filter>Medium\TelephoneNumbers</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\DwarfsStandingOnTheShouldersOfGiants.cpp">
+      <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\DwarfsStandingOnTheShouldersOfGiantsTest.cpp">
+      <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Common\Graph.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -169,6 +178,12 @@
     <Filter Include="Medium\TelephoneNumbers\Datafiles">
       <UniqueIdentifier>{1b83afc2-8df4-4ca6-ba14-96ef4ca03058}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium\DwarfsStandingOnTheShouldersOfGiants">
+      <UniqueIdentifier>{c741aa40-5a59-423d-8674-0c88d60783f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\DwarfsStandingOnTheShouldersOfGiants\DataFiles">
+      <UniqueIdentifier>{81c66993-1f2c-4187-8e66-ddebf6087265}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -221,6 +236,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\TelephoneNumbers.h">
       <Filter>Medium\TelephoneNumbers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\DwarfsStandingOnTheShouldersOfGiants.h">
+      <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\Graph.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -508,6 +529,15 @@
     </Text>
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\LargeDataset_in.txt">
       <Filter>Medium\TelephoneNumbers\Datafiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\SimpleExample_in.txt">
+      <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\CompleteExample_in.txt">
+      <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\SeveralMentors_in.txt">
+      <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

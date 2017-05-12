@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Common\Graph.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
@@ -28,6 +29,7 @@
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
     <ClCompile Include="..\src\Medium\ConwaySequence.cpp" />
+    <ClCompile Include="..\src\Medium\DwarfsStandingOnTheShouldersOfGiants.cpp" />
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
@@ -43,6 +45,7 @@
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
     <ClCompile Include="..\tests\Medium\ConwaySequenceTest.cpp" />
+    <ClCompile Include="..\tests\Medium\DwarfsStandingOnTheShouldersOfGiantsTest.cpp" />
     <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp" />
     <ClCompile Include="..\tests\Medium\ScrabbleTest.cpp" />
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
@@ -53,6 +56,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\Common\BitOperations.h" />
     <ClInclude Include="..\src\Common\Custom2DArray.h" />
+    <ClInclude Include="..\src\Common\Graph.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />
@@ -62,6 +66,7 @@
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
     <ClInclude Include="..\src\Medium\ConwaySequence.h" />
+    <ClInclude Include="..\src\Medium\DwarfsStandingOnTheShouldersOfGiants.h" />
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\Scrabble.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
@@ -97,6 +102,9 @@
     <Text Include="..\tests\DataFiles\Easy\MimeType\SimpleCase_out.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_in.txt" />
     <Text Include="..\tests\DataFiles\Easy\MimeType\UnknownTypes_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\CompleteExample_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\SeveralMentors_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\SimpleExample_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\AdditionWithCarry_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\AdditionWithCarry_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Base20_in.txt" />

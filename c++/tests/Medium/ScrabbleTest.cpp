@@ -80,7 +80,7 @@ TEST_F(ScrabbleTest, ValidWord)
   EXPECT_STREQ("aeiou\n", outputstream.str().data());
 }
 
-TEST_F(ScrabbleTest, LargeDatase1)
+TEST_F(ScrabbleTest, LargeDataset1)
 {
   inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/LargeDataset1_in.txt");
 
@@ -89,7 +89,7 @@ TEST_F(ScrabbleTest, LargeDatase1)
   EXPECT_STREQ("satire\n", outputstream.str().data());
 }
 
-TEST_F(ScrabbleTest, LargeDatase2)
+TEST_F(ScrabbleTest, LargeDataset2)
 {
   inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/LargeDataset2_in.txt");
 

@@ -14,7 +14,6 @@ void Scrabble::main()
   int numberOfWords;
   cin >> numberOfWords;
   cin.ignore();
-  DEBUGPRINT("%d\n", numberOfWords);
   for (int i = 0; i < numberOfWords; i++)
   {
     string word;

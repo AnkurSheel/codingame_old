@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ War.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ TelephoneNumbers.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -102,7 +102,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ War.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ TelephoneNumbers.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,7 +130,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ War.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ TelephoneNumbers.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,7 +153,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ War.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ TelephoneNumbers.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -175,6 +175,7 @@
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
+    <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\War.cpp" />
   </ItemGroup>
@@ -203,6 +204,7 @@
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\Scrabble.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
+    <ClInclude Include="..\src\Medium\TelephoneNumbers.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
     <ClInclude Include="..\src\Medium\War.h" />
   </ItemGroup>

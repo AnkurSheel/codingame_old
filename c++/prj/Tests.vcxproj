@@ -31,6 +31,7 @@
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
+    <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\War.cpp" />
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp" />
@@ -45,6 +46,7 @@
     <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp" />
     <ClCompile Include="..\tests\Medium\ScrabbleTest.cpp" />
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
+    <ClCompile Include="..\tests\Medium\TelephoneNumbersTest.cpp" />
     <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
     <ClCompile Include="..\tests\Medium\WarTest.cpp" />
   </ItemGroup>
@@ -63,6 +65,7 @@
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\Scrabble.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
+    <ClInclude Include="..\src\Medium\TelephoneNumbers.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
     <ClInclude Include="..\src\Medium\War.h" />
   </ItemGroup>
@@ -132,6 +135,11 @@
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example4_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example5_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example6_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\LargeDataset_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersIncludedInAnother_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersWithACommonPart_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersWithADifferentBase_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\OneTelephoneNumber_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_in.txt" />

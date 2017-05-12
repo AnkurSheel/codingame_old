@@ -59,6 +59,9 @@
     <ClCompile Include="..\src\Medium\War.cpp">
       <Filter>Medium\War</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp">
+      <Filter>Medium\TelephoneNumbers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -123,6 +126,9 @@
     </Filter>
     <Filter Include="Medium\War">
       <UniqueIdentifier>{f74b0eb3-c480-449e-8177-ee2406840c5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\TelephoneNumbers">
+      <UniqueIdentifier>{f4f3e15e-9045-4be3-8fdf-ef41d787ca19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Common\Tree.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\TelephoneNumbers.h">
+      <Filter>Medium\TelephoneNumbers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -83,6 +83,12 @@
     <ClCompile Include="..\src\Medium\War.cpp">
       <Filter>Medium\War</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp">
+      <Filter>Medium\TelephoneNumbers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\TelephoneNumbersTest.cpp">
+      <Filter>Medium\TelephoneNumbers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -157,6 +163,12 @@
     <Filter Include="Medium\War\DataFiles">
       <UniqueIdentifier>{2146d778-d4d5-4144-a724-12f3f26d8446}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium\TelephoneNumbers">
+      <UniqueIdentifier>{6317ce8c-3687-4701-860d-5b1ace1e6fec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\TelephoneNumbers\Datafiles">
+      <UniqueIdentifier>{1b83afc2-8df4-4ca6-ba14-96ef4ca03058}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -206,6 +218,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\War.h">
       <Filter>Medium\War</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\TelephoneNumbers.h">
+      <Filter>Medium\TelephoneNumbers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -478,6 +493,21 @@
     </Text>
     <Text Include="..\tests\DataFiles\Medium\War\Pat2_in.txt">
       <Filter>Medium\War\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\OneTelephoneNumber_in.txt">
+      <Filter>Medium\TelephoneNumbers\Datafiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersIncludedInAnother_in.txt">
+      <Filter>Medium\TelephoneNumbers\Datafiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersWithACommonPart_in.txt">
+      <Filter>Medium\TelephoneNumbers\Datafiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersWithADifferentBase_in.txt">
+      <Filter>Medium\TelephoneNumbers\Datafiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\LargeDataset_in.txt">
+      <Filter>Medium\TelephoneNumbers\Datafiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

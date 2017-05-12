@@ -201,12 +201,18 @@
     <ClInclude Include="..\src\Medium\War.h">
       <Filter>Medium\War</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Common\Tree.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\DebuggerVisualisers\c++\stringstream.natvis">
       <Filter>Visualisers</Filter>
     </Natvis>
     <Natvis Include="..\..\DebuggerVisualisers\c++\Custom2DArray.natvis">
+      <Filter>Visualisers</Filter>
+    </Natvis>
+    <Natvis Include="..\..\DebuggerVisualisers\c++\TreeNode.natvis">
       <Filter>Visualisers</Filter>
     </Natvis>
   </ItemGroup>

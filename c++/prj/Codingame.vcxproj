@@ -186,6 +186,7 @@
     <ClInclude Include="..\src\Common\MemoryUtils.h" />
     <ClInclude Include="..\src\Common\Point.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
+    <ClInclude Include="..\src\Common\Tree.h" />
     <ClInclude Include="..\src\Common\Utils.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />
     <ClInclude Include="..\src\Easy\ChuckNorris.h" />
@@ -208,6 +209,7 @@
   <ItemGroup>
     <Natvis Include="..\..\DebuggerVisualisers\c++\Custom2DArray.natvis" />
     <Natvis Include="..\..\DebuggerVisualisers\c++\stringstream.natvis" />
+    <Natvis Include="..\..\DebuggerVisualisers\c++\TreeNode.natvis" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

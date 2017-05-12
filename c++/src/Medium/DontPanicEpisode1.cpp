@@ -1,6 +1,6 @@
 #include "DontPanicEpisode1.h"
 #include <map>
-#include "./Common/Includes.h"
+#include "../Common/Includes.h"
 
 using namespace std;
 using namespace DontPanicEpisode1;

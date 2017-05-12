@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <map>
 #include <vector>
-#include "./Common/Includes.h"
+#include "../Common/Includes.h"
 
 using namespace std;
 using namespace Scrabble;

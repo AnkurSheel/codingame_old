@@ -27,6 +27,7 @@
     <ClCompile Include="..\src\Easy\HorseRacingDuals.cpp" />
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
+    <ClCompile Include="..\src\Medium\ConwaySequence.cpp" />
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
@@ -39,6 +40,7 @@
     <ClCompile Include="..\tests\Easy\MimeTypeTest.cpp" />
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
+    <ClCompile Include="..\tests\Medium\ConwaySequenceTest.cpp" />
     <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp" />
     <ClCompile Include="..\tests\Medium\ScrabbleTest.cpp" />
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
@@ -55,6 +57,7 @@
     <ClInclude Include="..\src\Easy\HorseRacingDuals.h" />
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
+    <ClInclude Include="..\src\Medium\ConwaySequence.h" />
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\Scrabble.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />

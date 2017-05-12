@@ -53,6 +53,9 @@
     <ClCompile Include="..\src\Medium\Scrabble.cpp">
       <Filter>Medium\Scrabble</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\ConwaySequence.cpp">
+      <Filter>Medium\ConwaySequence</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -111,6 +114,9 @@
     </Filter>
     <Filter Include="Medium\Scrabble">
       <UniqueIdentifier>{e7a7abba-6c49-4163-af07-1d5c0b4e7077}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\ConwaySequence">
+      <UniqueIdentifier>{af97c6eb-0f27-4361-9e8d-cb2045db1be0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\Scrabble.h">
       <Filter>Medium\Scrabble</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\ConwaySequence.h">
+      <Filter>Medium\ConwaySequence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

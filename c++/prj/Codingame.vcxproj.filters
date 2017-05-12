@@ -62,6 +62,9 @@
     <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp">
       <Filter>Medium\TelephoneNumbers</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Common\Graph.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -213,6 +216,9 @@
     <ClInclude Include="..\src\Medium\TelephoneNumbers.h">
       <Filter>Medium\TelephoneNumbers</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Common\Graph.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\DebuggerVisualisers\c++\stringstream.natvis">
@@ -222,6 +228,9 @@
       <Filter>Visualisers</Filter>
     </Natvis>
     <Natvis Include="..\..\DebuggerVisualisers\c++\TreeNode.natvis">
+      <Filter>Visualisers</Filter>
+    </Natvis>
+    <Natvis Include="..\..\DebuggerVisualisers\c++\Graph.natvis">
       <Filter>Visualisers</Filter>
     </Natvis>
   </ItemGroup>

@@ -157,6 +157,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\Common\Graph.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
@@ -182,6 +183,7 @@
   <ItemGroup>
     <ClInclude Include="..\src\Common\BitOperations.h" />
     <ClInclude Include="..\src\Common\Custom2DArray.h" />
+    <ClInclude Include="..\src\Common\Graph.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\Includes.h" />
     <ClInclude Include="..\src\Common\MemoryUtils.h" />
@@ -210,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="..\..\DebuggerVisualisers\c++\Custom2DArray.natvis" />
+    <Natvis Include="..\..\DebuggerVisualisers\c++\Graph.natvis" />
     <Natvis Include="..\..\DebuggerVisualisers\c++\stringstream.natvis" />
     <Natvis Include="..\..\DebuggerVisualisers\c++\TreeNode.natvis" />
   </ItemGroup>

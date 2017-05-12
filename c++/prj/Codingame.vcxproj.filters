@@ -44,6 +44,9 @@
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp">
       <Filter>Medium\MayanCalculation</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp">
+      <Filter>Medium\StockExchangeLosses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -93,6 +96,9 @@
     </Filter>
     <Filter Include="Medium\MayanCalculation">
       <UniqueIdentifier>{a2bf97e8-a44a-40af-964e-fa55cf8a2ad5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\StockExchangeLosses">
+      <UniqueIdentifier>{edaf4276-df55-48a3-980e-5d3c314adfe2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +161,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Common\BitOperations.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\StockExchangeLosses.h">
+      <Filter>Medium\StockExchangeLosses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

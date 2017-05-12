@@ -59,6 +59,12 @@
     <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp">
       <Filter>Medium\MayanCalculation</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp">
+      <Filter>Medium\StockExchangeLosses</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp">
+      <Filter>Medium\StockExchangeLosses</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -112,6 +118,12 @@
     <Filter Include="Medium\MayanCalculation\DataFiles">
       <UniqueIdentifier>{27bb93b4-971d-46e6-9610-533a52a920fd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium\StockExchangeLosses">
+      <UniqueIdentifier>{3a7a1694-066d-467d-9cbb-eebc762f022f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\StockExchangeLosses\DataFiles">
+      <UniqueIdentifier>{70d86169-86b6-442b-8a8e-86dbe6fc0ffd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -149,6 +161,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Common\BitOperations.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\StockExchangeLosses.h">
+      <Filter>Medium\StockExchangeLosses</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +367,24 @@
     </Text>
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\OtherSymbols_out.txt">
       <Filter>Medium\MayanCalculation\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example1_in.txt">
+      <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example2_in.txt">
+      <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example3_in.txt">
+      <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example4_in.txt">
+      <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example5_in.txt">
+      <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example6_in.txt">
+      <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

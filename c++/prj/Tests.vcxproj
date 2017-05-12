@@ -28,6 +28,7 @@
     <ClCompile Include="..\src\Easy\MimeType.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
+    <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp" />
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="..\tests\Easy\TemperaturesTest.cpp" />
     <ClCompile Include="..\tests\Main.cpp" />
     <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp" />
+    <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
     <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +54,7 @@
     <ClInclude Include="..\src\Easy\MimeType.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
+    <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +109,12 @@
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Subtraction_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Zero_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\MayanCalculation\Zero_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example1_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example2_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example3_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example4_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example5_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example6_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Complex_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Diagonal_in.txt" />

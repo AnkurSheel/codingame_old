@@ -21,7 +21,7 @@
   fprintf(stderr, format, ##__VA_ARGS__);                                                                              \
   fprintf(stderr, "/IN\n")
 #else
-#define DEBUGPRINTSTDIN(format, ...) DEBUGPRINT(format, ##__VA_ARGS__)
+#define DEBUGPRINTSTDIN(format, ...)
 #endif  //  _INPUT
 #define ll long long
 

@@ -56,6 +56,9 @@
     <ClCompile Include="..\src\Medium\ConwaySequence.cpp">
       <Filter>Medium\ConwaySequence</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\War.cpp">
+      <Filter>Medium\War</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -117,6 +120,9 @@
     </Filter>
     <Filter Include="Medium\ConwaySequence">
       <UniqueIdentifier>{af97c6eb-0f27-4361-9e8d-cb2045db1be0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\War">
+      <UniqueIdentifier>{f74b0eb3-c480-449e-8177-ee2406840c5e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -191,6 +197,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\ConwaySequence.h">
       <Filter>Medium\ConwaySequence</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\War.h">
+      <Filter>Medium\War</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

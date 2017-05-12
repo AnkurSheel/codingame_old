@@ -32,6 +32,7 @@
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
+    <ClCompile Include="..\src\Medium\War.cpp" />
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp" />
     <ClCompile Include="..\tests\Easy\AsciiArtTest.cpp" />
     <ClCompile Include="..\tests\Easy\ChuckNorrisTest.cpp" />
@@ -45,6 +46,7 @@
     <ClCompile Include="..\tests\Medium\ScrabbleTest.cpp" />
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
     <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
+    <ClCompile Include="..\tests\Medium\WarTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\BitOperations.h" />
@@ -62,6 +64,7 @@
     <ClInclude Include="..\src\Medium\Scrabble.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
+    <ClInclude Include="..\src\Medium\War.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\tests\DataFiles\Easy\AsciiArt\ManhattanAlternateRepresentation_in.txt" />
@@ -145,6 +148,15 @@
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\T_out.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\ThereIsNoSpoonEpisode1\Vertical_out.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\26CardsMediumLength_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\26Cards_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\3Cards_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\Battle_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\LongGame_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\OneGameOneBattle_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\Pat1_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\Pat2_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\War\TwoChainedBattles_in.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{717E39A2-73EE-4545-AE6C-CAA56AA7DD42}</ProjectGuid>

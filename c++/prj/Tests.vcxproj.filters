@@ -65,6 +65,12 @@
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp">
       <Filter>Medium\StockExchangeLosses</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\Scrabble.cpp">
+      <Filter>Medium\Scrabble</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\ScrabbleTest.cpp">
+      <Filter>Medium\Scrabble</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -124,6 +130,12 @@
     <Filter Include="Medium\StockExchangeLosses\DataFiles">
       <UniqueIdentifier>{70d86169-86b6-442b-8a8e-86dbe6fc0ffd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium\Scrabble">
+      <UniqueIdentifier>{9f068068-9d3a-4fca-baab-3bc212c350fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\Scrabble\DataFiles">
+      <UniqueIdentifier>{b4b14878-9e94-43fb-8ede-b17195b1b9ec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -164,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h">
       <Filter>Medium\StockExchangeLosses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\Scrabble.h">
+      <Filter>Medium\Scrabble</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +400,30 @@
     </Text>
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example6_in.txt">
       <Filter>Medium\StockExchangeLosses\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\OnlyOneWord_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\TwoWordsWithSameValue_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\TwoWordsWithDifferentValue_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\ManyPossibilities_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\ValueBetterThanSize_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\ValidWord_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\LargeDataset1_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Scrabble\LargeDataset2_in.txt">
+      <Filter>Medium\Scrabble\DataFiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

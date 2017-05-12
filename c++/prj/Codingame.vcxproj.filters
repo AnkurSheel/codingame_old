@@ -50,6 +50,9 @@
     <ClCompile Include="..\src\Medium\DontPanicEpisode1.cpp">
       <Filter>Medium\DontPanicEpisode1</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\Scrabble.cpp">
+      <Filter>Medium\Scrabble</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -105,6 +108,9 @@
     </Filter>
     <Filter Include="Medium\DontPanicEpisode1">
       <UniqueIdentifier>{a01f4249-bd5c-4fb0-8047-fa3bc910f28e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\Scrabble">
+      <UniqueIdentifier>{e7a7abba-6c49-4163-af07-1d5c0b4e7077}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +179,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\DontPanicEpisode1.h">
       <Filter>Medium\DontPanicEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\Scrabble.h">
+      <Filter>Medium\Scrabble</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

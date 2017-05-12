@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ StockExchangeLosses.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DontPanicEpisode1.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -102,7 +102,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ StockExchangeLosses.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DontPanicEpisode1.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,7 +130,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ StockExchangeLosses.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DontPanicEpisode1.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,7 +153,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ StockExchangeLosses.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DontPanicEpisode1.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -170,6 +170,7 @@
     <ClCompile Include="..\src\Easy\PowerofThorEpisode1.cpp" />
     <ClCompile Include="..\src\Easy\Temperatures.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Medium\DontPanicEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
@@ -193,6 +194,7 @@
     <ClInclude Include="..\src\Easy\Onboarding.h" />
     <ClInclude Include="..\src\Easy\PowerofThorEpisode1.h" />
     <ClInclude Include="..\src\Easy\Temperatures.h" />
+    <ClInclude Include="..\src\Medium\DontPanicEpisode1.h" />
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />

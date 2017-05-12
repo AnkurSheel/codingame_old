@@ -47,6 +47,9 @@
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp">
       <Filter>Medium\StockExchangeLosses</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\DontPanicEpisode1.cpp">
+      <Filter>Medium\DontPanicEpisode1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -99,6 +102,9 @@
     </Filter>
     <Filter Include="Medium\StockExchangeLosses">
       <UniqueIdentifier>{edaf4276-df55-48a3-980e-5d3c314adfe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\DontPanicEpisode1">
+      <UniqueIdentifier>{a01f4249-bd5c-4fb0-8047-fa3bc910f28e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h">
       <Filter>Medium\StockExchangeLosses</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\DontPanicEpisode1.h">
+      <Filter>Medium\DontPanicEpisode1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

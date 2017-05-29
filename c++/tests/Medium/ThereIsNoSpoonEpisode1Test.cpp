@@ -29,11 +29,11 @@ protected:
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Example)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Example_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Example_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Example_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Example_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -41,11 +41,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, Example)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Horizontal)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Horizontal_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Horizontal_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Horizontal_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Horizontal_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -53,11 +53,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, Horizontal)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Vertical)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Vertical_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Vertical_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Vertical_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Vertical_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -65,11 +65,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, Vertical)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Square)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Square_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Square_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Square_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Square_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -77,11 +77,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, Square)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, T)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/T_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/T_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/T_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/T_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -89,11 +89,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, T)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Diagonal)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Diagonal_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Diagonal_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Diagonal_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Diagonal_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -101,11 +101,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, Diagonal)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Complex)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Complex_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Complex_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Complex_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Complex_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -113,11 +113,11 @@ TEST_F(ThereIsNoSpoonEpisode1Test, Complex)
 
 TEST_F(ThereIsNoSpoonEpisode1Test, Shuriken)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Shuriken_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Shuriken_in.txt");
 
   ThereIsNoSpoonEpisode1::main();
 
-  resultFile.open("../tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Shuriken_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Medium/ThereIsNoSpoonEpisode1/Shuriken_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());

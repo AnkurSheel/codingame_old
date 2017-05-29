@@ -29,11 +29,11 @@ protected:
 
 TEST_F(MimeTypeTest, SimpleCase)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/MimeType/SimpleCase_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/MimeType/SimpleCase_in.txt");
 
   MimeType::main();
 
-  resultFile.open("../tests/DataFiles/Easy/MimeType/SimpleCase_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/MimeType/SimpleCase_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -41,11 +41,11 @@ TEST_F(MimeTypeTest, SimpleCase)
 
 TEST_F(MimeTypeTest, UnknownTypes)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/MimeType/UnknownTypes_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/MimeType/UnknownTypes_in.txt");
 
   MimeType::main();
 
-  resultFile.open("../tests/DataFiles/Easy/MimeType/UnknownTypes_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/MimeType/UnknownTypes_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -53,11 +53,11 @@ TEST_F(MimeTypeTest, UnknownTypes)
 
 TEST_F(MimeTypeTest, CorrectDivision)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/MimeType/CorrectDivision_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/MimeType/CorrectDivision_in.txt");
 
   MimeType::main();
 
-  resultFile.open("../tests/DataFiles/Easy/MimeType/CorrectDivision_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/MimeType/CorrectDivision_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -65,11 +65,11 @@ TEST_F(MimeTypeTest, CorrectDivision)
 
 TEST_F(MimeTypeTest, CaseSensitivity)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/MimeType/CaseSensitivity_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/MimeType/CaseSensitivity_in.txt");
 
   MimeType::main();
 
-  resultFile.open("../tests/DataFiles/Easy/MimeType/CaseSensitivity_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/MimeType/CaseSensitivity_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -77,11 +77,11 @@ TEST_F(MimeTypeTest, CaseSensitivity)
 
 TEST_F(MimeTypeTest, LargeDataset)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/MimeType/LargeDataset_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/MimeType/LargeDataset_in.txt");
 
   MimeType::main();
 
-  resultFile.open("../tests/DataFiles/Easy/MimeType/LargeDataset_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/MimeType/LargeDataset_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());

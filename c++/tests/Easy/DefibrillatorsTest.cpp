@@ -31,7 +31,7 @@ protected:
 
 TEST_F(DefibrillatorsTest, Example)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/Defibrillators/Example_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/Defibrillators/Example_in.txt");
 
   Defibrillators::main();
 
@@ -40,7 +40,7 @@ TEST_F(DefibrillatorsTest, Example)
 
 TEST_F(DefibrillatorsTest, ExactPosition)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/Defibrillators/ExactPosition_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/Defibrillators/ExactPosition_in.txt");
 
   Defibrillators::main();
 
@@ -49,7 +49,7 @@ TEST_F(DefibrillatorsTest, ExactPosition)
 
 TEST_F(DefibrillatorsTest, LargeDataset)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/Defibrillators/LargeDataset_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/Defibrillators/LargeDataset_in.txt");
 
   Defibrillators::main();
 
@@ -58,7 +58,7 @@ TEST_F(DefibrillatorsTest, LargeDataset)
 
 TEST_F(DefibrillatorsTest, LargeDataset2)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/Defibrillators/LargeDataset2_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/Defibrillators/LargeDataset2_in.txt");
 
   Defibrillators::main();
 

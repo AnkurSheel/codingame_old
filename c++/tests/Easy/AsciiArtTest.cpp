@@ -29,11 +29,11 @@ protected:
 
 TEST_F(AsciiArtTest, OneLetter_E)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/AsciiArt/OneLetter_E_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/AsciiArt/OneLetter_E_in.txt");
 
   AsciiArt::main();
 
-  resultFile.open("../tests/DataFiles/Easy/AsciiArt/OneLetter_E_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/AsciiArt/OneLetter_E_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -41,11 +41,11 @@ TEST_F(AsciiArtTest, OneLetter_E)
 
 TEST_F(AsciiArtTest, ManhattanUpperCase)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/AsciiArt/ManhattanUpperCase_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanUpperCase_in.txt");
 
   AsciiArt::main();
 
-  resultFile.open("../tests/DataFiles/Easy/AsciiArt/ManhattanUpperCase_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanUpperCase_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -53,11 +53,11 @@ TEST_F(AsciiArtTest, ManhattanUpperCase)
 
 TEST_F(AsciiArtTest, ManhattanMixedCase)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/AsciiArt/ManhattanMixedCase_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanMixedCase_in.txt");
 
   AsciiArt::main();
 
-  resultFile.open("../tests/DataFiles/Easy/AsciiArt/ManhattanMixedCase_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanMixedCase_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -65,11 +65,11 @@ TEST_F(AsciiArtTest, ManhattanMixedCase)
 
 TEST_F(AsciiArtTest, ManhattanNonLetter)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/AsciiArt/ManhattanNonLetter_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanNonLetter_in.txt");
 
   AsciiArt::main();
 
-  resultFile.open("../tests/DataFiles/Easy/AsciiArt/ManhattanNonLetter_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanNonLetter_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());
@@ -77,11 +77,11 @@ TEST_F(AsciiArtTest, ManhattanNonLetter)
 
 TEST_F(AsciiArtTest, ManhattanAlternateRepresentation)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/AsciiArt/ManhattanAlternateRepresentation_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanAlternateRepresentation_in.txt");
 
   AsciiArt::main();
 
-  resultFile.open("../tests/DataFiles/Easy/AsciiArt/ManhattanAlternateRepresentation_out.txt");
+  resultFile.open("./c++/tests/DataFiles/Easy/AsciiArt/ManhattanAlternateRepresentation_out.txt");
   stringstream expectedStream;
   expectedStream << resultFile.rdbuf();
   EXPECT_STREQ(expectedStream.str().data(), outputstream.str().data());

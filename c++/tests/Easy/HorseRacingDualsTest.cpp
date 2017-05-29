@@ -31,7 +31,7 @@ protected:
 
 TEST_F(HorseRacingDualsTest, Simple)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/HorseRacingDuals/Simple_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/HorseRacingDuals/Simple_in.txt");
 
   HorseRacingDuals::main();
 
@@ -40,7 +40,7 @@ TEST_F(HorseRacingDualsTest, Simple)
 
 TEST_F(HorseRacingDualsTest, RandomOrder)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/HorseRacingDuals/RandomOrder_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/HorseRacingDuals/RandomOrder_in.txt");
 
   HorseRacingDuals::main();
 
@@ -49,7 +49,7 @@ TEST_F(HorseRacingDualsTest, RandomOrder)
 
 TEST_F(HorseRacingDualsTest, LargeDataset)
 {
-  inputFile = ifstream("../tests/DataFiles/Easy/HorseRacingDuals/LargeDataset_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Easy/HorseRacingDuals/LargeDataset_in.txt");
 
   HorseRacingDuals::main();
 

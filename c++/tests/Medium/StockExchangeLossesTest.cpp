@@ -28,7 +28,7 @@ protected:
 
 TEST_F(StockExchangeLossesTest, Example1)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/StockExchangeLosses/Example1_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/StockExchangeLosses/Example1_in.txt");
 
   StockExchangeLosses::main();
 
@@ -37,7 +37,7 @@ TEST_F(StockExchangeLossesTest, Example1)
 
 TEST_F(StockExchangeLossesTest, Example2)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/StockExchangeLosses/Example2_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/StockExchangeLosses/Example2_in.txt");
 
   StockExchangeLosses::main();
 
@@ -46,7 +46,7 @@ TEST_F(StockExchangeLossesTest, Example2)
 
 TEST_F(StockExchangeLossesTest, Example3)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/StockExchangeLosses/Example3_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/StockExchangeLosses/Example3_in.txt");
 
   StockExchangeLosses::main();
 
@@ -55,7 +55,7 @@ TEST_F(StockExchangeLossesTest, Example3)
 
 TEST_F(StockExchangeLossesTest, Example4)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/StockExchangeLosses/Example4_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/StockExchangeLosses/Example4_in.txt");
 
   StockExchangeLosses::main();
 
@@ -64,7 +64,7 @@ TEST_F(StockExchangeLossesTest, Example4)
 
 TEST_F(StockExchangeLossesTest, Example5)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/StockExchangeLosses/Example5_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/StockExchangeLosses/Example5_in.txt");
 
   StockExchangeLosses::main();
 
@@ -73,7 +73,7 @@ TEST_F(StockExchangeLossesTest, Example5)
 
 TEST_F(StockExchangeLossesTest, Example6)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/StockExchangeLosses/Example6_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/StockExchangeLosses/Example6_in.txt");
 
   StockExchangeLosses::main();
 

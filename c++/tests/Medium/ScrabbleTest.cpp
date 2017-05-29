@@ -28,7 +28,7 @@ protected:
 
 TEST_F(ScrabbleTest, OnlyOneWord)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/OnlyOneWord_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/OnlyOneWord_in.txt");
 
   Scrabble::main();
 
@@ -37,7 +37,7 @@ TEST_F(ScrabbleTest, OnlyOneWord)
 
 TEST_F(ScrabbleTest, TwoWordsWithSameValue)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/TwoWordsWithSameValue_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/TwoWordsWithSameValue_in.txt");
 
   Scrabble::main();
 
@@ -46,7 +46,7 @@ TEST_F(ScrabbleTest, TwoWordsWithSameValue)
 
 TEST_F(ScrabbleTest, TwoWordsWithDifferentValue)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/TwoWordsWithDifferentValue_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/TwoWordsWithDifferentValue_in.txt");
 
   Scrabble::main();
 
@@ -55,7 +55,7 @@ TEST_F(ScrabbleTest, TwoWordsWithDifferentValue)
 
 TEST_F(ScrabbleTest, ManyPossibilities)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/ManyPossibilities_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/ManyPossibilities_in.txt");
 
   Scrabble::main();
 
@@ -64,7 +64,7 @@ TEST_F(ScrabbleTest, ManyPossibilities)
 
 TEST_F(ScrabbleTest, ValueBetterThanSize)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/ValueBetterThanSize_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/ValueBetterThanSize_in.txt");
 
   Scrabble::main();
 
@@ -73,7 +73,7 @@ TEST_F(ScrabbleTest, ValueBetterThanSize)
 
 TEST_F(ScrabbleTest, ValidWord)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/ValidWord_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/ValidWord_in.txt");
 
   Scrabble::main();
 
@@ -82,7 +82,7 @@ TEST_F(ScrabbleTest, ValidWord)
 
 TEST_F(ScrabbleTest, LargeDataset1)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/LargeDataset1_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/LargeDataset1_in.txt");
 
   Scrabble::main();
 
@@ -91,7 +91,7 @@ TEST_F(ScrabbleTest, LargeDataset1)
 
 TEST_F(ScrabbleTest, LargeDataset2)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/Scrabble/LargeDataset2_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/Scrabble/LargeDataset2_in.txt");
 
   Scrabble::main();
 

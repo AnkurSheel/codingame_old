@@ -28,35 +28,35 @@ protected:
 
 TEST_F(TelephoneNumbersTest, OneTelephoneNumber)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/TelephoneNumbers/OneTelephoneNumber_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/TelephoneNumbers/OneTelephoneNumber_in.txt");
   TelephoneNumbers::main();
   EXPECT_STREQ("10\n", outputstream.str().data());
 }
 
 TEST_F(TelephoneNumbersTest, NumbersWithADifferentBase)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/TelephoneNumbers/NumbersWithADifferentBase_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/TelephoneNumbers/NumbersWithADifferentBase_in.txt");
   TelephoneNumbers::main();
   EXPECT_STREQ("20\n", outputstream.str().data());
 }
 
 TEST_F(TelephoneNumbersTest, NumbersIncludedInAnother)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/TelephoneNumbers/NumbersIncludedInAnother_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/TelephoneNumbers/NumbersIncludedInAnother_in.txt");
   TelephoneNumbers::main();
   EXPECT_STREQ("10\n", outputstream.str().data());
 }
 
 TEST_F(TelephoneNumbersTest, NumbersWithACommonPart)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/TelephoneNumbers/NumbersWithACommonPart_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/TelephoneNumbers/NumbersWithACommonPart_in.txt");
   TelephoneNumbers::main();
   EXPECT_STREQ("28\n", outputstream.str().data());
 }
 
 TEST_F(TelephoneNumbersTest, LargeDataset)
 {
-  inputFile = ifstream("../tests/DataFiles/Medium/TelephoneNumbers/LargeDataset_in.txt");
+  inputFile = ifstream("./c++/tests/DataFiles/Medium/TelephoneNumbers/LargeDataset_in.txt");
   TelephoneNumbers::main();
   EXPECT_STREQ("45512\n", outputstream.str().data());
 }

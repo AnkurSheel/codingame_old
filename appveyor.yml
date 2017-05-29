@@ -1,0 +1,26 @@
+version: 0.0.{build}
+environment:
+  APPVEYOR_RDP_PASSWORD:
+    secure: Pa24rtLE52cMBdNE8d8IlQ==
+  matrix:
+  - configuration: Debug
+    testPath: c++\prj\x64\Debug\
+  - configuration: Release
+    testPath: c++\prj\x64\Debug\
+only_commits:
+  files:
+    - c++/prj/
+    - c++/src/
+    - c++/tests/
+install:
+- cmd: git submodule update --init --recursive
+before_build:
+- cmd: del "C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets"
+build:
+  project: c++/prj/Codingame.sln
+  parallel: true
+  verbosity: minimal
+test_script:
+- cmd: '%testPath%Tests.exe --gtest_output=xml:tests.xml'
+on_finish:
+- ps: (new-object net.webclient).UploadFile("https://ci.appveyor.com/api/testresults/junit/$($env:APPVEYOR_JOB_ID)", (Resolve-Path .\tests.xml))

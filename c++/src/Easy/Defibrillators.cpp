@@ -14,8 +14,8 @@ struct DefibrillatorInfo
 //  *******************************************************************************************************************
 void Tokenize(const string& stringToTokenize, const string& delimiters, vector<string>& parts)
 {
-  int iStartIndex = 0;
-  int nextIndex;
+  size_t iStartIndex = 0;
+  size_t nextIndex;
   while (iStartIndex < stringToTokenize.length())
   {
     nextIndex = stringToTokenize.find_first_of(delimiters, iStartIndex);
@@ -38,7 +38,7 @@ void Tokenize(const string& stringToTokenize, const string& delimiters, vector<s
 //  *******************************************************************************************************************
 double ConvertToDecimal(string decimalString)
 {
-  int index = decimalString.find_first_of(',');
+  size_t index = decimalString.find_first_of(',');
   char* pEnd;
   decimalString[index] = '.';
   return strtod(decimalString.c_str(), &pEnd);

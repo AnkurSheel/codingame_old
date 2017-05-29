@@ -21,7 +21,7 @@ void ConwaySequence::main()
     int count = 0;
     int previousNumber = *(sequence.begin());
     int number = 0;
-    int size = sequence.size();
+    int size = static_cast<int>(sequence.size());
     int currentIndex = 0;
 
     while (currentIndex < size)

@@ -7,7 +7,7 @@
 using namespace std;
 string GetExtension(const string& fileName)
 {
-  int index = fileName.find_last_of('.');
+  size_t index = fileName.find_last_of('.');
   if (index != string::npos)
   {
     return fileName.substr(index + 1, fileName.length() - index - 1);

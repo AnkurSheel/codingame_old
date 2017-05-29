@@ -89,7 +89,7 @@ int MayanCalculation::GetIntegerFromMayanNumber(int heightOfMayanNumber)
   
   int numberOfDigits = numberOfLines / heightOfMayanNumber;
 
-  int multiplier = pow(20, numberOfDigits - 1);
+  int multiplier = static_cast<int>(pow(20, numberOfDigits - 1));
 
   for (int i = 0; i < numberOfLines; i++)
   {
@@ -132,7 +132,7 @@ int MayanCalculation::GetIntegerFromMayanNumber(int heightOfMayanNumber)
 
 void MayanCalculation::ConvertToMayanNumber(ll number, std::vector<int>& convertedNumber)
 {
-  ll remainder = 0;
+  int remainder = 0;
   ll tempNumber = number;
   convertedNumber.clear();
 

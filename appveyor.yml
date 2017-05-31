@@ -7,12 +7,12 @@ environment:
     testPath: c++\prj\x64\Debug\
   - configuration: Release
     testPath: c++\prj\x64\Release\
-only_commits:
-  files:
-    - c++/prj/
-    - c++/src/
-    - c++/tests/
-    - '**/*.yml'
+#only_commits:
+#  files:
+#    - c++/prj/
+#    - c++/src/
+#    - c++/tests/
+#    - '**/*.yml'
 install:
 - cmd: git submodule update --init --recursive
 before_build:

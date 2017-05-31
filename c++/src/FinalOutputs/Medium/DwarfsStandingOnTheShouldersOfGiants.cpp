@@ -19,7 +19,7 @@
   fprintf(stderr, format, ##__VA_ARGS__);                                                                              \
   fprintf(stderr, "/IN\n")
 #else
-#define DEBUGPRINTSTDIN(format, ...) DEBUGPRINT(format, ##__VA_ARGS__)
+#define DEBUGPRINTSTDIN(format, ...)
 #endif  //  _INPUT
 #define ll long long
 
@@ -32,6 +32,7 @@ using FpMilliSeconds = std::chrono::duration<float, std::chrono::milliseconds::p
 #ifndef DwarfsStandingOnTheShouldersOfGiants_H__
 #define DwarfsStandingOnTheShouldersOfGiants_H__
 
+#include <map>
 namespace Common
 {
   struct stGraphNode;
@@ -39,11 +40,9 @@ namespace Common
 namespace DwarfsStandingOnTheShouldersOfGiants
 {
   void main();
-  int GetLongestChain(const Common::stGraphNode* const pVertex);
+  int GetLongestChain(const Common::stGraphNode* const pVertex, std::map<int, int>& results);
 }
-#endif // DwarfsStandingOnTheShouldersOfGiants_H__
-
-
+#endif  // DwarfsStandingOnTheShouldersOfGiants_H__
 
 #ifndef Graph_H__
 #define Graph_H__
@@ -194,9 +193,10 @@ void DwarfsStandingOnTheShouldersOfGiants::main()
   }
 
   int maxCount = 0;
+  map<int, int> results;
   for (auto iter = graph.GetVertices().begin(); iter != graph.GetVertices().end(); ++iter)
   {
-    int count = GetLongestChain(*iter) + 1;
+    int count = GetLongestChain(*iter, results) + 1;
     if (maxCount < count)
     {
       maxCount = count;
@@ -206,22 +206,28 @@ void DwarfsStandingOnTheShouldersOfGiants::main()
   cout << maxCount << endl;
 }
 
-int DwarfsStandingOnTheShouldersOfGiants::GetLongestChain(const stGraphNode* const pVertex)
+int DwarfsStandingOnTheShouldersOfGiants::GetLongestChain(const stGraphNode* const pVertex, map<int, int>& results
+)
 {
+  if (results.find(pVertex->GetData()) != results.end())
+  {
+    return results[pVertex->GetData()];
+  }
+
   const Neighbours& neighbours = pVertex->m_neighbours;
   int count = 0;
   int maxCount = 0;
   for (auto iter = neighbours.begin(); iter != neighbours.end(); iter++)
   {
-    count = GetLongestChain(*iter) + 1;
+    count = GetLongestChain(*iter, results) + 1;
     if (maxCount < count)
     {
       maxCount = count;
     }
   }
+  results[pVertex->GetData()] = maxCount;
   return maxCount;
 }
-
 
 
 using namespace std;
@@ -230,7 +236,6 @@ int main(int argc, char** argv)
 {
 
   static_assert(std::chrono::treat_as_floating_point<FpMilliSeconds::rep>::value, "Rep required to be floating point");
-
   DwarfsStandingOnTheShouldersOfGiants::main();
 }
 

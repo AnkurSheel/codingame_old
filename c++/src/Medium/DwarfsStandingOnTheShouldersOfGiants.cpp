@@ -22,9 +22,10 @@ void DwarfsStandingOnTheShouldersOfGiants::main()
   }
 
   int maxCount = 0;
+  map<int, int> results;
   for (auto iter = graph.GetVertices().begin(); iter != graph.GetVertices().end(); ++iter)
   {
-    int count = GetLongestChain(*iter) + 1;
+    int count = GetLongestChain(*iter, results) + 1;
     if (maxCount < count)
     {
       maxCount = count;
@@ -34,18 +35,24 @@ void DwarfsStandingOnTheShouldersOfGiants::main()
   cout << maxCount << endl;
 }
 
-int DwarfsStandingOnTheShouldersOfGiants::GetLongestChain(const stGraphNode* const pVertex)
+int DwarfsStandingOnTheShouldersOfGiants::GetLongestChain(const stGraphNode* const pVertex, map<int, int>& results)
 {
+  if (results.find(pVertex->GetData()) != results.end())
+  {
+    return results[pVertex->GetData()];
+  }
+
   const Neighbours& neighbours = pVertex->m_neighbours;
   int count = 0;
   int maxCount = 0;
   for (auto iter = neighbours.begin(); iter != neighbours.end(); iter++)
   {
-    count = GetLongestChain(*iter) + 1;
+    count = GetLongestChain(*iter, results) + 1;
     if (maxCount < count)
     {
       maxCount = count;
     }
   }
+  results[pVertex->GetData()] = maxCount;
   return maxCount;
 }

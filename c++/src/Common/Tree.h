@@ -9,19 +9,21 @@ namespace Common
   class cTreeNode
   {
   public:
-    cTreeNode(const T& data);
+    cTreeNode(cTreeNode* const pParent, const T& data);
     ~cTreeNode();
     cTreeNode* const GetChild(const T& value) const;
     cTreeNode* const AddChild(const T& value);
 
   private:
     T m_data;
+    cTreeNode* m_pParent;
     std::vector<cTreeNode*> m_children;
   };
 
   template <class T>
-  cTreeNode<T>::cTreeNode(const T& data)
+  cTreeNode<T>::cTreeNode(cTreeNode* const pParent, const T& data)
     : m_data(data)
+    , m_pParent(pParent)
   {
   }
 
@@ -32,6 +34,7 @@ namespace Common
     {
       SafeDelete(*iter);
     }
+    m_pParent = nullptr;
   }
 
   template <class T>
@@ -50,7 +53,7 @@ namespace Common
   template <class T>
   cTreeNode<T>* const cTreeNode<T>::AddChild(const T& value)
   {
-    cTreeNode* pNode = new cTreeNode(value);
+    cTreeNode* pNode = new cTreeNode(this, value);
     m_children.push_back(pNode);
     return pNode;
   }

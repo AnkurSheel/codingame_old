@@ -71,6 +71,9 @@
     <ClCompile Include="..\src\Medium\SkyNetRevolutionEpisode1.cpp">
       <Filter>Medium\SkyNetRevolutionEpisode1</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Common\GraphSearch.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -236,6 +239,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\SkyNetRevolutionEpisode1.h">
       <Filter>Medium\SkyNetRevolutionEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\GraphSearch.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

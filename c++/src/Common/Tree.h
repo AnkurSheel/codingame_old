@@ -11,6 +11,8 @@ namespace Common
   public:
     cTreeNode(cTreeNode* const pParent, const T& data);
     ~cTreeNode();
+    T GetData() const { return m_data; }
+    cTreeNode* GetParent() const { return m_pParent; }
     cTreeNode* const GetChild(const T& value) const;
     cTreeNode* const AddChild(const T& value);
 

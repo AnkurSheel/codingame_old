@@ -53,3 +53,11 @@ void cGraph::AddEdge(int vertex1, int vertex2)
     pVertex2->m_neighbours.insert(pVertex1);
   }
 }
+
+int cGraph::GetVertexIndex(int data) const
+{
+  auto iter = std::find_if(m_vertices.begin(), m_vertices.end(),
+                           [&data](const stGraphNode* p) { return data == p->GetData(); });
+
+  return distance(m_vertices.begin(), iter);
+}

@@ -37,6 +37,7 @@ namespace Common
     ~cGraph();
     const Nodes& GetVertices() const { return m_vertices; }
     void AddEdge(int vertex1, int vertex2);
+    void RemoveEdge(int vertex1, int vertex2);
     int GetVertexIndex(int data) const;
     stGraphNode* const GetVertex(int data);
 

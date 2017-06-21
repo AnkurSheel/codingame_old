@@ -46,6 +46,8 @@ void SkyNetRevolutionEpisode1::main()
     int skyNetNodeIndex;  // The index of the node on which the Skynet agent is positioned this turn
     cin >> skyNetNodeIndex;
     cin.ignore();
+    DEBUGPRINTSTDIN("%d\n", skyNetNodeIndex);
+
     path.clear();
     search.BreadthFirstSearch(graph.GetVertex(skyNetNodeIndex), graph.GetVertex(gatewayNodeIndices.GetElement(0, 0)),
                               graph, path);

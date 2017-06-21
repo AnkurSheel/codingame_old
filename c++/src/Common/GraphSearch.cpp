@@ -18,20 +18,20 @@ void Common::cGraphSearch::BreadthFirstSearch(stGraphNode* const start, stGraphN
     pVisited.SetElement(i, 0, false);
   }
 
-  list<stGraphNode*> frontier;
+  list<cTreeNode<stGraphNode*>*> frontier;
   cTreeNode<stGraphNode*>* pRoot = new cTreeNode<stGraphNode*>(nullptr, nullptr);
-  cTreeNode<stGraphNode*>* pCurrent = pRoot;
+  cTreeNode<stGraphNode*>* pCurrent = pRoot->AddChild(start);
 
   bool found = false;
   int vertexIndex = graph.GetVertexIndex(start->GetData());
-  frontier.push_back(start);
+  frontier.push_back(pCurrent);
   pVisited.SetElement(vertexIndex, 0, true);
 
   while (!found && !frontier.empty())
   {
-    auto pGraphNode = frontier.front();
+    pCurrent = frontier.front();
+    auto pGraphNode = pCurrent->GetData();
     frontier.pop_front();
-    pCurrent = pCurrent->AddChild(pGraphNode);
     if (pCurrent->GetData() == end)
     {
       found = true;
@@ -42,7 +42,8 @@ void Common::cGraphSearch::BreadthFirstSearch(stGraphNode* const start, stGraphN
       int vertexIndex = graph.GetVertexIndex((*iter)->GetData());
       if (!(pVisited.GetElement(vertexIndex, 0)))
       {
-        frontier.push_back((*iter));
+        auto pNode = pCurrent->AddChild(*iter);
+        frontier.push_back(pNode);
         pVisited.SetElement(vertexIndex, 0, true);
       }
     }

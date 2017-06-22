@@ -12,7 +12,7 @@ void TelephoneNumbers::main()
   cin >> N;
   cin.ignore();
 
-  cTreeNode<int>* pRoot = new cTreeNode<int>(-1);
+  cTreeNode<int>* pRoot = new cTreeNode<int>(nullptr, -1);
   cTreeNode<int>* pCurrentNode = nullptr;
   cTreeNode<int>* pTempNode = nullptr;
   int count = 0;

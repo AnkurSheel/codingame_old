@@ -84,7 +84,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DwarfsStandingOnTheShouldersOfGiants.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ SkyNetRevolutionEpisode1.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>..\..\ExternalHelpers\libs\gmock;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -102,7 +102,7 @@
       <PreprocessorDefinitions>_LOCAL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DwarfsStandingOnTheShouldersOfGiants.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ SkyNetRevolutionEpisode1.cpp</Command>
     </PostBuildEvent>
     <Link>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -130,7 +130,7 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DwarfsStandingOnTheShouldersOfGiants.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ SkyNetRevolutionEpisode1.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,11 +153,12 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ DwarfsStandingOnTheShouldersOfGiants.cpp</Command>
+      <Command>..\..\ExternalHelpers\CombineFiles\bin\Release\CombineFiles.exe ..\src\ main.cpp ..\src\FinalOutputs\Medium\ SkyNetRevolutionEpisode1.cpp</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Common\Graph.cpp" />
+    <ClCompile Include="..\src\Common\GraphSearch.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
@@ -176,6 +177,7 @@
     <ClCompile Include="..\src\Medium\DwarfsStandingOnTheShouldersOfGiants.cpp" />
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
+    <ClCompile Include="..\src\Medium\SkyNetRevolutionEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
     <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
@@ -185,6 +187,7 @@
     <ClInclude Include="..\src\Common\BitOperations.h" />
     <ClInclude Include="..\src\Common\Custom2DArray.h" />
     <ClInclude Include="..\src\Common\Graph.h" />
+    <ClInclude Include="..\src\Common\GraphSearch.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\Includes.h" />
     <ClInclude Include="..\src\Common\MemoryUtils.h" />
@@ -207,6 +210,7 @@
     <ClInclude Include="..\src\Medium\DwarfsStandingOnTheShouldersOfGiants.h" />
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\Scrabble.h" />
+    <ClInclude Include="..\src\Medium\SkyNetRevolutionEpisode1.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
     <ClInclude Include="..\src\Medium\TelephoneNumbers.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />

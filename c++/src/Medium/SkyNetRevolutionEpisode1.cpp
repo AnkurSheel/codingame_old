@@ -36,11 +36,12 @@ void SkyNetRevolutionEpisode1::main()
     DEBUGPRINTSTDIN("%d\n", exitNodeIndex);
     gatewayNodeIndices.SetElement(i, 0, exitNodeIndex);
   }
-  cGraphSearch search;
-  std::list<stGraphNode*> path;
   
+  cGraphSearch search(&graph);
+  std::list<stGraphNode*> bestPath;
   int vertex1 = 0;
   int vertex2 = 0;
+  
   while (1)
   {
     int skyNetNodeIndex;  // The index of the node on which the Skynet agent is positioned this turn
@@ -48,10 +49,22 @@ void SkyNetRevolutionEpisode1::main()
     cin.ignore();
     DEBUGPRINTSTDIN("%d\n", skyNetNodeIndex);
 
-    path.clear();
-    search.BreadthFirstSearch(graph.GetVertex(skyNetNodeIndex), graph.GetVertex(gatewayNodeIndices.GetElement(0, 0)),
-                              graph, path);
-    auto iter = path.begin();
+    bestPath.clear();
+    int shortestPathCount = numeric_limits<int>::max();
+    for (int i = 0; i < numberOfExits; i++)
+    {
+      std::list<stGraphNode*> path;
+      search.BreadthFirstSearch(graph.GetVertex(skyNetNodeIndex), graph.GetVertex(gatewayNodeIndices.GetElement(i, 0)),
+                                path);
+      
+      if (path.size() > 0 && path.size() < shortestPathCount)
+      {
+        bestPath = path;
+        shortestPathCount = path.size();
+      }
+    }
+
+    auto iter = bestPath.begin();
     vertex1 = (*iter)->GetData();
     ++iter;
     vertex2 = (*iter)->GetData();

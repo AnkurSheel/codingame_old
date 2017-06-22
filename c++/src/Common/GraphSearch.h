@@ -11,8 +11,11 @@ namespace Common
   class cGraphSearch
   {
   public:
-    void BreadthFirstSearch(stGraphNode* const start, stGraphNode* const end, const cGraph& graph,
-                            std::list<stGraphNode*>& path);
+    cGraphSearch(cGraph* const pGraph);
+    void BreadthFirstSearch(stGraphNode* const start, stGraphNode* const end, std::list<stGraphNode*>& path);
+
+  private:
+    cGraph* const m_pGraph;
   };
 }
 #endif  // GraphSearch_H__

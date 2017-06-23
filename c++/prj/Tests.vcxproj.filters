@@ -554,5 +554,35 @@
     <Text Include="..\tests\DataFiles\Medium\DwarfsStandingOnTheShouldersOfGiants\SeveralMentors_in.txt">
       <Filter>Medium\DwarfsStandingOnTheShouldersOfGiants\DataFiles</Filter>
     </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test1.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test2.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test3.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test4.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test5.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test6.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test7.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test8.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test9.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test10.txt">
+      <Filter>Medium\Teads\DataFiles</Filter>
+    </Text>
   </ItemGroup>
 </Project>

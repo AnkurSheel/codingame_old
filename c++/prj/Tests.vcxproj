@@ -146,6 +146,16 @@
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example4_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example5_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example6_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test2.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test3.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test4.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test5.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test6.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test7.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test8.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test9.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test10.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test1.txt" />
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\LargeDataset_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersIncludedInAnother_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersWithACommonPart_in.txt" />

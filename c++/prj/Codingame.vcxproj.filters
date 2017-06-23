@@ -74,6 +74,9 @@
     <ClCompile Include="..\src\Common\GraphSearch.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\Teads.cpp">
+      <Filter>Medium\Teads</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -147,6 +150,9 @@
     </Filter>
     <Filter Include="Medium\SkyNetRevolutionEpisode1">
       <UniqueIdentifier>{df307b2e-bd83-4824-ba65-fb619c0022a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\Teads">
+      <UniqueIdentifier>{43a62bc8-db06-4547-9480-1abbaf1c48fb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +248,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Common\GraphSearch.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\Teads.h">
+      <Filter>Medium\Teads</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

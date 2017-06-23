@@ -98,6 +98,12 @@
     <ClCompile Include="..\src\Common\Graph.cpp">
       <Filter>Common</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\Teads.cpp">
+      <Filter>Medium\Teads</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\TeadsTest.cpp">
+      <Filter>Medium\Teads</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -184,6 +190,12 @@
     <Filter Include="Medium\DwarfsStandingOnTheShouldersOfGiants\DataFiles">
       <UniqueIdentifier>{81c66993-1f2c-4187-8e66-ddebf6087265}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium\Teads">
+      <UniqueIdentifier>{5ce36f06-f5ae-488b-b8c3-e9f633bea3f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\Teads\DataFiles">
+      <UniqueIdentifier>{bd1fd6f2-dff7-4ed1-aacb-c63bd8f4dc17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -242,6 +254,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Common\Graph.h">
       <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\Teads.h">
+      <Filter>Medium\Teads</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

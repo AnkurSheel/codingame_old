@@ -10,9 +10,7 @@ using namespace Teads;
 using namespace std;
 using namespace Common;
 
-cGraph graph(false);
-
-int GetMaxDepth(stGraphNode* const pStart)
+int GetMaxDepth(stGraphNode* const pStart, const cGraph& graph, int depthToSearch)
 {
   cCustom2DArray<bool> visited;
   visited.Init(graph.GetVertices().size(), 1);
@@ -20,21 +18,28 @@ int GetMaxDepth(stGraphNode* const pStart)
   {
     visited.SetElement(i, 0, false);
   }
-  list<cTreeNode<stGraphNode*>*> frontier;
+  stack<cTreeNode<stGraphNode*>*> frontier;
   cTreeNode<stGraphNode*>* pRoot = new cTreeNode<stGraphNode*>(nullptr, nullptr);
   cTreeNode<stGraphNode*>* pCurrent = pRoot->AddChild(pStart);
 
   int maxDepth = 0;
   int vertexIndex = graph.GetVertexIndex(pStart->GetData());
-  frontier.push_back(pCurrent);
+  frontier.push(pCurrent);
   visited.SetElement(vertexIndex, 0, true);
   while (!frontier.empty())
   {
-    pCurrent = frontier.front();
-    frontier.pop_front();
+    pCurrent = frontier.top();
+    frontier.pop();
     auto pGraphNode = pCurrent->GetData();
+    vertexIndex = graph.GetVertexIndex(pGraphNode->GetData());
+    visited.SetElement(vertexIndex, 0, true);
 
     int depth = pCurrent->GetDepth();
+    if (depthToSearch > 0 && pGraphNode->m_neighbours.size() > 0 && (depth) >= depthToSearch)
+    {
+      return std::numeric_limits<int>::max();
+    }
+
     if (maxDepth < depth)
     {
       maxDepth = depth;
@@ -42,12 +47,11 @@ int GetMaxDepth(stGraphNode* const pStart)
 
     for (auto iter = pGraphNode->m_neighbours.begin(); iter != pGraphNode->m_neighbours.end(); ++iter)
     {
-      int vertexIndex = graph.GetVertexIndex((*iter)->GetData());
+      vertexIndex = graph.GetVertexIndex((*iter)->GetData());
       if (!(visited.GetElement(vertexIndex, 0)))
       {
         auto pNode = pCurrent->AddChild(*iter);
-        frontier.push_back(pNode);
-        visited.SetElement(vertexIndex, 0, true);
+        frontier.push(pNode);
       }
     }
   }
@@ -58,6 +62,7 @@ int GetMaxDepth(stGraphNode* const pStart)
 
 void Teads::main()
 {
+  cGraph graph(false);
   int numberOfRelations;  // the number of adjacency relations
   cin >> numberOfRelations;
   cin.ignore();
@@ -72,11 +77,11 @@ void Teads::main()
   }
 
   auto startTime = Clock::now();
-  int minDepth = std::numeric_limits<int>::max();
+  int minDepth = -1;
   for (auto iter = graph.GetVertices().begin(); iter != graph.GetVertices().end(); iter++)
   {
-    int depth = GetMaxDepth((*iter));
-    if (depth < minDepth)
+    int depth = GetMaxDepth((*iter), graph, minDepth);
+    if (minDepth < 0 || depth < minDepth)
     {
       minDepth = depth;
     }

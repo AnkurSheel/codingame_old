@@ -14,9 +14,9 @@ class TeadsTest : public ::testing::Test
 
     Common::RedirectCout(outputstream);
 #if _DEBUG
-    maxDuration = 5.0f;
+    maxDuration = 50.0f;
 #else
-    maxDuration = 0.08f;
+    maxDuration = 0.5f;
 #endif  // _DEBUG
   }
 

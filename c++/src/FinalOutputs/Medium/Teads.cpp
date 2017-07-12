@@ -39,108 +39,6 @@ namespace Teads
 #endif // !Teads_H__
 
 
-#include <stack>
-#ifndef Custom2DArray_H__
-#define Custom2DArray_H__
-
-#include <cassert>
-#include <cstring>
-#include <iomanip>
-
-namespace Common
-{
-  template <class Type>
-  class cCustom2DArray
-  {
-  public:
-    cCustom2DArray();
-    ~cCustom2DArray();
-
-    void Init(int rows, int columns, bool reset = true);
-    const Type& GetElement(int row, int column) const;
-    Type& GetElement(int row, int column);
-    void SetElement(int row, int column, const Type& value);
-
-  private:
-    void Reset();
-    int GetIndex(int row, int column) const { return row * m_numberOfColumns + column; }
-    int GetSize() const { return m_numberOfRows * m_numberOfColumns; }
-
-  private:
-    Type* m_array;
-    int m_numberOfRows;
-    int m_numberOfColumns;
-  };
-
-  template <class Type>
-  cCustom2DArray<Type>::cCustom2DArray()
-    : m_array(nullptr)
-    , m_numberOfRows(0)
-    , m_numberOfColumns(0)
-  {
-  }
-
-  template <class Type>
-  cCustom2DArray<Type>::~cCustom2DArray()
-  {
-    delete[] m_array;
-    m_array = nullptr;
-  }
-
-  template <class Type>
-  void cCustom2DArray<Type>::Init(int rows, int columns, bool reset)
-  {
-    if (rows != m_numberOfRows || columns != m_numberOfColumns || !reset)
-    {
-      if (m_array != nullptr)
-      {
-        delete[] m_array;
-        m_array = nullptr;
-      }
-
-      m_numberOfRows = rows;
-      m_numberOfColumns = columns;
-
-      m_array = new Type[GetSize()];
-    }
-    if (reset)
-    {
-      Reset();
-    }
-  }
-
-  template <class Type>
-  const Type& cCustom2DArray<Type>::GetElement(int row, int column) const 
-  {
-    assert(row >= 0 && row < m_numberOfRows && column >= 0 && column < m_numberOfColumns);
-    return m_array[GetIndex(row, column)];
-  }
-
-  template <class Type>
-  Type& cCustom2DArray<Type>::GetElement(int row, int column)
-  {
-    assert(row >= 0 && row < m_numberOfRows && column >= 0 && column < m_numberOfColumns);
-    return m_array[GetIndex(row, column)];
-  }
-
-  template <class Type>
-  void cCustom2DArray<Type>::SetElement(int row, int column, const Type& value)
-  {
-    assert(row >= 0 && row < m_numberOfRows && column >= 0 && column < m_numberOfColumns);
-    m_array[GetIndex(row, column)] = value;
-  }
-
-  template <class Type>
-  void cCustom2DArray<Type>::Reset()
-  {
-    if (m_array != nullptr)
-    {
-      memset(m_array, -1, GetSize() * sizeof(Type));
-    }
-  }
-}
-#endif  // Custom2DArray_H__
-
 #ifndef Graph_H__
 #define Graph_H__
 
@@ -155,10 +53,11 @@ namespace Common
   struct stGraphNode
   {
   public:
-    stGraphNode(int data);
+    explicit stGraphNode(int data);
     int GetData() const { return m_data; }
     bool operator<(const stGraphNode& ref) const { return (ref.m_data < m_data); }
     bool operator==(const stGraphNode& ref) const { return (ref.m_data == m_data); }
+
   public:
     Neighbours m_neighbours;
 
@@ -176,13 +75,14 @@ namespace Common
   class cGraph
   {
   public:
-    cGraph(bool directed);
+    explicit cGraph(bool directed);
     ~cGraph();
     const Nodes& GetVertices() const { return m_vertices; }
     void AddEdge(int vertex1, int vertex2);
     void RemoveEdge(int vertex1, int vertex2);
     int GetVertexIndex(int data) const;
     stGraphNode* const GetVertex(int data);
+    void RemoveVertex(stGraphNode* pVertex);
 
   private:
     void AddVertexIfRequired(int data);
@@ -281,6 +181,21 @@ void cGraph::RemoveEdge(int vertex1, int vertex2)
   vertex2Node->m_neighbours.erase(vertex1Node);
 }
 
+void cGraph::RemoveVertex(stGraphNode* pVertex)
+{
+  for (auto neighbour : pVertex->m_neighbours)
+  {
+    neighbour->m_neighbours.erase(pVertex);
+    if (neighbour->m_neighbours.size() == 0)
+    {
+      RemoveVertex(neighbour);
+    }
+  }
+  pVertex->m_neighbours.clear();
+  m_vertices.erase(pVertex);
+  SafeDelete(&pVertex);
+}
+
 int cGraph::GetVertexIndex(int data) const
 {
   auto iter = std::find_if(m_vertices.begin(), m_vertices.end(),
@@ -289,130 +204,10 @@ int cGraph::GetVertexIndex(int data) const
   return distance(m_vertices.begin(), iter);
 }
 
-#ifndef _TREE_H
-#define _TREE_H
-#include <vector>
-
-namespace Common
-{
-  template <class T>
-  class cTreeNode
-  {
-  public:
-    cTreeNode(cTreeNode* const pParent, const T& data);
-    ~cTreeNode();
-    T GetData() const { return m_data; }
-    int GetDepth() const { return m_depth; }
-    cTreeNode* GetParent() const { return m_pParent; }
-    cTreeNode* const GetChild(const T& value) const;
-    cTreeNode* const AddChild(const T& value);
-
-  private:
-    T m_data;
-    int m_depth;
-    cTreeNode* m_pParent;
-    std::vector<cTreeNode*> m_children;
-  };
-
-  template <class T>
-  cTreeNode<T>::cTreeNode(cTreeNode* const pParent, const T& data)
-    : m_data(data)
-    , m_pParent(pParent)
-    , m_depth(0)
-  {
-    if (m_pParent != nullptr)
-    {
-      m_depth = m_pParent->GetDepth() + 1;
-    }
-  }
-
-  template <class T>
-  cTreeNode<T>::~cTreeNode()
-  {
-    for (auto iter = m_children.begin(); iter != m_children.end(); iter++)
-    {
-      SafeDelete(&(*iter));
-    }
-    m_pParent = nullptr;
-  }
-
-  template <class T>
-  cTreeNode<T>* const cTreeNode<T>::GetChild(const T& value) const
-  {
-    for (auto iter = m_children.begin(); iter != m_children.end(); iter++)
-    {
-      if ((*iter)->m_data == value)
-      {
-        return *iter;
-      }
-    }
-    return nullptr;
-  }
-
-  template <class T>
-  cTreeNode<T>* const cTreeNode<T>::AddChild(const T& value)
-  {
-    cTreeNode* pNode = new cTreeNode(this, value);
-    m_children.push_back(pNode);
-    return pNode;
-  }
-}
-#endif  // !_TREE_H
-
 
 using namespace Teads;
 using namespace std;
 using namespace Common;
-
-int GetMaxDepth(stGraphNode* const pStart, const cGraph& graph, int depthToSearch)
-{
-  cCustom2DArray<bool> visited;
-  visited.Init(graph.GetVertices().size(), 1);
-  for (int i = 0; i < graph.GetVertices().size(); i++)
-  {
-    visited.SetElement(i, 0, false);
-  }
-  stack<cTreeNode<stGraphNode*>*> frontier;
-  cTreeNode<stGraphNode*>* pRoot = new cTreeNode<stGraphNode*>(nullptr, nullptr);
-  cTreeNode<stGraphNode*>* pCurrent = pRoot->AddChild(pStart);
-
-  int maxDepth = 0;
-  int vertexIndex = graph.GetVertexIndex(pStart->GetData());
-  frontier.push(pCurrent);
-  visited.SetElement(vertexIndex, 0, true);
-  while (!frontier.empty())
-  {
-    pCurrent = frontier.top();
-    frontier.pop();
-    auto pGraphNode = pCurrent->GetData();
-    vertexIndex = graph.GetVertexIndex(pGraphNode->GetData());
-    visited.SetElement(vertexIndex, 0, true);
-
-    int depth = pCurrent->GetDepth();
-    if (depthToSearch > 0 && pGraphNode->m_neighbours.size() > 0 && (depth) >= depthToSearch)
-    {
-      return std::numeric_limits<int>::max();
-    }
-
-    if (maxDepth < depth)
-    {
-      maxDepth = depth;
-    }
-
-    for (auto iter = pGraphNode->m_neighbours.begin(); iter != pGraphNode->m_neighbours.end(); ++iter)
-    {
-      vertexIndex = graph.GetVertexIndex((*iter)->GetData());
-      if (!(visited.GetElement(vertexIndex, 0)))
-      {
-        auto pNode = pCurrent->AddChild(*iter);
-        frontier.push(pNode);
-      }
-    }
-  }
-
-  SafeDelete(&pRoot);
-  return maxDepth;
-}
 
 void Teads::main()
 {
@@ -430,20 +225,30 @@ void Teads::main()
     graph.AddEdge(id1, id2);
   }
 
-  auto startTime = Clock::now();
-  int minDepth = -1;
-  for (auto iter = graph.GetVertices().begin(); iter != graph.GetVertices().end(); iter++)
+  // use leaf removal algorithm to get center of tree
+  int depth = 0;
+  list<stGraphNode*> deletedNodes;
+  while (graph.GetVertices().size() > 0)
   {
-    int depth = GetMaxDepth((*iter), graph, minDepth);
-    if (minDepth < 0 || depth < minDepth)
+    deletedNodes.clear();
+    for (auto pGraphNode : graph.GetVertices())
     {
-      minDepth = depth;
+      if (pGraphNode->m_neighbours.size() <= 1)
+      {
+        deletedNodes.push_back(pGraphNode);
+      }
+    }
+
+    if (deletedNodes.size() > 0)
+    {
+      depth++;
+      for (auto deletedNode : deletedNodes)
+      {
+        graph.RemoveVertex(deletedNode);
+      }
     }
   }
-  auto endTime = Clock::now();
-  FpSeconds duration = endTime - startTime;
-  // DEBUGPRINT("Time taken: %f\n", duration.count());
-  cout << (minDepth - 1) << endl;
+  cout << depth << endl;
 }
 
 

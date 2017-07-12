@@ -18,6 +18,7 @@ namespace Common
     const Type& GetElement(int row, int column) const;
     Type& GetElement(int row, int column);
     void SetElement(int row, int column, const Type& value);
+    void Reset(const Type& value);
 
   private:
     void Reset();
@@ -68,7 +69,7 @@ namespace Common
   }
 
   template <class Type>
-  const Type& cCustom2DArray<Type>::GetElement(int row, int column) const 
+  const Type& cCustom2DArray<Type>::GetElement(int row, int column) const
   {
     assert(row >= 0 && row < m_numberOfRows && column >= 0 && column < m_numberOfColumns);
     return m_array[GetIndex(row, column)];
@@ -86,6 +87,19 @@ namespace Common
   {
     assert(row >= 0 && row < m_numberOfRows && column >= 0 && column < m_numberOfColumns);
     m_array[GetIndex(row, column)] = value;
+  }
+
+  template <class Type>
+  void cCustom2DArray<Type>::Reset(const Type& value)
+  {
+    if (m_array != nullptr)
+    {
+      int size = GetSize();
+      for (int i = 0; i < size; ++i)
+      {
+        m_array[i] = value;
+      }
+    }
   }
 
   template <class Type>

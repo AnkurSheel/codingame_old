@@ -62,6 +62,26 @@ void cGraph::RemoveEdge(int vertex1, int vertex2)
   vertex2Node->m_neighbours.erase(vertex1Node);
 }
 
+void cGraph::RemoveVertex(stGraphNode* pVertex)
+{
+  if (m_vertices.find(pVertex) == m_vertices.end())
+  {
+    return;
+  }
+
+  for (auto neighbour : pVertex->m_neighbours)
+  {
+    neighbour->m_neighbours.erase(pVertex);
+    if (neighbour->m_neighbours.size() == 0)
+    {
+      RemoveVertex(neighbour);
+    }
+  }
+  pVertex->m_neighbours.clear();
+  m_vertices.erase(pVertex);
+  SafeDelete(&pVertex);
+}
+
 int cGraph::GetVertexIndex(int data) const
 {
   auto iter = std::find_if(m_vertices.begin(), m_vertices.end(),

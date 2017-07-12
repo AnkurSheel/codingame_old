@@ -12,10 +12,11 @@ namespace Common
   struct stGraphNode
   {
   public:
-    stGraphNode(int data);
+    explicit stGraphNode(int data);
     int GetData() const { return m_data; }
     bool operator<(const stGraphNode& ref) const { return (ref.m_data < m_data); }
     bool operator==(const stGraphNode& ref) const { return (ref.m_data == m_data); }
+
   public:
     Neighbours m_neighbours;
 
@@ -33,13 +34,14 @@ namespace Common
   class cGraph
   {
   public:
-    cGraph(bool directed);
+    explicit cGraph(bool directed);
     ~cGraph();
     const Nodes& GetVertices() const { return m_vertices; }
     void AddEdge(int vertex1, int vertex2);
     void RemoveEdge(int vertex1, int vertex2);
     int GetVertexIndex(int data) const;
     stGraphNode* const GetVertex(int data);
+    void RemoveVertex(stGraphNode* pVertex);
 
   private:
     void AddVertexIfRequired(int data);

@@ -33,6 +33,7 @@
     <ClCompile Include="..\src\Medium\MayanCalculation.cpp" />
     <ClCompile Include="..\src\Medium\Scrabble.cpp" />
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
+    <ClCompile Include="..\src\Medium\Teads.cpp" />
     <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\War.cpp" />
@@ -49,6 +50,7 @@
     <ClCompile Include="..\tests\Medium\MayanCalculationTest.cpp" />
     <ClCompile Include="..\tests\Medium\ScrabbleTest.cpp" />
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
+    <ClCompile Include="..\tests\Medium\TeadsTest.cpp" />
     <ClCompile Include="..\tests\Medium\TelephoneNumbersTest.cpp" />
     <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
     <ClCompile Include="..\tests\Medium\WarTest.cpp" />
@@ -70,6 +72,7 @@
     <ClInclude Include="..\src\Medium\MayanCalculation.h" />
     <ClInclude Include="..\src\Medium\Scrabble.h" />
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
+    <ClInclude Include="..\src\Medium\Teads.h" />
     <ClInclude Include="..\src\Medium\TelephoneNumbers.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
     <ClInclude Include="..\src\Medium\War.h" />
@@ -143,6 +146,16 @@
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example4_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example5_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\StockExchangeLosses\Example6_in.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test2.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test3.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test4.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test5.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test6.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test7.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test8.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test9.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test10.txt" />
+    <Text Include="..\tests\DataFiles\Medium\Teads\Test1.txt" />
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\LargeDataset_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersIncludedInAnother_in.txt" />
     <Text Include="..\tests\DataFiles\Medium\TelephoneNumbers\NumbersWithACommonPart_in.txt" />

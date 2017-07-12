@@ -12,12 +12,14 @@ namespace Common
     cTreeNode(cTreeNode* const pParent, const T& data);
     ~cTreeNode();
     T GetData() const { return m_data; }
+    int GetDepth() const { return m_depth; }
     cTreeNode* GetParent() const { return m_pParent; }
     cTreeNode* const GetChild(const T& value) const;
     cTreeNode* const AddChild(const T& value);
 
   private:
     T m_data;
+    int m_depth;
     cTreeNode* m_pParent;
     std::vector<cTreeNode*> m_children;
   };
@@ -26,7 +28,12 @@ namespace Common
   cTreeNode<T>::cTreeNode(cTreeNode* const pParent, const T& data)
     : m_data(data)
     , m_pParent(pParent)
+    , m_depth(0)
   {
+    if (m_pParent != nullptr)
+    {
+      m_depth = m_pParent->GetDepth() + 1;
+    }
   }
 
   template <class T>
@@ -34,7 +41,7 @@ namespace Common
   {
     for (auto iter = m_children.begin(); iter != m_children.end(); iter++)
     {
-      SafeDelete(*iter);
+      SafeDelete(&(*iter));
     }
     m_pParent = nullptr;
   }

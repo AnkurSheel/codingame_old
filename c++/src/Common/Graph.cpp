@@ -64,6 +64,11 @@ void cGraph::RemoveEdge(int vertex1, int vertex2)
 
 void cGraph::RemoveVertex(stGraphNode* pVertex)
 {
+  if (m_vertices.find(pVertex) == m_vertices.end())
+  {
+    return;
+  }
+
   for (auto neighbour : pVertex->m_neighbours)
   {
     neighbour->m_neighbours.erase(pVertex);

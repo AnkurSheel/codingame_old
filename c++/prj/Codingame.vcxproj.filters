@@ -77,6 +77,9 @@
     <ClCompile Include="..\src\Medium\Teads.cpp">
       <Filter>Medium\Teads</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Medium\TheLastCrusadeEpisode1.cpp">
+      <Filter>Medium\TheLastCrusadeEpisode1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -153,6 +156,9 @@
     </Filter>
     <Filter Include="Medium\Teads">
       <UniqueIdentifier>{43a62bc8-db06-4547-9480-1abbaf1c48fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Medium\TheLastCrusadeEpisode1">
+      <UniqueIdentifier>{2cde86a1-d254-4d82-9fd0-1c3473827486}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -251,6 +257,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\Teads.h">
       <Filter>Medium\Teads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\TheLastCrusadeEpisode1.h">
+      <Filter>Medium\TheLastCrusadeEpisode1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

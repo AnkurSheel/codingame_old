@@ -22,6 +22,7 @@
     <ClCompile Include="..\src\Common\Graph.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
+    <ClCompile Include="..\src\Common\StringHelpers.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
     <ClCompile Include="..\src\Easy\ChuckNorris.cpp" />
     <ClCompile Include="..\src\Easy\Defibrillators.cpp" />
@@ -35,6 +36,7 @@
     <ClCompile Include="..\src\Medium\StockExchangeLosses.cpp" />
     <ClCompile Include="..\src\Medium\Teads.cpp" />
     <ClCompile Include="..\src\Medium\TelephoneNumbers.cpp" />
+    <ClCompile Include="..\src\Medium\TheLastCrusadeEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\ThereIsNoSpoonEpisode1.cpp" />
     <ClCompile Include="..\src\Medium\War.cpp" />
     <ClCompile Include="..\tests\Common\HexCubeCoordinateTest.cpp" />
@@ -52,6 +54,7 @@
     <ClCompile Include="..\tests\Medium\StockExchangeLossesTest.cpp" />
     <ClCompile Include="..\tests\Medium\TeadsTest.cpp" />
     <ClCompile Include="..\tests\Medium\TelephoneNumbersTest.cpp" />
+    <ClCompile Include="..\tests\Medium\TheLastCrusadeEpisode1Test.cpp" />
     <ClCompile Include="..\tests\Medium\ThereIsNoSpoonEpisode1Test.cpp" />
     <ClCompile Include="..\tests\Medium\WarTest.cpp" />
   </ItemGroup>
@@ -61,6 +64,7 @@
     <ClInclude Include="..\src\Common\Graph.h" />
     <ClInclude Include="..\src\Common\HexCubeCoordinate.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
+    <ClInclude Include="..\src\Common\StringHelpers.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />
     <ClInclude Include="..\src\Easy\ChuckNorris.h" />
     <ClInclude Include="..\src\Easy\Defibrillators.h" />
@@ -74,6 +78,7 @@
     <ClInclude Include="..\src\Medium\StockExchangeLosses.h" />
     <ClInclude Include="..\src\Medium\Teads.h" />
     <ClInclude Include="..\src\Medium\TelephoneNumbers.h" />
+    <ClInclude Include="..\src\Medium\TheLastCrusadeEpisode1.h" />
     <ClInclude Include="..\src\Medium\ThereIsNoSpoonEpisode1.h" />
     <ClInclude Include="..\src\Medium\War.h" />
   </ItemGroup>

@@ -1,8 +1,10 @@
 #include "Defibrillators.h"
 #include <vector>
 #include "../Common/Includes.h"
+#include "../Common/StringHelpers.h"
 
 using namespace std;
+using namespace Common;
 
 struct DefibrillatorInfo
 {
@@ -11,29 +13,6 @@ struct DefibrillatorInfo
   double latitude;
 };
 
-//  *******************************************************************************************************************
-void Tokenize(const string& stringToTokenize, const string& delimiters, vector<string>& parts)
-{
-  size_t iStartIndex = 0;
-  size_t nextIndex;
-  while (iStartIndex < stringToTokenize.length())
-  {
-    nextIndex = stringToTokenize.find_first_of(delimiters, iStartIndex);
-    if (nextIndex == string::npos)
-    {
-      nextIndex = stringToTokenize.length();
-    }
-    if (iStartIndex != nextIndex)
-    {
-      parts.push_back(stringToTokenize.substr(iStartIndex, nextIndex - iStartIndex));
-    }
-    else
-    {
-      parts.push_back("");
-    }
-    iStartIndex = nextIndex + 1;
-  }
-}
 
 //  *******************************************************************************************************************
 double ConvertToDecimal(string decimalString)
@@ -49,7 +28,7 @@ void ParseInfo(string defibrillator, DefibrillatorInfo& info)
 {
   cerr << defibrillator << endl;
   vector<string> parts;
-  Tokenize(defibrillator, ";", parts);
+  cStringHelpers::Tokenize(defibrillator, ";", parts);
   info.name = parts[1];
   info.longitude = ConvertToDecimal(parts[4]);
   info.latitude = ConvertToDecimal(parts[5]);

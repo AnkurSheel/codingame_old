@@ -161,6 +161,7 @@
     <ClCompile Include="..\src\Common\GraphSearch.cpp" />
     <ClCompile Include="..\src\Common\HexCubeCoordinate.cpp" />
     <ClCompile Include="..\src\Common\RedirectIO.cpp" />
+    <ClCompile Include="..\src\Common\StringHelpers.cpp" />
     <ClCompile Include="..\src\Easy\AsciiArt.cpp" />
     <ClCompile Include="..\src\Easy\ChuckNorris.cpp" />
     <ClCompile Include="..\src\Easy\Defibrillators.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="..\src\Common\MemoryUtils.h" />
     <ClInclude Include="..\src\Common\Point.h" />
     <ClInclude Include="..\src\Common\RedirectIO.h" />
+    <ClInclude Include="..\src\Common\StringHelpers.h" />
     <ClInclude Include="..\src\Common\Tree.h" />
     <ClInclude Include="..\src\Common\Utils.h" />
     <ClInclude Include="..\src\Easy\AsciiArt.h" />

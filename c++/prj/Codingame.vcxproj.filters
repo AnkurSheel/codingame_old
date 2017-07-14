@@ -80,6 +80,9 @@
     <ClCompile Include="..\src\Medium\TheLastCrusadeEpisode1.cpp">
       <Filter>Medium\TheLastCrusadeEpisode1</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Common\StringHelpers.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -260,6 +263,9 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\TheLastCrusadeEpisode1.h">
       <Filter>Medium\TheLastCrusadeEpisode1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\StringHelpers.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

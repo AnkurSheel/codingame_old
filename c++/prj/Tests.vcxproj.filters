@@ -104,6 +104,15 @@
     <ClCompile Include="..\tests\Medium\TeadsTest.cpp">
       <Filter>Medium\Teads</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Common\StringHelpers.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Medium\TheLastCrusadeEpisode1.cpp">
+      <Filter>Medium\TheLastCrusadeEpisode1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\tests\Medium\TheLastCrusadeEpisode1Test.cpp">
+      <Filter>Medium\TheLastCrusadeEpisode1</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">
@@ -196,6 +205,9 @@
     <Filter Include="Medium\Teads\DataFiles">
       <UniqueIdentifier>{bd1fd6f2-dff7-4ed1-aacb-c63bd8f4dc17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Medium\TheLastCrusadeEpisode1">
+      <UniqueIdentifier>{421dac15-8f93-46c7-98c3-d03725e1ab0c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Common\RedirectIO.h">
@@ -257,6 +269,12 @@
     </ClInclude>
     <ClInclude Include="..\src\Medium\Teads.h">
       <Filter>Medium\Teads</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Common\StringHelpers.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Medium\TheLastCrusadeEpisode1.h">
+      <Filter>Medium\TheLastCrusadeEpisode1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

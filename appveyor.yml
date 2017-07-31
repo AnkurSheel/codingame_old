@@ -1,4 +1,5 @@
 version: 0.0.{build}
+image: Visual Studio 2017
 environment:
   APPVEYOR_RDP_PASSWORD:
     secure: Pa24rtLE52cMBdNE8d8IlQ==
@@ -15,8 +16,8 @@ environment:
 #    - '**/*.yml'
 install:
 - cmd: git submodule update --init --recursive
-before_build:
-- cmd: del "C:\Program Files (x86)\MSBuild\14.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets"
+#before_build:
+#- cmd: del "C:\Program Files (x86)\MSBuild\15.0\Microsoft.Common.targets\ImportAfter\Xamarin.Common.targets"
 build:
   project: c++/prj/Codingame.sln
   parallel: true

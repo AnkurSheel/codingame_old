@@ -9,5 +9,5 @@ log.*
 *.pdb
 *.idb
 *.opendb
-*.db
+*.db*
 c++/prj/x64/

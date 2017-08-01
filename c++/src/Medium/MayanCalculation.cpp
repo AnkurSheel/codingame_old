@@ -42,7 +42,7 @@ void MayanCalculation::main()
   cin >> operation;
   cin.ignore();
 
-  ll result;
+  ll result = 0;
   if (operation == "+")
   {
     result = firstNumber + secondNumber;

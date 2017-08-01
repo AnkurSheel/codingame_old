@@ -44,7 +44,7 @@ void Common::cGraphSearch::BreadthFirstSearch(stGraphNode* const start, stGraphN
     }
     for (auto iter = pGraphNode->m_neighbours.begin(); iter != pGraphNode->m_neighbours.end(); ++iter)
     {
-      int vertexIndex = m_pGraph->GetVertexIndex((*iter)->GetData());
+      vertexIndex = m_pGraph->GetVertexIndex((*iter)->GetData());
       if (!(pVisited.GetElement(vertexIndex, 0)))
       {
         auto pNode = pCurrent->AddChild(*iter);

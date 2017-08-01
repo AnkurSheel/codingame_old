@@ -38,11 +38,9 @@ void SkyNetRevolutionEpisode1::main()
   }
   
   cGraphSearch search(&graph);
-  std::list<stGraphNode*> bestPath;
-  int vertex1 = 0;
-  int vertex2 = 0;
-  
-  while (1)
+  list<stGraphNode*> bestPath;
+
+  while (true)
   {
     int skyNetNodeIndex;  // The index of the node on which the Skynet agent is positioned this turn
     cin >> skyNetNodeIndex;
@@ -50,7 +48,7 @@ void SkyNetRevolutionEpisode1::main()
     DEBUGPRINTSTDIN("%d\n", skyNetNodeIndex);
 
     bestPath.clear();
-    int shortestPathCount = numeric_limits<int>::max();
+    size_t shortestPathCount = numeric_limits<size_t>::max();
     for (int i = 0; i < numberOfExits; i++)
     {
       std::list<stGraphNode*> path;
@@ -58,16 +56,16 @@ void SkyNetRevolutionEpisode1::main()
                                 path);
       
       if (path.size() > 0 && path.size() < shortestPathCount)
-      {
+      { 
         bestPath = path;
         shortestPathCount = path.size();
       }
     }
 
     auto iter = bestPath.begin();
-    vertex1 = (*iter)->GetData();
+    int vertex1 = (*iter)->GetData();
     ++iter;
-    vertex2 = (*iter)->GetData();
+    int vertex2 = (*iter)->GetData();
     graph.RemoveEdge(vertex1, vertex2);
     cout << vertex1 << " " << vertex2 << endl;
   }

@@ -25,9 +25,9 @@ void TelephoneNumbers::main()
 
     pCurrentNode = pRoot;
 
-    for (int i = 0; i < telephone.length(); i++)
+    for (int j = 0; j < telephone.length(); j++)
     {
-      int digit = telephone[i] - '0';
+      int digit = telephone[j] - '0';
       pTempNode = pCurrentNode->GetChild(digit);
       if (pTempNode == nullptr)
       {

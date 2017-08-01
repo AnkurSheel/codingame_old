@@ -99,5 +99,7 @@ int Scrabble::GetPoints(char c)
     case 'q':
     case 'z':
       return 10;
+  default: 
+    return 0;
   };
 }

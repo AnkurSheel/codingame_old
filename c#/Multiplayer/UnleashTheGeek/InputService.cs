@@ -10,7 +10,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 			string[] inputs;
 			inputs = Console.ReadLine().Split(' ');
 			Constants.Width = int.Parse(inputs[0]);
-			Constants.Height= int.Parse(inputs[1]);
+			Constants.Height = int.Parse(inputs[1]);
 			// size of the map
 		}
 
@@ -18,7 +18,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		{
 			var game = new Game();
 			var inputs = Console.ReadLine().Split(' ');
-			
+
 			game.Players[0].Score = int.Parse(inputs[0]); // Amount of ore delivered
 			game.Players[1].Score = int.Parse(inputs[1]);
 			for (var i = 0; i < Constants.Height; i++)
@@ -28,7 +28,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 				{
 					var ore = inputs[2 * j]; // amount of ore or "?" if unknown
 					var hole = int.Parse(inputs[2 * j + 1]); // 1 if cell has a hole
-					game.Board[j,i].Update(hole == 1, ore);
+					game.Board[j, i].Update(hole == 1, ore);
 				}
 			}
 
@@ -36,7 +36,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
 			game.Players[0].RadarCooldown = int.Parse(inputs[1]); // turns left until a new radar can be requested
 			game.Players[0].TrapCooldown = int.Parse(inputs[2]); // turns left until a new trap can be requested
-			
+
 			for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');

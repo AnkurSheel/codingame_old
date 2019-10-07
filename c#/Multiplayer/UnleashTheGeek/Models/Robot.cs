@@ -6,15 +6,17 @@
 		RADAR = 2,
 		TRAP = 3,
 		ORE = 4
-
 	}
+
 	public class Robot
 	{
 		public int Id;
 		public Coordinate Position;
 		public RobotItem Item;
-		
-		
+
+		public bool HasOre => Item == RobotItem.ORE;
+
+
 		public Robot(int id, int x, int y, int item)
 		{
 			Id = id;
@@ -22,6 +24,5 @@
 
 			Item = (RobotItem) item;
 		}
-
 	}
 }

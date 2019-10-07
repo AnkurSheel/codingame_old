@@ -1,8 +1,11 @@
-﻿namespace Codingame.Multiplayer.UnleashTheGeek
+﻿using System;
+
+namespace Codingame.Multiplayer.UnleashTheGeek
 {
 	public static class Constants
 	{
 		public static int Height;
 		public static int Width;
+		public static Random RND = new Random(100);
 	}
 }

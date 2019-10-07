@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Codingame.Multiplayer.UnleashTheGeek.Actions;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 
@@ -15,14 +16,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 
 		public List<IAction> Think()
 		{
-			return new List<IAction>
-				{
-					new WaitAction(),
-					new WaitAction(),
-					new WaitAction(),
-					new WaitAction(),
-					new WaitAction()
-				};
+			return _game.Players[0].Robots.Select(r => new RandomDigAction(r, _game)).OfType<IAction>().ToList();
 		}
 	}
 }

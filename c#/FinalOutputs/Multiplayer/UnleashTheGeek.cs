@@ -1,18 +1,13 @@
 using System;
-using System;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
-using System;
 using Codingame.Multiplayer.UnleashTheGeek;
 using System.Collections.Generic;
+using System.Linq;
 using Codingame.Multiplayer.UnleashTheGeek.Actions;
-using Codingame.Multiplayer.UnleashTheGeek.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Collections.Generic;
 
 
- // 08/10/2019 10:58
+ // 08/10/2019 11:40
+
 
 namespace Codingame.Multiplayer.UnleashTheGeek
 {
@@ -20,6 +15,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 	{
 		public static int Height;
 		public static int Width;
+		public static Random RND = new Random(100);
 	}
 }
 
@@ -52,7 +48,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 			string[] inputs;
 			inputs = Console.ReadLine().Split(' ');
 			Constants.Width = int.Parse(inputs[0]);
-			Constants.Height= int.Parse(inputs[1]);
+			Constants.Height = int.Parse(inputs[1]);
 			// size of the map
 		}
 
@@ -60,7 +56,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		{
 			var game = new Game();
 			var inputs = Console.ReadLine().Split(' ');
-			
+
 			game.Players[0].Score = int.Parse(inputs[0]); // Amount of ore delivered
 			game.Players[1].Score = int.Parse(inputs[1]);
 			for (var i = 0; i < Constants.Height; i++)
@@ -70,7 +66,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 				{
 					var ore = inputs[2 * j]; // amount of ore or "?" if unknown
 					var hole = int.Parse(inputs[2 * j + 1]); // 1 if cell has a hole
-					game.Board[j,i].Update(hole == 1, ore);
+					game.Board[j, i].Update(hole == 1, ore);
 				}
 			}
 
@@ -78,7 +74,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
 			game.Players[0].RadarCooldown = int.Parse(inputs[1]); // turns left until a new radar can be requested
 			game.Players[0].TrapCooldown = int.Parse(inputs[2]); // turns left until a new trap can be requested
-			
+
 			for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');
@@ -142,14 +138,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 
 		public List<IAction> Think()
 		{
-			return new List<IAction>
-				{
-					new WaitAction(),
-					new WaitAction(),
-					new WaitAction(),
-					new WaitAction(),
-					new WaitAction()
-				};
+			return _game.Players[0].Robots.Select(r => new RandomDigAction(r, _game)).OfType<IAction>().ToList();
 		}
 	}
 }
@@ -159,17 +148,51 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 	{
 		void Apply();
 		string GetOutput();
-
 	}
 }
 
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+{
+	public class RandomDigAction : IAction
+	{
+		readonly Robot _robot;
+		readonly Game _game;
+
+		public RandomDigAction(Robot robot, Game game)
+		{
+			_robot = robot;
+			_game = game;
+		}
+
+		public void Apply()
+		{
+			throw new NotImplementedException();
+		}
+
+		public string GetOutput()
+		{
+			if (_robot.HasOre)
+			{
+				return "MOVE 0 " + _robot.Position.Y;
+			}
+
+			if (_robot.Position.X > 10)
+			{
+				var tile = _game.GetTile(_robot.Position);
+				var digLocation = tile.NeighBours[Constants.RND.Next(0, tile.NeighBours.Count)];
+				return "DIG " + digLocation.Position.X + " " + digLocation.Position.Y;
+			}
+
+			return "MOVE " + Constants.RND.Next(4, Constants.Width) + " " + Constants.RND.Next(1, Constants.Height - 2);
+		}
+	}
+}
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
 	public class WaitAction : IAction
 	{
 		public void Apply()
 		{
-			
 		}
 
 		public string GetOutput()
@@ -184,6 +207,8 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 	{
 		public Player[] Players = {new Player(), new Player()};
 		public Tile[,] Board = new Tile[Constants.Width, Constants.Height];
+		public static int[] dx = {0, 0, -1, 1};
+		public static int[] dy = {-1, 1, 0, 0};
 
 		public Game()
 		{
@@ -191,9 +216,45 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 			{
 				for (var y = 0; y < Constants.Height; y++)
 				{
-					Board[x, y] = new Tile(x,y);
+					Board[x, y] = new Tile(x, y);
 				}
 			}
+
+			for (var x = 0; x < Constants.Width; x++)
+			{
+				for (var y = 0; y < Constants.Height; y++)
+				{
+					FindNeighbours(Board[x, y]);
+				}
+			}
+		}
+
+		public Tile GetTile(Coordinate position)
+		{
+			return Board[position.X, position.Y];
+		}
+
+		void FindNeighbours(Tile tile)
+		{
+			for (var i = 0; i < 4; i++)
+			{
+				var x = tile.Position.X + dx[i];
+				var y = tile.Position.Y + dy[i];
+				if (OnBoard(x, y))
+				{
+					tile.NeighBours.Add(Board[x, y]);
+				}
+			}
+		}
+
+		bool OnBoard(int x, int y)
+		{
+			return x >= 0 && x < Constants.Width && y >= 0 && y < Constants.Height;
+		}
+
+		bool OnBoard(Coordinate position)
+		{
+			return OnBoard(position.X, position.Y);
 		}
 	}
 }
@@ -217,15 +278,17 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		RADAR = 2,
 		TRAP = 3,
 		ORE = 4
-
 	}
+
 	public class Robot
 	{
 		public int Id;
 		public Coordinate Position;
 		public RobotItem Item;
-		
-		
+
+		public bool HasOre => Item == RobotItem.ORE;
+
+
 		public Robot(int id, int x, int y, int item)
 		{
 			Id = id;
@@ -233,9 +296,9 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 
 			Item = (RobotItem) item;
 		}
-
 	}
 }
+
 namespace Codingame.Multiplayer.UnleashTheGeek.Models
 {
 	public class Tile
@@ -245,11 +308,13 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public bool HasTrap;
 		public bool IsSeen;
 		public Coordinate Position;
+		public List<Tile> NeighBours = new List<Tile>();
 
 		public Tile(int x, int y)
 		{
 			Position = new Coordinate(x, y);
 		}
+
 		public void Update(bool hole, string ore)
 		{
 			if (!ore.Equals("?"))

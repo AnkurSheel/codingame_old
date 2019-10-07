@@ -4,6 +4,5 @@
 	{
 		void Apply();
 		string GetOutput();
-
 	}
 }

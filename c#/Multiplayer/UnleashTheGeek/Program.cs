@@ -12,9 +12,11 @@ class Player
 		{
 			var game = InputService.ReadGame();
 
+			var output = new ReactAgent(game).Think();
+
 			for (var i = 0; i < 5; i++)
 			{
-				Console.WriteLine("WAIT"); // WAIT|MOVE x y|DIG x y|REQUEST item
+				Console.WriteLine(output[i].GetOutput()); // WAIT|MOVE x y|DIG x y|REQUEST item
 			}
 		}
 	}

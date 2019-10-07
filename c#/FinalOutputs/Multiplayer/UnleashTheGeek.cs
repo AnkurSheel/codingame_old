@@ -4,9 +4,15 @@ using Codingame.Multiplayer.UnleashTheGeek.Models;
 using System;
 using Codingame.Multiplayer.UnleashTheGeek;
 using System.Collections.Generic;
+using Codingame.Multiplayer.UnleashTheGeek.Actions;
+using Codingame.Multiplayer.UnleashTheGeek.Models;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Collections.Generic;
 
 
- // 08/10/2019 10:48
+ // 08/10/2019 10:58
 
 namespace Codingame.Multiplayer.UnleashTheGeek
 {
@@ -113,10 +119,62 @@ class Player
 		{
 			var game = InputService.ReadGame();
 
+			var output = new ReactAgent(game).Think();
+
 			for (var i = 0; i < 5; i++)
 			{
-				Console.WriteLine("WAIT"); // WAIT|MOVE x y|DIG x y|REQUEST item
+				Console.WriteLine(output[i].GetOutput()); // WAIT|MOVE x y|DIG x y|REQUEST item
 			}
+		}
+	}
+}
+
+namespace Codingame.Multiplayer.UnleashTheGeek
+{
+	public class ReactAgent
+	{
+		readonly Game _game;
+
+		public ReactAgent(Game game)
+		{
+			_game = game;
+		}
+
+		public List<IAction> Think()
+		{
+			return new List<IAction>
+				{
+					new WaitAction(),
+					new WaitAction(),
+					new WaitAction(),
+					new WaitAction(),
+					new WaitAction()
+				};
+		}
+	}
+}
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+{
+	public interface IAction
+	{
+		void Apply();
+		string GetOutput();
+
+	}
+}
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+{
+	public class WaitAction : IAction
+	{
+		public void Apply()
+		{
+			
+		}
+
+		public string GetOutput()
+		{
+			return "WAIT";
 		}
 	}
 }

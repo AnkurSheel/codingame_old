@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Codingame", "Codingame.csproj", "{E9D399E5-968E-42DA-B539-5C8991B32A79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B37AC4C-4C24-4E5E-939E-F2150B740212}"
+	ProjectSection(SolutionItems) = preProject
+		FinalOutputs\Multiplayer\UnleashTheGeek.cs = FinalOutputs\Multiplayer\UnleashTheGeek.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9D399E5-968E-42DA-B539-5C8991B32A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9D399E5-968E-42DA-B539-5C8991B32A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9D399E5-968E-42DA-B539-5C8991B32A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9D399E5-968E-42DA-B539-5C8991B32A79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE0D4F9B-BF73-42F6-92B3-29041D3C47A1}
+	EndGlobalSection
+EndGlobal

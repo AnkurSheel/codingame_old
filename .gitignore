@@ -11,3 +11,5 @@ log.*
 *.opendb
 *.db*
 c++/prj/x64/
+/c#/.vs/
+/c#/obj/

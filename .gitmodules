@@ -7,3 +7,6 @@
 [submodule "DebuggerVisualisers"]
 	path = DebuggerVisualisers
 	url = https://github.com/AnkurSheel/DebuggerVisualisers.git
+[submodule "ExternalHelpers/CombineFilesCsharp"]
+	path = ExternalHelpers/CombineFilesCsharp
+	url = https://github.com/AnkurSheel/CombineFilesCsharp.git

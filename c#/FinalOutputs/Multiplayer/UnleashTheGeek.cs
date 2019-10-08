@@ -10,7 +10,7 @@ using System.Diagnostics;
 using Codingame.Multiplayer.UnleashTheGeek.a;
 
 
- // 09/10/2019 09:08
+ // 09/10/2019 10:17
 
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -21,8 +21,9 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		public static int Width;
 		public static Random RND = new Random(100);
 		public static int SimulationDepth = 20;
-		public static int SearchDepth = 20;
-	}
+		public static int SearchDepth = 10;
+        public static int MinVisibleOreTilesForRadar = 15;
+    }
 }
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -240,115 +241,134 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Agents
 {
-	public class MCAgent
-	{
-		readonly Game _game;
-		readonly List<Robot> _robots;
+    public class MCAgent
+    {
+        readonly Game _game;
 
-		public MCAgent(Game game)
-		{
-			_game = game;
-			_robots = _game.Players[0].Robots;
-		}
+        readonly List<Robot> _robots;
 
-		public List<IAction> Think()
-		{
-			var output = new IAction[5];
-			output[0] = new PlaceRadarAction(_game.Players[0].Robots[0], _game);
-			var noActionRobots = new List<Robot>();
-			for (var i = 1; i < 5; i++)
-			{
-				var robot = _robots[i];
-				if (robot.HasOre || _game.OreTiles.Count == 0 || robot.IsDead)
-				{
-					output[i] = new DigClosestAction(robot, _game);
-				}
-				else
-				{
-					noActionRobots.Add(robot);
-				}
-			}
+        public MCAgent(Game game)
+        {
+            _game = game;
+            _robots = _game.Players[0].Robots;
+        }
 
-			if (noActionRobots.Any())
-			{
-				var actions = Search(noActionRobots);
-				foreach (var robot in noActionRobots)
-				{
-					var index = noActionRobots.IndexOf(robot);
-					var realIndex = _robots.IndexOf(robot);
-					output[realIndex] = actions[index];
-				}
-			}
+        public List<IAction> Think()
+        {
+            var output = new IAction[5];
+            Console.Error.WriteLine($"Ore Tiles: {_game.OreTiles.Count}");
+            if (_game.OreTiles.Count < Constants.MinVisibleOreTilesForRadar)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (!_game.Players[0].Robots[i].IsDead)
+                    {
+                        output[i] = new PlaceRadarAction(_game.Players[0].Robots[i], _game);
+                        break;
+                    }
+                }
+            }
 
-			return output.ToList();
-		}
+            var noActionRobots = new List<Robot>();
+            for (var i = 0; i < 5; i++)
+            {
+                if (output[i] != null)
+                {
+                    continue;
+                }
 
-		private List<IAction> Search(List<Robot> robots)
-		{
-			foreach (var robot in robots)
-			{
-				robot.PossibleActions = DigService.FindPossibleDigLocations(robot, _game);
-			}
+                var robot = _robots[i];
+                if (robot.HasOre || _game.OreTiles.Count == 0 || robot.IsDead)
+                {
+                    output[i] = new DigClosestAction(robot, _game);
+                }
+                else
+                {
+                    noActionRobots.Add(robot);
+                }
+            }
 
-			var best = new Solution(robots);
-			Score(best);
+            if (noActionRobots.Any())
+            {
+                var actions = Search(noActionRobots);
+                foreach (var robot in noActionRobots)
+                {
+                    var index = noActionRobots.IndexOf(robot);
+                    var realIndex = _robots.IndexOf(robot);
+                    output[realIndex] = actions[index];
+                }
+            }
+
+            return output.ToList();
+        }
+
+        public void Score(Solution solution)
+        {
+            _game.Reset();
+            foreach (var actions in solution.DigActions)
+            {
+                foreach (var digAction in actions)
+                {
+                    digAction.Apply();
+                }
+            }
+
+            foreach (var oreTile in _game.OreTiles)
+            {
+                oreTile.Simulate(_game);
+            }
+
+            solution.Score = _game.Players[0].Score;
+        }
+
+        private List<IAction> Search(List<Robot> robots)
+        {
+            foreach (var robot in robots)
+            {
+                robot.PossibleActions = DigService.FindPossibleDigLocations(robot, _game);
+            }
+
+            var best = new Solution(robots);
+            Score(best);
             Console.Error.WriteLine($"First Score: {best.Score}");
-			var stopWatch = Stopwatch.StartNew();
-			var simulations = 0;
-			while (stopWatch.ElapsedMilliseconds < 40)
-			{
-				simulations++;
-				var solution = new Solution(robots);
-				Score(solution);
-				if (solution.Score > best.Score)
-				{
-					best = solution;
-				}
-			}
+            var stopWatch = Stopwatch.StartNew();
+            var simulations = 0;
+            while (stopWatch.ElapsedMilliseconds < 40)
+            {
+                simulations++;
+                var solution = new Solution(robots);
+                Score(solution);
+                if (solution.Score > best.Score)
+                {
+                    best = solution;
+                }
+            }
 
-			Console.Error.WriteLine($"Simulations : {simulations} Time: {stopWatch.ElapsedMilliseconds} Score: {best.Score}");
-			return best.DigActions.Select(d => d.First()).OfType<IAction>().ToList();
-		}
+            Console.Error.WriteLine($"Simulations : {simulations} Time: {stopWatch.ElapsedMilliseconds} Score: {best.Score}");
+            return best.DigActions.Select(d => d.First()).OfType<IAction>().ToList();
+        }
 
-		public void Score(Solution solution)
-		{
-			_game.Reset();
-			foreach (var actions in solution.DigActions)
-			{
-				foreach (var digAction in actions)
-				{
-					digAction.Apply();
-				}
-			}
+        public class Solution
+        {
+            public List<MCDigAction>[] DigActions;
 
-			foreach (var oreTile in _game.OreTiles)
-			{
-				oreTile.Simulate(_game);
-			}
+            public double Score;
 
-			solution.Score = _game.Players[0].Score;
-		}
-
-		public class Solution
-		{
-			public List<MCDigAction>[] DigActions;
-			public double Score;
-
-			public Solution(List<Robot> robots)
-			{
-				DigActions = robots.Select(r => new List<MCDigAction>()).ToArray();
-				for (var i = 0; i < robots.Count; i++)
-				{
-					var robot = robots[i];
-					for (var j = 0; j < Constants.SearchDepth; j++)
-					{
-						var selectedAction = robot.PossibleActions[Constants.RND.Next(robot.PossibleActions.Count)];
-						DigActions[i].Add(selectedAction);
-					}
-				}
-			}
-		}
-	}
+            public Solution(List<Robot> robots)
+            {
+                DigActions = robots.Select(r => new List<MCDigAction>()).ToArray();
+                for (var i = 0; i < robots.Count; i++)
+                {
+                    var robot = robots[i];
+                    for (var j = 0; j < Constants.SearchDepth; j++)
+                    {
+                        var selectedAction = robot.PossibleActions[Constants.RND.Next(robot.PossibleActions.Count)];
+                        DigActions[i].Add(selectedAction);
+                    }
+                }
+            }
+        }
+    }
 }
 
 

@@ -1,7 +1,8 @@
 ﻿using System;
+
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 
-namespace Codingame.Multiplayer.UnleashTheGeek
+namespace Codingame.Multiplayer.UnleashTheGeek.Services
 {
 	public static class InputService
 	{

@@ -1,5 +1,6 @@
 ﻿using System;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
+using Codingame.Multiplayer.UnleashTheGeek.Services;
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {

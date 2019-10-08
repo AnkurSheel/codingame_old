@@ -8,6 +8,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		public static int Width;
 		public static Random RND = new Random(100);
 		public static int SimulationDepth = 20;
-		public static int SearchDepth = 5;
+		public static int SearchDepth = 20;
 	}
 }

@@ -1,14 +1,16 @@
 using System;
-using System.Collections.Generic;
+using Codingame.Multiplayer.UnleashTheGeek;
+using Codingame.Multiplayer.UnleashTheGeek.Agents;
+using Codingame.Multiplayer.UnleashTheGeek.Services;
 using System.Linq;
-using Codingame.Multiplayer.UnleashTheGeek.Actions;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
+using Codingame.Multiplayer.UnleashTheGeek.Actions;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Codingame.Multiplayer.UnleashTheGeek.a;
-using Codingame.Multiplayer.UnleashTheGeek;
 
 
- // 08/10/2019 08:30
+ // 09/10/2019 09:08
 
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -19,7 +21,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		public static int Width;
 		public static Random RND = new Random(100);
 		public static int SimulationDepth = 20;
-		public static int SearchDepth = 5;
+		public static int SearchDepth = 20;
 	}
 }
 
@@ -74,208 +76,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 	}
 }
 
-namespace Codingame.Multiplayer.UnleashTheGeek
-{
-	public class DigService
-	{
-		public static List<MCDigAction> FindPossibleDigLocations(Robot robot, Game game)
-		{
-			return game.OreTiles.OrderBy(t => MoveService.MoveTime(robot.Position, t.Position)).Take(10)
-				.Select(t => new MCDigAction(robot, game, t)).ToList();
-		}
-	}
-}
-
-namespace Codingame.Multiplayer.UnleashTheGeek
-{
-	public static class InputService
-	{
-		public static void ReadInitialData()
-		{
-			string[] inputs;
-			inputs = Console.ReadLine().Split(' ');
-			Constants.Width = int.Parse(inputs[0]);
-			Constants.Height = int.Parse(inputs[1]);
-			// size of the map
-		}
-
-		public static Game ReadGame()
-		{
-			var game = new Game();
-			var inputs = Console.ReadLine().Split(' ');
-
-			game.Players[1].Score = int.Parse(inputs[1]);
-			for (var i = 0; i < Constants.Height; i++)
-			{
-				inputs = Console.ReadLine().Split(' ');
-				for (var j = 0; j < Constants.Width; j++)
-				{
-					var ore = inputs[2 * j]; // amount of ore or "?" if unknown
-					var hole = int.Parse(inputs[2 * j + 1]); // 1 if cell has a hole
-					game.Board[j, i].Update(hole == 1, ore);
-				}
-			}
-
-			inputs = Console.ReadLine().Split(' ');
-			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
-			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
-			for (var i = 0; i < entityCount; i++)
-			{
-				inputs = Console.ReadLine().Split(' ');
-				var id = int.Parse(inputs[0]); // unique id of the entity
-				var type = int.Parse(inputs[1]); // 0 for your robot, 1 for other robot, 2 for radar, 3 for trap
-				var x = int.Parse(inputs[2]);
-				var y = int.Parse(inputs[3]); // position of the entity
-				var
-					item = int.Parse(
-						inputs[4]); // if this entity is a robot, the item it is carrying (-1 for NONE, 2 for RADAR, 3 for TRAP, 4 for ORE)
-				if (type < 2)
-				{
-					game.Players[type].Robots.Add(new Robot(id, x, y, item, game.Players[type]));
-				}
-				else if (type == 2)
-				{
-					game.Players[0].Radars.Add(new Coordinate(x, y));
-				}
-				else if (type == 3)
-				{
-					game.Board[x, y].HasTrap = true;
-				}
-			}
-
-			return game;
-		}
-	}
-}
-
-namespace Codingame.Multiplayer.UnleashTheGeek
-{
-	public class MCAgent
-	{
-		readonly Game _game;
-		readonly List<Robot> _robots;
-
-		public MCAgent(Game game)
-		{
-			_game = game;
-			_robots = _game.Players[0].Robots;
-		}
-
-		public List<IAction> Think()
-		{
-			var output = new IAction[5];
-			output[0] = new PlaceRadarAction(_game.Players[0].Robots[0], _game);
-			var noActionRobots = new List<Robot>();
-			for (var i = 1; i < 5; i++)
-			{
-				var robot = _robots[i];
-				if (robot.HasOre || _game.OreTiles.Count == 0 || robot.IsDead)
-				{
-					output[i] = new DigClosestAction(robot, _game);
-				}
-				else
-				{
-					noActionRobots.Add(robot);
-				}
-			}
-
-			if (noActionRobots.Any())
-			{
-				var actions = Search(noActionRobots);
-				foreach (var robot in noActionRobots)
-				{
-					var index = noActionRobots.IndexOf(robot);
-					var realIndex = _robots.IndexOf(robot);
-					output[realIndex] = actions[index];
-				}
-			}
-
-			return output.ToList();
-		}
-
-		private List<IAction> Search(List<Robot> robots)
-		{
-			foreach (var robot in robots)
-			{
-				robot.PossibleActions = DigService.FindPossibleDigLocations(robot, _game);
-			}
-
-			var best = new Solution(robots);
-			Score(best);
-
-			var stopWatch = Stopwatch.StartNew();
-			var simulations = 0;
-			while (stopWatch.ElapsedMilliseconds < 40)
-			{
-				simulations++;
-				var solution = new Solution(robots);
-				Score(solution);
-				if (solution.Score > best.Score)
-				{
-					best = solution;
-				}
-			}
-
-			Console.Error.WriteLine($"Simulations : {simulations} Time: {stopWatch.ElapsedMilliseconds} Score: {best.Score}");
-			return best.DigActions.Select(d => d.First()).OfType<IAction>().ToList();
-		}
-
-		public void Score(Solution solution)
-		{
-			_game.Reset();
-			foreach (var actions in solution.DigActions)
-			{
-				foreach (var digAction in actions)
-				{
-					digAction.Apply();
-				}
-			}
-
-			foreach (var oreTile in _game.OreTiles)
-			{
-				oreTile.Simulate(_game);
-			}
-
-			solution.Score = _game.Players[0].Score;
-		}
-
-		public class Solution
-		{
-			public List<MCDigAction>[] DigActions;
-			public double Score;
-
-			public Solution(List<Robot> robots)
-			{
-				DigActions = robots.Select(r => new List<MCDigAction>()).ToArray();
-				for (var i = 0; i < robots.Count; i++)
-				{
-					var robot = robots[i];
-					for (var j = 0; j < Constants.SearchDepth; j++)
-					{
-						var selectedAction = robot.PossibleActions[Constants.RND.Next(robot.PossibleActions.Count)];
-						DigActions[i].Add(selectedAction);
-					}
-				}
-			}
-		}
-	}
-}
-namespace Codingame.Multiplayer.UnleashTheGeek
-{
-	public class MoveService
-	{
-		public static int MoveTime(Coordinate start, Coordinate target)
-		{
-			if (target.IsSame(start))
-			{
-				return 0;
-			}
-
-			return target.Manhattan(start) / 4 + 1;
-		}
-	}
-}
-
 class Player
 {
 	static void Main()
@@ -294,50 +94,6 @@ class Player
 			{
 				Console.WriteLine(output[i].GetOutput()); // WAIT|MOVE x y|DIG x y|REQUEST item
 			}
-		}
-	}
-}
-
-namespace Codingame.Multiplayer.UnleashTheGeek
-{
-	public class RadarService
-	{
-		public static List<Tile> GetUnknownPosition(Game game)
-		{
-			return game.AllTiles.Where(t => !t.IsSeen).ToList();
-		}
-
-		public static Coordinate GetBestRadarLocation(Game game)
-		{
-			var unknown = GetUnknownPosition(game);
-			return unknown.OrderByDescending(tile => unknown.Count(other => InRange(tile, other))).FirstOrDefault()
-				       ?.Position ?? new Coordinate(0, 0);
-		}
-
-		public static bool InRange(Tile tile, Tile otherTile)
-		{
-			return tile.Position.Manhattan(otherTile.Position) <= 4;
-		}
-	}
-}
-
-namespace Codingame.Multiplayer.UnleashTheGeek
-{
-	public class ReactAgent
-	{
-		readonly Game _game;
-
-		public ReactAgent(Game game)
-		{
-			_game = game;
-		}
-
-		public List<IAction> Think()
-		{
-			var output = _game.Players[0].Robots.Select(r => new DigClosestAction(r, _game)).OfType<IAction>().ToList();
-			output[0] = new PlaceRadarAction(_game.Players[0].Robots[0], _game);
-
-			return output;
 		}
 	}
 }
@@ -477,6 +233,142 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 		public string GetOutput()
 		{
 			return "WAIT";
+		}
+	}
+}
+
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Agents
+{
+	public class MCAgent
+	{
+		readonly Game _game;
+		readonly List<Robot> _robots;
+
+		public MCAgent(Game game)
+		{
+			_game = game;
+			_robots = _game.Players[0].Robots;
+		}
+
+		public List<IAction> Think()
+		{
+			var output = new IAction[5];
+			output[0] = new PlaceRadarAction(_game.Players[0].Robots[0], _game);
+			var noActionRobots = new List<Robot>();
+			for (var i = 1; i < 5; i++)
+			{
+				var robot = _robots[i];
+				if (robot.HasOre || _game.OreTiles.Count == 0 || robot.IsDead)
+				{
+					output[i] = new DigClosestAction(robot, _game);
+				}
+				else
+				{
+					noActionRobots.Add(robot);
+				}
+			}
+
+			if (noActionRobots.Any())
+			{
+				var actions = Search(noActionRobots);
+				foreach (var robot in noActionRobots)
+				{
+					var index = noActionRobots.IndexOf(robot);
+					var realIndex = _robots.IndexOf(robot);
+					output[realIndex] = actions[index];
+				}
+			}
+
+			return output.ToList();
+		}
+
+		private List<IAction> Search(List<Robot> robots)
+		{
+			foreach (var robot in robots)
+			{
+				robot.PossibleActions = DigService.FindPossibleDigLocations(robot, _game);
+			}
+
+			var best = new Solution(robots);
+			Score(best);
+            Console.Error.WriteLine($"First Score: {best.Score}");
+			var stopWatch = Stopwatch.StartNew();
+			var simulations = 0;
+			while (stopWatch.ElapsedMilliseconds < 40)
+			{
+				simulations++;
+				var solution = new Solution(robots);
+				Score(solution);
+				if (solution.Score > best.Score)
+				{
+					best = solution;
+				}
+			}
+
+			Console.Error.WriteLine($"Simulations : {simulations} Time: {stopWatch.ElapsedMilliseconds} Score: {best.Score}");
+			return best.DigActions.Select(d => d.First()).OfType<IAction>().ToList();
+		}
+
+		public void Score(Solution solution)
+		{
+			_game.Reset();
+			foreach (var actions in solution.DigActions)
+			{
+				foreach (var digAction in actions)
+				{
+					digAction.Apply();
+				}
+			}
+
+			foreach (var oreTile in _game.OreTiles)
+			{
+				oreTile.Simulate(_game);
+			}
+
+			solution.Score = _game.Players[0].Score;
+		}
+
+		public class Solution
+		{
+			public List<MCDigAction>[] DigActions;
+			public double Score;
+
+			public Solution(List<Robot> robots)
+			{
+				DigActions = robots.Select(r => new List<MCDigAction>()).ToArray();
+				for (var i = 0; i < robots.Count; i++)
+				{
+					var robot = robots[i];
+					for (var j = 0; j < Constants.SearchDepth; j++)
+					{
+						var selectedAction = robot.PossibleActions[Constants.RND.Next(robot.PossibleActions.Count)];
+						DigActions[i].Add(selectedAction);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Agents
+{
+	public class ReactAgent
+	{
+		readonly Game _game;
+
+		public ReactAgent(Game game)
+		{
+			_game = game;
+		}
+
+		public List<IAction> Think()
+		{
+			var output = _game.Players[0].Robots.Select(r => new DigClosestAction(r, _game)).OfType<IAction>().ToList();
+			output[0] = new PlaceRadarAction(_game.Players[0].Robots[0], _game);
+
+			return output;
 		}
 	}
 }
@@ -700,6 +592,121 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 				ArrivalTimers[0, i] = 0;
 				ArrivalTimers[1, i] = 0;
 			}
+		}
+	}
+}
+
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Services
+{
+	public class DigService
+	{
+		public static List<MCDigAction> FindPossibleDigLocations(Robot robot, Game game)
+		{
+			return game.OreTiles.OrderBy(t => MoveService.MoveTime(robot.Position, t.Position)).Take(10)
+				.Select(t => new MCDigAction(robot, game, t)).ToList();
+		}
+	}
+}
+
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Services
+{
+	public static class InputService
+	{
+		public static void ReadInitialData()
+		{
+			string[] inputs;
+			inputs = Console.ReadLine().Split(' ');
+			Constants.Width = int.Parse(inputs[0]);
+			Constants.Height = int.Parse(inputs[1]);
+			// size of the map
+		}
+
+		public static Game ReadGame()
+		{
+			var game = new Game();
+			var inputs = Console.ReadLine().Split(' ');
+
+			game.Players[1].Score = int.Parse(inputs[1]);
+			for (var i = 0; i < Constants.Height; i++)
+			{
+				inputs = Console.ReadLine().Split(' ');
+				for (var j = 0; j < Constants.Width; j++)
+				{
+					var ore = inputs[2 * j]; // amount of ore or "?" if unknown
+					var hole = int.Parse(inputs[2 * j + 1]); // 1 if cell has a hole
+					game.Board[j, i].Update(hole == 1, ore);
+				}
+			}
+
+			inputs = Console.ReadLine().Split(' ');
+			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
+			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
+			for (var i = 0; i < entityCount; i++)
+			{
+				inputs = Console.ReadLine().Split(' ');
+				var id = int.Parse(inputs[0]); // unique id of the entity
+				var type = int.Parse(inputs[1]); // 0 for your robot, 1 for other robot, 2 for radar, 3 for trap
+				var x = int.Parse(inputs[2]);
+				var y = int.Parse(inputs[3]); // position of the entity
+				var
+					item = int.Parse(
+						inputs[4]); // if this entity is a robot, the item it is carrying (-1 for NONE, 2 for RADAR, 3 for TRAP, 4 for ORE)
+				if (type < 2)
+				{
+					game.Players[type].Robots.Add(new Robot(id, x, y, item, game.Players[type]));
+				}
+				else if (type == 2)
+				{
+					game.Players[0].Radars.Add(new Coordinate(x, y));
+				}
+				else if (type == 3)
+				{
+					game.Board[x, y].HasTrap = true;
+				}
+			}
+
+			return game;
+		}
+	}
+}
+namespace Codingame.Multiplayer.UnleashTheGeek.Services
+{
+	public class MoveService
+	{
+		public static int MoveTime(Coordinate start, Coordinate target)
+		{
+			if (target.IsSame(start))
+			{
+				return 0;
+			}
+
+			return target.Manhattan(start) / 4 + 1;
+		}
+	}
+}
+
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Services
+{
+	public class RadarService
+	{
+		public static List<Tile> GetUnknownPosition(Game game)
+		{
+			return game.AllTiles.Where(t => !t.IsSeen).ToList();
+		}
+
+		public static Coordinate GetBestRadarLocation(Game game)
+		{
+			var unknown = GetUnknownPosition(game);
+			return unknown.OrderByDescending(tile => unknown.Count(other => InRange(tile, other))).FirstOrDefault()
+				       ?.Position ?? new Coordinate(0, 0);
+		}
+
+		public static bool InRange(Tile tile, Tile otherTile)
+		{
+			return tile.Position.Manhattan(otherTile.Position) <= 4;
 		}
 	}
 }

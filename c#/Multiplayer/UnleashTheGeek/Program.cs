@@ -1,5 +1,7 @@
 ﻿using System;
 using Codingame.Multiplayer.UnleashTheGeek;
+using Codingame.Multiplayer.UnleashTheGeek.Agents;
+using Codingame.Multiplayer.UnleashTheGeek.Services;
 
 class Player
 {

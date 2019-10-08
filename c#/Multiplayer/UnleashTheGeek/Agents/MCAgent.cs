@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+
 using Codingame.Multiplayer.UnleashTheGeek.a;
 using Codingame.Multiplayer.UnleashTheGeek.Actions;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
+using Codingame.Multiplayer.UnleashTheGeek.Services;
 
-namespace Codingame.Multiplayer.UnleashTheGeek
+namespace Codingame.Multiplayer.UnleashTheGeek.Agents
 {
 	public class MCAgent
 	{
@@ -60,7 +62,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 
 			var best = new Solution(robots);
 			Score(best);
-
+            Console.Error.WriteLine($"First Score: {best.Score}");
 			var stopWatch = Stopwatch.StartNew();
 			var simulations = 0;
 			while (stopWatch.ElapsedMilliseconds < 40)

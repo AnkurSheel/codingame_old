@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 
-namespace Codingame.Multiplayer.UnleashTheGeek
+namespace Codingame.Multiplayer.UnleashTheGeek.Services
 {
 	public class RadarService
 	{

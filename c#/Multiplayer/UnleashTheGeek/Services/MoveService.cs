@@ -1,4 +1,4 @@
-﻿namespace Codingame.Multiplayer.UnleashTheGeek
+﻿namespace Codingame.Multiplayer.UnleashTheGeek.Services
 {
 	public class MoveService
 	{

@@ -15,6 +15,7 @@
 		public RobotItem Item;
 
 		public bool HasOre => Item == RobotItem.ORE;
+		public bool HasRadar=> Item == RobotItem.RADAR;
 
 
 		public Robot(int id, int x, int y, int item)

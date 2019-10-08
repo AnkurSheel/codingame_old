@@ -3,10 +3,12 @@ using Codingame.Multiplayer.UnleashTheGeek.Models;
 using Codingame.Multiplayer.UnleashTheGeek;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Codingame.Multiplayer.UnleashTheGeek.a;
 using Codingame.Multiplayer.UnleashTheGeek.Actions;
 
 
- // 08/10/2019 11:40
+ // 08/10/2019 12:32
 
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -35,6 +37,11 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		public int Mannattan(Coordinate pos)
 		{
 			return Math.Abs(X - pos.X) + Math.Abs(Y - pos.Y);
+		}
+
+		public string ToOutput()
+		{
+			return $"{X} {Y}";
 		}
 	}
 }
@@ -115,12 +122,36 @@ class Player
 		{
 			var game = InputService.ReadGame();
 
+			game.OnRound();
 			var output = new ReactAgent(game).Think();
 
 			for (var i = 0; i < 5; i++)
 			{
 				Console.WriteLine(output[i].GetOutput()); // WAIT|MOVE x y|DIG x y|REQUEST item
 			}
+		}
+	}
+}
+
+namespace Codingame.Multiplayer.UnleashTheGeek
+{
+	public class RadarService
+	{
+		public static List<Tile> GetUnknownPosition(Game game)
+		{
+			return game.AllTiles.Where(t => !t.IsSeen).ToList();
+		}
+
+		public static Coordinate GetBestRadarLocation(Game game)
+		{
+			var unknown = GetUnknownPosition(game);
+			return unknown.OrderByDescending(tile => unknown.Count(other => InRange(tile, other))).FirstOrDefault()
+				?.Position ?? new Coordinate(0,0);
+		}
+
+		public static bool InRange(Tile tile, Tile otherTile)
+		{
+			return tile.Position.Mannattan(otherTile.Position) <= 4;
 		}
 	}
 }
@@ -138,7 +169,57 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 
 		public List<IAction> Think()
 		{
-			return _game.Players[0].Robots.Select(r => new RandomDigAction(r, _game)).OfType<IAction>().ToList();
+			var output = _game.Players[0].Robots.Select(r => new DigClosestAction(r, _game)).OfType<IAction>().ToList();
+			output[0] = new PlaceRadarAction(_game.Players[0].Robots[0], _game);
+
+			return output;
+		}
+	}
+}
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+{
+	public class DigClosestAction : IAction
+	{
+		readonly Robot _robot;
+		readonly Game _game;
+
+		public DigClosestAction(Robot robot, Game game)
+		{
+			_robot = robot;
+			_game = game;
+		}
+
+		public void Apply()
+		{
+		}
+
+		public string GetOutput()
+		{
+			if (_robot.HasOre)
+			{
+				return "MOVE 0 " + _robot.Position.Y;
+			}
+
+			var targetOre = _game.OreTiles.OrderBy(t => t.Position.Mannattan(_robot.Position)).FirstOrDefault();
+			if (targetOre == null)
+			{
+				return "MOVE " + GetRandomPosition().ToOutput(); 
+			}
+
+			return "DIG " + targetOre.Position.ToOutput();
+		}
+
+		Coordinate GetRandomPosition()
+		{
+			if (_robot.Position.X > 10)
+			{
+				var tile = _game.GetTile(_robot.Position);
+				var digLocation = tile.NeighBours[Constants.RND.Next(0, tile.NeighBours.Count)];
+				return digLocation.Position;
+			}
+
+			return new Coordinate(Constants.RND.Next(4, Constants.Width), Constants.RND.Next(1, Constants.Height - 2));
 		}
 	}
 }
@@ -151,14 +232,14 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 	}
 }
 
-namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+namespace Codingame.Multiplayer.UnleashTheGeek.a
 {
-	public class RandomDigAction : IAction
+	public class PlaceRadarAction : IAction
 	{
 		readonly Robot _robot;
 		readonly Game _game;
 
-		public RandomDigAction(Robot robot, Game game)
+		public PlaceRadarAction(Robot robot, Game game)
 		{
 			_robot = robot;
 			_game = game;
@@ -166,24 +247,26 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 		public void Apply()
 		{
-			throw new NotImplementedException();
 		}
 
 		public string GetOutput()
 		{
-			if (_robot.HasOre)
+			if (!_robot.HasRadar)
 			{
-				return "MOVE 0 " + _robot.Position.Y;
+				if (_robot.Position.X == 0)
+				{
+					return "REQUEST RADAR";
+				}
+				else
+				{
+					return "MOVE 0 " + _robot.Position.Y;
+				}
 			}
-
-			if (_robot.Position.X > 10)
+			else
 			{
-				var tile = _game.GetTile(_robot.Position);
-				var digLocation = tile.NeighBours[Constants.RND.Next(0, tile.NeighBours.Count)];
-				return "DIG " + digLocation.Position.X + " " + digLocation.Position.Y;
+				var radarTile = RadarService.GetBestRadarLocation(_game);
+				return "DIG " + radarTile.ToOutput();
 			}
-
-			return "MOVE " + Constants.RND.Next(4, Constants.Width) + " " + Constants.RND.Next(1, Constants.Height - 2);
 		}
 	}
 }
@@ -201,14 +284,19 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 		}
 	}
 }
+
 namespace Codingame.Multiplayer.UnleashTheGeek.Models
 {
 	public class Game
 	{
 		public Player[] Players = {new Player(), new Player()};
 		public Tile[,] Board = new Tile[Constants.Width, Constants.Height];
-		public static int[] dx = {0, 0, -1, 1};
-		public static int[] dy = {-1, 1, 0, 0};
+
+		static int[] dx = {0, 0, -1, 1};
+		static int[] dy = {-1, 1, 0, 0};
+
+		public List<Tile> AllTiles = new List<Tile>();
+		public List<Tile> OreTiles = new List<Tile>();
 
 		public Game()
 		{
@@ -217,6 +305,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 				for (var y = 0; y < Constants.Height; y++)
 				{
 					Board[x, y] = new Tile(x, y);
+					AllTiles.Add(Board[x,y]);
 				}
 			}
 
@@ -232,6 +321,11 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public Tile GetTile(Coordinate position)
 		{
 			return Board[position.X, position.Y];
+		}
+
+		public void OnRound()
+		{
+			OreTiles = AllTiles.Where(t => t.Ore > 0).ToList();
 		}
 
 		void FindNeighbours(Tile tile)
@@ -287,6 +381,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public RobotItem Item;
 
 		public bool HasOre => Item == RobotItem.ORE;
+		public bool HasRadar=> Item == RobotItem.RADAR;
 
 
 		public Robot(int id, int x, int y, int item)

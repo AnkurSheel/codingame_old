@@ -1,11 +1,18 @@
-﻿namespace Codingame.Multiplayer.UnleashTheGeek.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Models
 {
 	public class Game
 	{
 		public Player[] Players = {new Player(), new Player()};
 		public Tile[,] Board = new Tile[Constants.Width, Constants.Height];
-		public static int[] dx = {0, 0, -1, 1};
-		public static int[] dy = {-1, 1, 0, 0};
+
+		static int[] dx = {0, 0, -1, 1};
+		static int[] dy = {-1, 1, 0, 0};
+
+		public List<Tile> AllTiles = new List<Tile>();
+		public List<Tile> OreTiles = new List<Tile>();
 
 		public Game()
 		{
@@ -14,6 +21,7 @@
 				for (var y = 0; y < Constants.Height; y++)
 				{
 					Board[x, y] = new Tile(x, y);
+					AllTiles.Add(Board[x,y]);
 				}
 			}
 
@@ -29,6 +37,11 @@
 		public Tile GetTile(Coordinate position)
 		{
 			return Board[position.X, position.Y];
+		}
+
+		public void OnRound()
+		{
+			OreTiles = AllTiles.Where(t => t.Ore > 0).ToList();
 		}
 
 		void FindNeighbours(Tile tile)

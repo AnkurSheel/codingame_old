@@ -17,5 +17,10 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		{
 			return Math.Abs(X - pos.X) + Math.Abs(Y - pos.Y);
 		}
+
+		public string ToOutput()
+		{
+			return $"{X} {Y}";
+		}
 	}
 }

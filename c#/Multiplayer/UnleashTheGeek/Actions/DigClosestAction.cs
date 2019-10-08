@@ -25,10 +25,10 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 				return "MOVE 0 " + _robot.Position.Y;
 			}
 
-			var targetOre = _game.OreTiles.OrderBy(t => t.Position.Mannattan(_robot.Position)).FirstOrDefault();
+			var targetOre = _game.OreTiles.OrderBy(t => t.Position.Manhattan(_robot.Position)).FirstOrDefault();
 			if (targetOre == null)
 			{
-				return "MOVE " + GetRandomPosition().ToOutput(); 
+				return "MOVE " + GetRandomPosition().ToOutput();
 			}
 
 			return "DIG " + targetOre.Position.ToOutput();

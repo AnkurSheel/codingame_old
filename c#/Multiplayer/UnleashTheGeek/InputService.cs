@@ -19,7 +19,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 			var game = new Game();
 			var inputs = Console.ReadLine().Split(' ');
 
-			game.Players[0].Score = int.Parse(inputs[0]); // Amount of ore delivered
 			game.Players[1].Score = int.Parse(inputs[1]);
 			for (var i = 0; i < Constants.Height; i++)
 			{
@@ -34,9 +33,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 
 			inputs = Console.ReadLine().Split(' ');
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
-			game.Players[0].RadarCooldown = int.Parse(inputs[1]); // turns left until a new radar can be requested
-			game.Players[0].TrapCooldown = int.Parse(inputs[2]); // turns left until a new trap can be requested
-
+			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
 			for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');
@@ -49,7 +46,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 						inputs[4]); // if this entity is a robot, the item it is carrying (-1 for NONE, 2 for RADAR, 3 for TRAP, 4 for ORE)
 				if (type < 2)
 				{
-					game.Players[type].Robots.Add(new Robot(id, x, y, item));
+					game.Players[type].Robots.Add(new Robot(id, x, y, item, game.Players[type]));
 				}
 				else if (type == 2)
 				{

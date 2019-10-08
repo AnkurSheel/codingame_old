@@ -26,16 +26,12 @@ namespace Codingame.Multiplayer.UnleashTheGeek.a
 				{
 					return "REQUEST RADAR";
 				}
-				else
-				{
-					return "MOVE 0 " + _robot.Position.Y;
-				}
+
+				return "MOVE 0 " + _robot.Position.Y;
 			}
-			else
-			{
-				var radarTile = RadarService.GetBestRadarLocation(_game);
-				return "DIG " + radarTile.ToOutput();
-			}
+
+			var radarTile = RadarService.GetBestRadarLocation(_game);
+			return "DIG " + radarTile.ToOutput();
 		}
 	}
 }

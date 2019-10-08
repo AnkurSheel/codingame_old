@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -17,12 +15,12 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		{
 			var unknown = GetUnknownPosition(game);
 			return unknown.OrderByDescending(tile => unknown.Count(other => InRange(tile, other))).FirstOrDefault()
-				?.Position ?? new Coordinate(0,0);
+				       ?.Position ?? new Coordinate(0, 0);
 		}
 
 		public static bool InRange(Tile tile, Tile otherTile)
 		{
-			return tile.Position.Mannattan(otherTile.Position) <= 4;
+			return tile.Position.Manhattan(otherTile.Position) <= 4;
 		}
 	}
 }

@@ -5,11 +5,11 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 {
 	public class Game
 	{
-		public Player[] Players = {new Player(), new Player()};
+		public Player[] Players = {new Player(0), new Player(1)};
 		public Tile[,] Board = new Tile[Constants.Width, Constants.Height];
 
-		static int[] dx = {0, 0, -1, 1};
-		static int[] dy = {-1, 1, 0, 0};
+		static readonly int[] dx = {0, 0, -1, 1};
+		static readonly int[] dy = {-1, 1, 0, 0};
 
 		public List<Tile> AllTiles = new List<Tile>();
 		public List<Tile> OreTiles = new List<Tile>();
@@ -21,7 +21,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 				for (var y = 0; y < Constants.Height; y++)
 				{
 					Board[x, y] = new Tile(x, y);
-					AllTiles.Add(Board[x,y]);
+					AllTiles.Add(Board[x, y]);
 				}
 			}
 
@@ -42,6 +42,16 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public void OnRound()
 		{
 			OreTiles = AllTiles.Where(t => t.Ore > 0).ToList();
+		}
+
+		public void Reset()
+		{
+			Players[0].Reset();
+			Players[1].Reset();
+			foreach (var tile in AllTiles)
+			{
+				tile.Reset();
+			}
 		}
 
 		void FindNeighbours(Tile tile)

@@ -13,7 +13,7 @@ class Player
 			var game = InputService.ReadGame();
 
 			game.OnRound();
-			var output = new ReactAgent(game).Think();
+			var output = new MCAgent(game).Think();
 
 			for (var i = 0; i < 5; i++)
 			{

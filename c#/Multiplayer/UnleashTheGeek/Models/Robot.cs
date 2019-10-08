@@ -1,4 +1,7 @@
-﻿namespace Codingame.Multiplayer.UnleashTheGeek.Models
+﻿using System.Collections.Generic;
+using Codingame.Multiplayer.UnleashTheGeek.Actions;
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Models
 {
 	public enum RobotItem
 	{
@@ -11,19 +14,29 @@
 	public class Robot
 	{
 		public int Id;
+		public Player Player;
 		public Coordinate Position;
 		public RobotItem Item;
+		public int Time;
+		public List<MCDigAction> PossibleActions = new List<MCDigAction>();
 
+		public bool IsDead => Position.X == -1;
 		public bool HasOre => Item == RobotItem.ORE;
-		public bool HasRadar=> Item == RobotItem.RADAR;
+		public bool HasRadar => Item == RobotItem.RADAR;
 
 
-		public Robot(int id, int x, int y, int item)
+		public Robot(int id, int x, int y, int item, Player player)
 		{
 			Id = id;
+			Player = player;
 			Position = new Coordinate(x, y);
-
 			Item = (RobotItem) item;
+		}
+
+		public void Reset()
+		{
+			Time = 0;
+			Position.Reset();
 		}
 	}
 }

@@ -13,3 +13,4 @@ log.*
 c++/prj/x64/
 /c#/.vs/
 /c#/obj/
+/c#/bin/Debug/

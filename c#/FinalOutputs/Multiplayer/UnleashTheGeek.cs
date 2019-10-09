@@ -1,16 +1,16 @@
 using System;
 using Codingame.Multiplayer.UnleashTheGeek;
 using Codingame.Multiplayer.UnleashTheGeek.Agents;
+using Codingame.Multiplayer.UnleashTheGeek.Models;
 using Codingame.Multiplayer.UnleashTheGeek.Services;
 using System.Linq;
-using Codingame.Multiplayer.UnleashTheGeek.Models;
 using Codingame.Multiplayer.UnleashTheGeek.Actions;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Codingame.Multiplayer.UnleashTheGeek.a;
 
 
- // 09/10/2019 10:17
+ // 09/10/2019 02:21
 
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -83,10 +83,11 @@ class Player
 	{
 		InputService.ReadInitialData();
 
-		// game loop
-		while (true)
+        var game = new Game();
+        // game loop
+        while (true)
 		{
-			var game = InputService.ReadGame();
+			InputService.ReadGame(game);
 
 			game.OnRound();
 			var output = new MCAgent(game).Think();
@@ -156,37 +157,46 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
-	public class MCDigAction : IAction
-	{
-		readonly Robot _robot;
-		readonly Game _game;
-		public Tile _tile;
+    public class MCDigAction : IAction
+    {
+        public Tile _tile;
 
-		public MCDigAction(Robot robot, Game game, Tile tile)
-		{
-			_robot = robot;
-			_game = game;
-			_tile = tile;
-		}
+        readonly Robot _robot;
 
-		public void Apply()
-		{
-			var time = _robot.Time;
-			var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
-			var backToStart = MoveService.MoveTime(_tile.Position, _game.Board[0, _tile.Position.Y].Position);
-			if (time + moveTime < Constants.SimulationDepth)
-			{
-				_tile.ArrivalTimers[_robot.Player.Id, time + moveTime]++;
-			}
-			_robot.Time += moveTime + backToStart;
-			_robot.Position.Update(_game.Board[0, _tile.Position.Y].Position);
-		}
+        readonly Game _game;
 
-		public string GetOutput()
-		{
-			return "DIG " + _tile.Position.ToOutput();
-		}
-	}
+        public MCDigAction(Robot robot, Game game, Tile tile)
+        {
+            _robot = robot;
+            _game = game;
+            _tile = tile;
+        }
+
+        public void Apply()
+        {
+            var time = _robot.Time;
+            var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
+            var backToStart = MoveService.MoveTime(_tile.Position, _game.Board[0, _tile.Position.Y].Position);
+            if (time + moveTime < Constants.SimulationDepth)
+            {
+                _tile.ArrivalTimers[_robot.Player.Id, time + moveTime]++;
+            }
+
+            _robot.Time += moveTime + backToStart;
+            _robot.Position.Update(_game.Board[0, _tile.Position.Y].Position);
+        }
+
+        public string GetOutput()
+        {
+            var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
+            if (moveTime <= 1)
+            {
+                _tile.Ore--;
+            }
+
+            return "DIG " + _tile.Position.ToOutput();
+        }
+    }
 }
 
 namespace Codingame.Multiplayer.UnleashTheGeek.a
@@ -257,7 +267,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Agents
         {
             var output = new IAction[5];
             Console.Error.WriteLine($"Ore Tiles: {_game.OreTiles.Count}");
-            if (_game.OreTiles.Count < Constants.MinVisibleOreTilesForRadar)
+            if (_game.AllTiles.Count(t => t.IsSeen && t.Ore > 0) < Constants.MinVisibleOreTilesForRadar)
             {
                 for (int i = 0; i < 5; i++)
                 {
@@ -643,9 +653,8 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 			// size of the map
 		}
 
-		public static Game ReadGame()
+		public static void ReadGame(Game game)
 		{
-			var game = new Game();
 			var inputs = Console.ReadLine().Split(' ');
 
 			game.Players[1].Score = int.Parse(inputs[1]);
@@ -663,7 +672,13 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 			inputs = Console.ReadLine().Split(' ');
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
 			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
-			for (var i = 0; i < entityCount; i++)
+            
+            game.Players[0].Robots.Clear();
+            game.Players[1].Robots.Clear();
+            game.Players[0].Radars.Clear();
+            game.Players[1].Radars.Clear();
+
+            for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');
 				var id = int.Parse(inputs[0]); // unique id of the entity
@@ -686,8 +701,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 					game.Board[x, y].HasTrap = true;
 				}
 			}
-
-			return game;
 		}
 	}
 }
@@ -697,7 +710,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 	{
 		public static int MoveTime(Coordinate start, Coordinate target)
 		{
-			if (target.IsSame(start))
+			if (target.Manhattan(start) <= 1)
 			{
 				return 0;
 			}

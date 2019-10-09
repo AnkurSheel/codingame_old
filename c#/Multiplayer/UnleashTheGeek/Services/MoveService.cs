@@ -4,7 +4,7 @@
 	{
 		public static int MoveTime(Coordinate start, Coordinate target)
 		{
-			if (target.IsSame(start))
+			if (target.Manhattan(start) <= 1)
 			{
 				return 0;
 			}

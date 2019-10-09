@@ -15,9 +15,8 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 			// size of the map
 		}
 
-		public static Game ReadGame()
+		public static void ReadGame(Game game)
 		{
-			var game = new Game();
 			var inputs = Console.ReadLine().Split(' ');
 
 			game.Players[1].Score = int.Parse(inputs[1]);
@@ -35,7 +34,13 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 			inputs = Console.ReadLine().Split(' ');
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
 			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
-			for (var i = 0; i < entityCount; i++)
+            
+            game.Players[0].Robots.Clear();
+            game.Players[1].Robots.Clear();
+            game.Players[0].Radars.Clear();
+            game.Players[1].Radars.Clear();
+
+            for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');
 				var id = int.Parse(inputs[0]); // unique id of the entity
@@ -58,8 +63,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 					game.Board[x, y].HasTrap = true;
 				}
 			}
-
-			return game;
 		}
 	}
 }

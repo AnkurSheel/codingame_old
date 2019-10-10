@@ -1,16 +1,14 @@
 using System;
-using Codingame.Multiplayer.UnleashTheGeek;
 using Codingame.Multiplayer.UnleashTheGeek.Agents;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 using Codingame.Multiplayer.UnleashTheGeek.Services;
 using System.Linq;
-using Codingame.Multiplayer.UnleashTheGeek.Actions;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Codingame.Multiplayer.UnleashTheGeek.a;
+using Codingame.Multiplayer.UnleashTheGeek.Actions;
 
 
- // 11/10/2019 09:02
+ // 11/10/2019 12:18
 
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -22,8 +20,8 @@ namespace Codingame.Multiplayer.UnleashTheGeek
 		public static Random RND = new Random(100);
 		public static int SimulationDepth = 20;
 		public static int SearchDepth = 10;
-        public static int MinVisibleOreTilesForRadar = 15;
-    }
+		public static int MinVisibleOreTilesForRadar = 15;
+	}
 }
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -83,9 +81,9 @@ class Player
 	{
 		InputService.ReadInitialData();
 
-        var game = new Game();
-        // game loop
-        while (true)
+		var game = new Game();
+		// game loop
+		while (true)
 		{
 			InputService.ReadGame(game);
 
@@ -152,73 +150,71 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
-    public class MCDigAction : IAction
-    {
-        public Tile _tile;
+	public class MCDigAction : IAction
+	{
+		public Tile _tile;
 
-        readonly Robot _robot;
+		readonly Robot _robot;
 
-        readonly Game _game;
+		readonly Game _game;
 
-        public MCDigAction(Robot robot, Game game, Tile tile)
-        {
-            _robot = robot;
-            _game = game;
-            _tile = tile;
-        }
+		public MCDigAction(Robot robot, Game game, Tile tile)
+		{
+			_robot = robot;
+			_game = game;
+			_tile = tile;
+		}
 
-        public void Apply()
-        {
-            var time = _robot.Time;
-            var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
-            var backToStart = MoveService.MoveTime(_tile.Position, _game.Board[0, _tile.Position.Y].Position);
-            if (time + moveTime < Constants.SimulationDepth)
-            {
-                _tile.ArrivalTimers[_robot.Player.Id, time + moveTime]++;
-            }
+		public void Apply()
+		{
+			var time = _robot.Time;
+			var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
+			var backToStart = MoveService.MoveTime(_tile.Position, _game.Board[0, _tile.Position.Y].Position);
+			if (time + moveTime < Constants.SimulationDepth)
+			{
+				_tile.ArrivalTimers[_robot.Player.Id, time + moveTime]++;
+			}
 
-            _robot.Time += moveTime + backToStart;
-            _robot.Position.Update(_game.Board[0, _tile.Position.Y].Position);
-        }
+			_robot.Time += moveTime + backToStart;
+			_robot.Position.Update(_game.Board[0, _tile.Position.Y].Position);
+		}
 
-        public string GetOutput()
-        {
-            var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
-            if (moveTime <= 1)
-            {
-                _tile.Ore--;
-            }
+		public string GetOutput()
+		{
+			var moveTime = MoveService.MoveTime(_robot.Position, _tile.Position);
+			if (moveTime <= 1)
+			{
+				_tile.Ore--;
+			}
 
-            return "DIG " + _tile.Position.ToOutput();
-        }
-    }
+			return "DIG " + _tile.Position.ToOutput();
+		}
+	}
 }
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
-    public class MoveToBaseAction : IAction
-    {
+	public class MoveToBaseAction : IAction
+	{
+		readonly Robot _robot;
 
-        readonly Robot _robot;
+		public MoveToBaseAction(Robot robot)
+		{
+			_robot = robot;
+		}
 
-        public MoveToBaseAction(Robot robot)
-        {
-            _robot = robot;
-        }
+		public void Apply()
+		{
+		}
 
-        public void Apply()
-        {
-            
-        }
-
-        public string GetOutput()
-        {
-            return "MOVE 0 " + _robot.Position.Y;
-        }
-    }
+		public string GetOutput()
+		{
+			return "MOVE 0 " + _robot.Position.Y;
+		}
+	}
 }
 
-namespace Codingame.Multiplayer.UnleashTheGeek.a
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
 	public class PlaceRadarAction : IAction
 	{
@@ -252,6 +248,28 @@ namespace Codingame.Multiplayer.UnleashTheGeek.a
 		}
 	}
 }
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+{
+	public class RequestTrapAction : IAction
+	{
+		readonly Robot _robot;
+
+		public RequestTrapAction(Robot robot)
+		{
+			_robot = robot;
+		}
+
+		public void Apply()
+		{
+		}
+
+		public string GetOutput()
+		{
+			return "REQUEST TRAP";
+		}
+	}
+}
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
 	public class WaitAction : IAction
@@ -267,147 +285,150 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 	}
 }
 
-
 namespace Codingame.Multiplayer.UnleashTheGeek.Agents
 {
-    public class MCAgent
-    {
-        readonly Game _game;
+	public class MCAgent
+	{
+		readonly Game _game;
 
-        readonly List<Robot> _robots;
+		readonly List<Robot> _robots;
 
-        public MCAgent(Game game)
-        {
-            _game = game;
-            _robots = _game.Players[0].Robots;
-        }
+		public MCAgent(Game game)
+		{
+			_game = game;
+			_robots = _game.Players[0].Robots;
+		}
 
-        public List<IAction> Think()
-        {
-            var output = new IAction[5];
-            Console.Error.WriteLine($"Ore Tiles: {_game.OreTiles.Count}");
-            if (_game.AllTiles.Count(t => t.IsSeen && t.Ore > 0) < Constants.MinVisibleOreTilesForRadar)
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    if (!_game.Players[0].Robots[i].IsDead)
-                    {
-                        output[i] = new PlaceRadarAction(_game.Players[0].Robots[i], _game);
-                        break;
-                    }
-                }
-            }
+		public List<IAction> Think()
+		{
+			var output = new IAction[5];
+			Console.Error.WriteLine($"Ore Tiles: {_game.OreTiles.Count}");
+			if (_game.AllTiles.Count(t => t.IsSeen && t.Ore > 0) < Constants.MinVisibleOreTilesForRadar)
+			{
+				for (var i = 0; i < 5; i++)
+				{
+					if (!_robots[i].IsDead)
+					{
+						output[i] = new PlaceRadarAction(_game.Players[0].Robots[i], _game);
+						break;
+					}
+				}
+			}
 
-            var noActionRobots = new List<Robot>();
-            for (var i = 0; i < 5; i++)
-            {
-                if (output[i] != null)
-                {
-                    continue;
-                }
+			var noActionRobots = new List<Robot>();
+			for (var i = 0; i < 5; i++)
+			{
+				if (output[i] != null)
+				{
+					continue;
+				}
 
-                var robot = _robots[i];
-                if (robot.IsDead)
-                {
-                    output[i] = new WaitAction();
-                }
-                else if (robot.HasOre)
-                {
-                    output[i] = new MoveToBaseAction(robot);
-                }
-                else if (_game.OreTiles.Count == 0)
-                {
-                    output[i] = new DigClosestAction(robot, _game);
-                }
-                else
-                {
-                    noActionRobots.Add(robot);
-                }
-            }
+				var robot = _robots[i];
+				if (robot.IsDead)
+				{
+					output[i] = new WaitAction();
+				}
+				else if (robot.HasOre)
+				{
+					output[i] = new MoveToBaseAction(robot);
+				}
+				else if (!robot.HasTrap && robot.Position.X == 0 && _game.Players[0].TrapCooldown == 0)
+				{
+					output[i] = new RequestTrapAction(robot);
+				}
+				else if (_game.OreTiles.Count == 0)
+				{
+					output[i] = new DigClosestAction(robot, _game);
+				}
+				else
+				{
+					noActionRobots.Add(robot);
+				}
+			}
 
-            if (noActionRobots.Any())
-            {
-                var actions = Search(noActionRobots);
-                foreach (var robot in noActionRobots)
-                {
-                    var index = noActionRobots.IndexOf(robot);
-                    var realIndex = _robots.IndexOf(robot);
-                    output[realIndex] = actions[index];
-                }
-            }
+			if (noActionRobots.Any())
+			{
+				var actions = Search(noActionRobots);
+				foreach (var robot in noActionRobots)
+				{
+					var index = noActionRobots.IndexOf(robot);
+					var realIndex = _robots.IndexOf(robot);
+					output[realIndex] = actions[index];
+				}
+			}
 
-            return output.ToList();
-        }
+			return output.ToList();
+		}
 
-        public void Score(Solution solution)
-        {
-            _game.Reset();
-            foreach (var actions in solution.DigActions)
-            {
-                foreach (var digAction in actions)
-                {
-                    digAction.Apply();
-                }
-            }
+		public void Score(Solution solution)
+		{
+			_game.Reset();
+			foreach (var actions in solution.DigActions)
+			{
+				foreach (var digAction in actions)
+				{
+					digAction.Apply();
+				}
+			}
 
-            foreach (var oreTile in _game.OreTiles)
-            {
-                oreTile.Simulate(_game);
-            }
+			foreach (var oreTile in _game.OreTiles)
+			{
+				oreTile.Simulate(_game);
+			}
 
-            solution.Score = _game.Players[0].Score;
-        }
+			solution.Score = _game.Players[0].Score;
+		}
 
-        private List<IAction> Search(List<Robot> robots)
-        {
-            foreach (var robot in robots)
-            {
-                robot.PossibleActions = DigService.FindPossibleDigLocations(robot, _game);
-            }
+		private List<IAction> Search(List<Robot> robots)
+		{
+			foreach (var robot in robots)
+			{
+				robot.PossibleActions = DigService.FindPossibleDigLocations(robot, _game);
+			}
 
-            var best = new Solution(robots);
-            Score(best);
-            Console.Error.WriteLine($"First Score: {best.Score}");
-            var stopWatch = Stopwatch.StartNew();
-            var simulations = 0;
-            while (stopWatch.ElapsedMilliseconds < 40)
-            {
-                simulations++;
-                var solution = new Solution(robots);
-                Score(solution);
-                if (solution.Score > best.Score)
-                {
-                    best = solution;
-                }
-            }
+			var best = new Solution(robots);
+			Score(best);
+			Console.Error.WriteLine($"First Score: {best.Score}");
+			var stopWatch = Stopwatch.StartNew();
+			var simulations = 0;
+			while (stopWatch.ElapsedMilliseconds < 40)
+			{
+				simulations++;
+				var solution = new Solution(robots);
+				Score(solution);
+				if (solution.Score > best.Score)
+				{
+					best = solution;
+				}
+			}
 
-            Console.Error.WriteLine($"Simulations : {simulations} Time: {stopWatch.ElapsedMilliseconds} Score: {best.Score}");
-            return best.DigActions.Select(d => d.First()).OfType<IAction>().ToList();
-        }
+			Console.Error.WriteLine(
+				$"Simulations : {simulations} Time: {stopWatch.ElapsedMilliseconds} Score: {best.Score}");
+			return best.DigActions.Select(d => d.First()).OfType<IAction>().ToList();
+		}
 
-        public class Solution
-        {
-            public List<MCDigAction>[] DigActions;
+		public class Solution
+		{
+			public List<MCDigAction>[] DigActions;
 
-            public double Score;
+			public double Score;
 
-            public Solution(List<Robot> robots)
-            {
-                DigActions = robots.Select(r => new List<MCDigAction>()).ToArray();
-                for (var i = 0; i < robots.Count; i++)
-                {
-                    var robot = robots[i];
-                    for (var j = 0; j < Constants.SearchDepth; j++)
-                    {
-                        var selectedAction = robot.PossibleActions[Constants.RND.Next(robot.PossibleActions.Count)];
-                        DigActions[i].Add(selectedAction);
-                    }
-                }
-            }
-        }
-    }
+			public Solution(List<Robot> robots)
+			{
+				DigActions = robots.Select(r => new List<MCDigAction>()).ToArray();
+				for (var i = 0; i < robots.Count; i++)
+				{
+					var robot = robots[i];
+					for (var j = 0; j < Constants.SearchDepth; j++)
+					{
+						var selectedAction = robot.PossibleActions[Constants.RND.Next(robot.PossibleActions.Count)];
+						DigActions[i].Add(selectedAction);
+					}
+				}
+			}
+		}
+	}
 }
-
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Agents
 {
@@ -470,7 +491,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 
 		public void OnRound()
 		{
-			OreTiles = AllTiles.Where(t => t.Ore > 0).ToList();
+			OreTiles = AllTiles.Where(t => t.Ore > 0 && !t.HasTrap).ToList();
 		}
 
 		public void Reset()
@@ -566,7 +587,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public bool IsDead => Position.X == -1;
 		public bool HasOre => Item == RobotItem.ORE;
 		public bool HasRadar => Item == RobotItem.RADAR;
-
+		public bool HasTrap => Item == RobotItem.TRAP;
 
 		public Robot(int id, int x, int y, int item, Player player)
 		{
@@ -596,12 +617,12 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public List<Tile> NeighBours = new List<Tile>();
 		public int[,] ArrivalTimers = new int[2, Constants.SimulationDepth];
 
-        int _simulateOre;
+		int _simulateOre;
 
 		public Tile(int x, int y)
 		{
 			Position = new Coordinate(x, y);
-        }
+		}
 
 		public void Update(bool hole, string ore)
 		{
@@ -610,16 +631,16 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 				Ore = int.Parse(ore);
 				IsSeen = true;
 			}
-            else
-            {
-                Ore = 0;
-            }
-            _simulateOre = Ore;
-            HasHole = hole;
+			else
+			{
+				Ore = 0;
+			}
 
-        }
+			_simulateOre = Ore;
+			HasHole = hole;
+		}
 
-        public void Simulate(Game game)
+		public void Simulate(Game game)
 		{
 			for (var i = 0; i < Constants.SimulationDepth; i++)
 			{
@@ -653,7 +674,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 	}
 }
 
-
 namespace Codingame.Multiplayer.UnleashTheGeek.Services
 {
 	public class DigService
@@ -665,7 +685,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 		}
 	}
 }
-
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Services
 {
@@ -699,13 +718,13 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 			inputs = Console.ReadLine().Split(' ');
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
 			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
-            
-            game.Players[0].Robots.Clear();
-            game.Players[1].Robots.Clear();
-            game.Players[0].Radars.Clear();
-            game.Players[1].Radars.Clear();
 
-            for (var i = 0; i < entityCount; i++)
+			game.Players[0].Robots.Clear();
+			game.Players[1].Robots.Clear();
+			game.Players[0].Radars.Clear();
+			game.Players[1].Radars.Clear();
+
+			for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');
 				var id = int.Parse(inputs[0]); // unique id of the entity
@@ -746,7 +765,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 		}
 	}
 }
-
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Services
 {

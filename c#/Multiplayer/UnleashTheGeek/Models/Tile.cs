@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Models
 {
@@ -13,12 +12,12 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public List<Tile> NeighBours = new List<Tile>();
 		public int[,] ArrivalTimers = new int[2, Constants.SimulationDepth];
 
-        int _simulateOre;
+		int _simulateOre;
 
 		public Tile(int x, int y)
 		{
 			Position = new Coordinate(x, y);
-        }
+		}
 
 		public void Update(bool hole, string ore)
 		{
@@ -27,16 +26,16 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 				Ore = int.Parse(ore);
 				IsSeen = true;
 			}
-            else
-            {
-                Ore = 0;
-            }
-            _simulateOre = Ore;
-            HasHole = hole;
+			else
+			{
+				Ore = 0;
+			}
 
-        }
+			_simulateOre = Ore;
+			HasHole = hole;
+		}
 
-        public void Simulate(Game game)
+		public void Simulate(Game game)
 		{
 			for (var i = 0; i < Constants.SimulationDepth; i++)
 			{

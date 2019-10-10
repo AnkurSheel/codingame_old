@@ -2,11 +2,11 @@
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 {
-	public class MoveToBaseAction : IAction
+	public class RequestTrapAction : IAction
 	{
 		readonly Robot _robot;
 
-		public MoveToBaseAction(Robot robot)
+		public RequestTrapAction(Robot robot)
 		{
 			_robot = robot;
 		}
@@ -17,7 +17,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 		public string GetOutput()
 		{
-			return "MOVE 0 " + _robot.Position.Y;
+			return "REQUEST TRAP";
 		}
 	}
 }

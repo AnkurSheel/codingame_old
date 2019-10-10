@@ -23,7 +23,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 		public bool IsDead => Position.X == -1;
 		public bool HasOre => Item == RobotItem.ORE;
 		public bool HasRadar => Item == RobotItem.RADAR;
-
+		public bool HasTrap => Item == RobotItem.TRAP;
 
 		public Robot(int id, int x, int y, int item, Player player)
 		{

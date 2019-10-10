@@ -1,5 +1,4 @@
 ﻿using System;
-using Codingame.Multiplayer.UnleashTheGeek;
 using Codingame.Multiplayer.UnleashTheGeek.Agents;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 using Codingame.Multiplayer.UnleashTheGeek.Services;
@@ -10,9 +9,9 @@ class Player
 	{
 		InputService.ReadInitialData();
 
-        var game = new Game();
-        // game loop
-        while (true)
+		var game = new Game();
+		// game loop
+		while (true)
 		{
 			InputService.ReadGame(game);
 

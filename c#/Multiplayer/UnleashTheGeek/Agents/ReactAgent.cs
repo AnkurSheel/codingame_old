@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
-using Codingame.Multiplayer.UnleashTheGeek.a;
 using Codingame.Multiplayer.UnleashTheGeek.Actions;
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 

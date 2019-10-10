@@ -1,5 +1,4 @@
 ﻿using System;
-
 using Codingame.Multiplayer.UnleashTheGeek.Models;
 
 namespace Codingame.Multiplayer.UnleashTheGeek.Services
@@ -34,13 +33,13 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Services
 			inputs = Console.ReadLine().Split(' ');
 			var entityCount = int.Parse(inputs[0]); // number of entities visible to you
 			game.Players[0].Update(int.Parse(inputs[0]), int.Parse(inputs[1]), int.Parse(inputs[2]));
-            
-            game.Players[0].Robots.Clear();
-            game.Players[1].Robots.Clear();
-            game.Players[0].Radars.Clear();
-            game.Players[1].Radars.Clear();
 
-            for (var i = 0; i < entityCount; i++)
+			game.Players[0].Robots.Clear();
+			game.Players[1].Robots.Clear();
+			game.Players[0].Radars.Clear();
+			game.Players[1].Radars.Clear();
+
+			for (var i = 0; i < entityCount; i++)
 			{
 				inputs = Console.ReadLine().Split(' ');
 				var id = int.Parse(inputs[0]); // unique id of the entity

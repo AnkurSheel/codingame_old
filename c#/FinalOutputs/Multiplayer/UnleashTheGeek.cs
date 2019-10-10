@@ -10,7 +10,7 @@ using System.Diagnostics;
 using Codingame.Multiplayer.UnleashTheGeek.a;
 
 
- // 09/10/2019 02:21
+ // 11/10/2019 09:02
 
 
 namespace Codingame.Multiplayer.UnleashTheGeek
@@ -119,11 +119,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 		public string GetOutput()
 		{
-			if (_robot.HasOre)
-			{
-				return "MOVE 0 " + _robot.Position.Y;
-			}
-
 			var targetOre = _game.OreTiles.OrderBy(t => t.Position.Manhattan(_robot.Position)).FirstOrDefault();
 			if (targetOre == null)
 			{
@@ -195,6 +190,30 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
             }
 
             return "DIG " + _tile.Position.ToOutput();
+        }
+    }
+}
+
+namespace Codingame.Multiplayer.UnleashTheGeek.Actions
+{
+    public class MoveToBaseAction : IAction
+    {
+
+        readonly Robot _robot;
+
+        public MoveToBaseAction(Robot robot)
+        {
+            _robot = robot;
+        }
+
+        public void Apply()
+        {
+            
+        }
+
+        public string GetOutput()
+        {
+            return "MOVE 0 " + _robot.Position.Y;
         }
     }
 }
@@ -288,7 +307,15 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Agents
                 }
 
                 var robot = _robots[i];
-                if (robot.HasOre || _game.OreTiles.Count == 0 || robot.IsDead)
+                if (robot.IsDead)
+                {
+                    output[i] = new WaitAction();
+                }
+                else if (robot.HasOre)
+                {
+                    output[i] = new MoveToBaseAction(robot);
+                }
+                else if (_game.OreTiles.Count == 0)
                 {
                     output[i] = new DigClosestAction(robot, _game);
                 }

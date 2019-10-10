@@ -20,11 +20,6 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Actions
 
 		public string GetOutput()
 		{
-			if (_robot.HasOre)
-			{
-				return "MOVE 0 " + _robot.Position.Y;
-			}
-
 			var targetOre = _game.OreTiles.OrderBy(t => t.Position.Manhattan(_robot.Position)).FirstOrDefault();
 			if (targetOre == null)
 			{

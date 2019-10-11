@@ -24,7 +24,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Agents
 		{
 			var output = new IAction[5];
 			Console.Error.WriteLine($"Ore Tiles: {_game.OreTiles.Count}");
-			if (_game.AllTiles.Count(t => t.IsSeen && t.Ore > 0) < Constants.MinVisibleOreTilesForRadar)
+			if (_game.OreTiles.Count < Constants.MinVisibleOreTilesForRadar)
 			{
 				for (var i = 0; i < 5; i++)
 				{
@@ -112,7 +112,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Agents
 			Console.Error.WriteLine($"First Score: {best.Score}");
 			var stopWatch = Stopwatch.StartNew();
 			var simulations = 0;
-			while (stopWatch.ElapsedMilliseconds < 40)
+			while (stopWatch.ElapsedMilliseconds < Constants.TimeToRunSimulations)
 			{
 				simulations++;
 				var solution = new Solution(robots);

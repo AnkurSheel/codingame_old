@@ -41,7 +41,7 @@ namespace Codingame.Multiplayer.UnleashTheGeek.Models
 
 		public void OnRound()
 		{
-			OreTiles = AllTiles.Where(t => t.Ore > 0 && !t.HasTrap).ToList();
+			OreTiles = AllTiles.Where(t => t.IsSeen && t.Ore > 0 && !t.HasTrap).ToList();
 		}
 
 		public void Reset()

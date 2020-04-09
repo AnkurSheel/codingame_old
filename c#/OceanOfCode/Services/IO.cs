@@ -1,6 +1,8 @@
 ﻿using System;
 
-namespace OceanOfCode
+using OceanOfCode.Model;
+
+namespace OceanOfCode.Services
 {
     public static class Io
     {
@@ -38,10 +40,15 @@ namespace OceanOfCode
             game.Me.Initialize(x, y, myLife, torpedoCooldown, sonarCooldown, silenceCooldown, mineCooldown);
         }
 
+        public static void Debug(string output)
+        {
+            Console.Error.WriteLine(output);
+        }
+
         private static string ReadLine()
         {
             var input = Console.ReadLine();
-            Console.Error.WriteLine(input);
+            Debug(input);
             return input;
         }
     }

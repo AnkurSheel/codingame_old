@@ -1,6 +1,6 @@
-﻿using System.Diagnostics.Contracts;
+﻿using System.Collections.Generic;
 
-namespace OceanOfCode
+namespace OceanOfCode.Model
 {
     public class Player
     {
@@ -10,6 +10,7 @@ namespace OceanOfCode
         {
             _game = game;
             Id = id;
+            PreviousPositions = new HashSet<Cell>();
         }
 
         public int Id { get; }
@@ -22,16 +23,22 @@ namespace OceanOfCode
 
         public Cell Position { get; set; }
 
-        public void Initialize(int x, int y, int life, int torpedoCooldown, int sonarCooldown, int silenceCooldown, int mineCooldown)
+        public HashSet<Cell> PreviousPositions { get; }
+
+        public void Initialize(
+            int x,
+            int y,
+            int life,
+            int torpedoCooldown,
+            int sonarCooldown,
+            int silenceCooldown,
+            int mineCooldown)
         {
-            Position = new Cell(x, y, CellType.Unknown);
+            Position = new Cell(x, y);
             Life = life;
             TorpedoCooldown = torpedoCooldown;
-        }
 
-        public string GetAction()
-        {
-            return "MOVE N TORPEDO";
+            PreviousPositions.Add(Position);
         }
     }
 }

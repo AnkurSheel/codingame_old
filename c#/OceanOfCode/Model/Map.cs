@@ -1,7 +1,6 @@
-﻿using System.Dynamic;
-using System.Text;
+﻿using System.Text;
 
-namespace OceanOfCode
+namespace OceanOfCode.Model
 {
     public class Map
     {
@@ -55,6 +54,18 @@ namespace OceanOfCode
             }
 
             return sb.ToString();
+        }
+
+        public bool IsValid(int x, int y)
+        {
+            if (y < 0 || y >= 15 || x < 0 || x >= 15)
+            {
+                return false;
+            }
+
+            var cellType = Cells[y, x].Type;
+
+            return cellType == CellType.Sea;
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 
+using OceanOfCode.Model;
+
 namespace OceanOfCode
 {
     public class Game

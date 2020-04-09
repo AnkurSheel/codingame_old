@@ -1,4 +1,4 @@
-﻿namespace OceanOfCode
+﻿namespace OceanOfCode.Model
 {
     public enum CellType
     {

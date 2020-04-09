@@ -1,6 +1,7 @@
 ﻿using System;
 
 using OceanOfCode.Agent;
+using OceanOfCode.Model;
 using OceanOfCode.Services;
 
 namespace OceanOfCode
@@ -12,13 +13,22 @@ namespace OceanOfCode
             var game = new Game();
             Io.Initialize(game);
 
-            Console.WriteLine("7 7");
+            var random = new Random();
+            while (true)
+            {
+                var position = new Cell(random.Next(7), random.Next(7, 15));
+                if (game.Map.IsValid(position.X, position.Y))
+                {
+                    Io.WriteLine($"{position.X} {position.Y}");
+                    break;
+                }
+            }
 
             var agent = new ReactAgent(game);
             while (true)
             {
                 Io.ReadTurn(game);
-                Console.WriteLine(agent.GetAction());
+                Io.WriteLine(agent.GetAction());
             }
         }
     }

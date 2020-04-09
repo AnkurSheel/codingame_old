@@ -45,6 +45,11 @@ namespace OceanOfCode.Services
             Console.Error.WriteLine(output);
         }
 
+        public static void WriteLine(string output)
+        {
+            Console.WriteLine(output);
+        }
+
         private static string ReadLine()
         {
             var input = Console.ReadLine();

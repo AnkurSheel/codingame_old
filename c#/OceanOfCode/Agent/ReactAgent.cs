@@ -8,6 +8,8 @@ namespace OceanOfCode.Agent
 
         private readonly Game _game;
 
+        private Direction _lastDirection;
+
         public ReactAgent(Game game)
         {
             _myPlayer = game.Me;
@@ -16,28 +18,64 @@ namespace OceanOfCode.Agent
 
         public string GetAction()
         {
-            var position = new Cell(_myPlayer.Position.X, _myPlayer.Position.Y - 1);
-            if (CanMove(position))
+            switch (_lastDirection)
             {
-                return "MOVE N";
+                case Direction.North:
+                    if (_game.Map.IsValid(_game.Map.GetNorthPosition(_myPlayer.Position)))
+                    {
+                        return MoveNorth();
+                    }
+
+                    break;
+                case Direction.South:
+                    if (_game.Map.IsValid(_game.Map.GetSouthPosition(_myPlayer.Position)))
+                    {
+                        return MoveSouth();
+                    }
+
+                    break;
+                case Direction.East:
+                    if (_game.Map.IsValid(_game.Map.GetEastPosition(_myPlayer.Position)))
+                    {
+                        return MoveEast();
+                    }
+
+                    break;
+                case Direction.West:
+                    if (_game.Map.IsValid(_game.Map.GetWestPosition(_myPlayer.Position)))
+                    {
+                        return MoveWest();
+                    }
+
+                    break;
             }
 
-            position = new Cell(_myPlayer.Position.X + 1, _myPlayer.Position.Y);
+            var position = _game.Map.GetNorthPosition(_myPlayer.Position);
             if (CanMove(position))
             {
-                return "MOVE E";
+                _lastDirection = Direction.North;
+                return MoveNorth();
             }
 
-            position = new Cell(_myPlayer.Position.X, _myPlayer.Position.Y + 1);
+            position = _game.Map.GetEastPosition(_myPlayer.Position);
             if (CanMove(position))
             {
-                return "MOVE S";
+                _lastDirection = Direction.East;
+                return MoveEast();
             }
 
-            position = new Cell(_myPlayer.Position.X - 1, _myPlayer.Position.Y);
+            position = _game.Map.GetSouthPosition(_myPlayer.Position);
             if (CanMove(position))
             {
-                return "MOVE W";
+                _lastDirection = Direction.South;
+                return MoveSouth();
+            }
+
+            position = _game.Map.GetWestPosition(_myPlayer.Position);
+            if (CanMove(position))
+            {
+                _lastDirection = Direction.West;
+                return MoveWest();
             }
 
             _myPlayer.PreviousPositions.Clear();
@@ -45,9 +83,42 @@ namespace OceanOfCode.Agent
             //return "MOVE N TORPEDO";
         }
 
+        private string MoveWest()
+        {
+            return "MOVE W";
+        }
+
+        private string MoveSouth()
+        {
+            return "MOVE S";
+        }
+
+        private string MoveEast()
+        {
+            return "MOVE E";
+        }
+
+        private string MoveNorth()
+        {
+            return "MOVE N";
+        }
+
         private bool CanMove(Cell position)
         {
-            return !_myPlayer.PreviousPositions.Contains(position) && _game.Map.IsValid(position.X, position.Y);
+            return !_myPlayer.PreviousPositions.Contains(position) && _game.Map.IsValid(position);
         }
+    }
+
+    public enum Direction
+    {
+        Unknown = 0,
+
+        North = 1,
+
+        South = 2,
+
+        East = 3,
+
+        West = 4
     }
 }

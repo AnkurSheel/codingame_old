@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+using OceanOfCode.Agent;
+
 namespace OceanOfCode.Model
 {
     public class Player

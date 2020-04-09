@@ -56,16 +56,36 @@ namespace OceanOfCode.Model
             return sb.ToString();
         }
 
-        public bool IsValid(int x, int y)
+        public bool IsValid(Cell cell)
         {
-            if (y < 0 || y >= 15 || x < 0 || x >= 15)
+            if (cell.Y < 0 || cell.Y >= 15 || cell.X < 0 || cell.X >= 15)
             {
                 return false;
             }
 
-            var cellType = Cells[y, x].Type;
+            var cellType = Cells[cell.Y, cell.X].Type;
 
             return cellType == CellType.Sea;
+        }
+
+        public Cell GetWestPosition(Cell position)
+        {
+            return new Cell(position.X - 1, position.Y);
+        }
+
+        public Cell GetSouthPosition(Cell position)
+        {
+            return new Cell(position.X, position.Y + 1);
+        }
+
+        public Cell GetEastPosition(Cell position)
+        {
+            return new Cell(position.X + 1, position.Y);
+        }
+
+        public Cell GetNorthPosition(Cell position)
+        {
+            return new Cell(position.X, position.Y - 1);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace OceanOfCode
             while (true)
             {
                 var position = new Cell(random.Next(7), random.Next(7, 15));
-                if (game.Map.IsValid(position.X, position.Y))
+                if (game.Map.IsValid(position))
                 {
                     Io.WriteLine($"{position.X} {position.Y}");
                     break;

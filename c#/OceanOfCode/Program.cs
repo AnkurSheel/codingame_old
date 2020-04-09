@@ -8,8 +8,6 @@ namespace OceanOfCode
         {
             Io.Initialize();
             
-            string[] inputs;
-
             // Write an action using Console.WriteLine()
             // To debug: Console.Error.WriteLine("Debug messages...");
 

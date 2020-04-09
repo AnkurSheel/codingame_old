@@ -6,13 +6,18 @@ namespace OceanOfCode
     {
         public static void Initialize()
         {
+            var player = new Player();
             var inputs = ReadLine().Split(' ');
             var width = int.Parse(inputs[0]);
             var height = int.Parse(inputs[1]);
-            var myId = int.Parse(inputs[2]);
-            for (var i = 0; i < height; i++)
+            player.Id = int.Parse(inputs[2]);
+            
+            var map = new Map(width, height);
+
+            for (var i = 0; i < map.Height; i++)
             {
                 var line = ReadLine();
+                map.Build(i, line);
             }
         }
 

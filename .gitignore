@@ -11,3 +11,6 @@ log.*
 *.opendb
 *.db
 c++/prj/x64/
+*/.vs/
+*/bin/
+*/obj/

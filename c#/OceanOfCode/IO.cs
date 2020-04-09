@@ -4,24 +4,25 @@ namespace OceanOfCode
 {
     public static class Io
     {
-        public static void Initialize()
+        public static void Initialize(Game game)
         {
-            var player = new Player();
             var inputs = ReadLine().Split(' ');
             var width = int.Parse(inputs[0]);
             var height = int.Parse(inputs[1]);
-            player.Id = int.Parse(inputs[2]);
-            
-            var map = new Map(width, height);
 
-            for (var i = 0; i < map.Height; i++)
+            var myId = int.Parse(inputs[2]);
+            game.SetMe(myId);
+
+            game.Map = new Map(width, height);
+
+            for (var i = 0; i < game.Map.Height; i++)
             {
                 var line = ReadLine();
-                map.Build(i, line);
+                game.Map.Build(i, line);
             }
         }
 
-        public static void ReadTurn()
+        public static void ReadTurn(Game game)
         {
             var inputs = ReadLine().Split(' ');
             var x = int.Parse(inputs[0]);
@@ -34,7 +35,9 @@ namespace OceanOfCode
             var mineCooldown = int.Parse(inputs[7]);
             var sonarResult = ReadLine();
             var opponentOrders = ReadLine();
+            game.Me.Initialize(x, y, myLife, torpedoCooldown, sonarCooldown, silenceCooldown, mineCooldown);
         }
+
         private static string ReadLine()
         {
             var input = Console.ReadLine();

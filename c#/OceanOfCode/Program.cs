@@ -13,10 +13,9 @@ namespace OceanOfCode
             var game = new Game();
             Io.Initialize(game);
 
-            var random = new Random();
             while (true)
             {
-                var position = new Cell(random.Next(7), random.Next(7, 15));
+                var position = new Cell(game.Random.Next(7), game.Random.Next(7, 15));
                 if (game.Map.IsValid(position))
                 {
                     Io.WriteLine($"{position.X} {position.Y}");

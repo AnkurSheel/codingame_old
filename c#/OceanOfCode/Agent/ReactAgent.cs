@@ -1,4 +1,5 @@
 ﻿using OceanOfCode.Model;
+using OceanOfCode.Services;
 
 namespace OceanOfCode.Agent
 {
@@ -21,34 +22,39 @@ namespace OceanOfCode.Agent
             switch (_lastDirection)
             {
                 case Direction.North:
-                    if (_game.Map.IsValid(_game.Map.GetNorthPosition(_myPlayer.Position)))
+                    if (CanMove(_game.Map.GetNorthPosition(_myPlayer.Position)))
                     {
                         return MoveNorth();
                     }
 
                     break;
                 case Direction.South:
-                    if (_game.Map.IsValid(_game.Map.GetSouthPosition(_myPlayer.Position)))
+                    if (CanMove(_game.Map.GetSouthPosition(_myPlayer.Position)))
                     {
                         return MoveSouth();
                     }
 
                     break;
                 case Direction.East:
-                    if (_game.Map.IsValid(_game.Map.GetEastPosition(_myPlayer.Position)))
+                    if (CanMove(_game.Map.GetEastPosition(_myPlayer.Position)))
                     {
                         return MoveEast();
                     }
 
                     break;
                 case Direction.West:
-                    if (_game.Map.IsValid(_game.Map.GetWestPosition(_myPlayer.Position)))
+                    if (CanMove(_game.Map.GetWestPosition(_myPlayer.Position)))
                     {
                         return MoveWest();
                     }
 
                     break;
             }
+
+            //foreach (var previousPosition in _myPlayer.PreviousPositions)
+            //{
+            //    Io.Debug($"{previousPosition}");
+            //}
 
             var position = _game.Map.GetNorthPosition(_myPlayer.Position);
             if (CanMove(position))

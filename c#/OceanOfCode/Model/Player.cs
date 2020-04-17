@@ -6,18 +6,14 @@ namespace OceanOfCode.Model
 {
     public class Player
     {
-        private readonly Game _game;
 
-        public Player(int id, Game game)
+        public Player(int id)
         {
-            _game = game;
             Id = id;
             PreviousPositions = new HashSet<Cell>();
         }
 
         public int Id { get; }
-
-        public bool IsMe { get; set; }
 
         public int TorpedoCooldown { get; set; }
 

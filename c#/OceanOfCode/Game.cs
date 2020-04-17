@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 
 using OceanOfCode.Model;
 
@@ -11,7 +10,7 @@ namespace OceanOfCode
 
         public Game()
         {
-            Players = new[] { new Player(0, this), new Player(1, this) };
+            Players = new[] { new Player(0), new Player(1) };
             Random = new Random(123);
         }
 
@@ -24,8 +23,6 @@ namespace OceanOfCode
         public void SetMe(int id)
         {
             Me = Players[id];
-            Me.IsMe = true;
         }
-
     }
 }

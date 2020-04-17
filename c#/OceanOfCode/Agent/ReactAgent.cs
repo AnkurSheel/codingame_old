@@ -12,6 +12,8 @@ namespace OceanOfCode.Agent
     {
         private readonly Player _myPlayer;
 
+        public OpponentTracking OpponentTracking { get; }
+
         private readonly Game _game;
 
         private Direction _lastDirection;
@@ -20,6 +22,9 @@ namespace OceanOfCode.Agent
         {
             _myPlayer = game.Me;
             _game = game;
+            OpponentTracking = new OpponentTracking(_game.Map);
+            OpponentTracking.InitializePossibleOptions();
+
         }
 
         public string GetAction()

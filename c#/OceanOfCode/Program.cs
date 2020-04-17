@@ -26,7 +26,7 @@ namespace OceanOfCode
             var agent = new ReactAgent(game);
             while (true)
             {
-                Io.ReadTurn(game);
+                Io.ReadTurn(game, agent);
                 Io.WriteLine(agent.GetAction());
             }
         }

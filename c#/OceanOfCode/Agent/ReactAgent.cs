@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 using OceanOfCode.Actions;
 using OceanOfCode.Model;
@@ -12,19 +11,19 @@ namespace OceanOfCode.Agent
     {
         private readonly Player _myPlayer;
 
-        public OpponentTracking OpponentTracking { get; }
+        private readonly FloodFill _floodFill;
+
+        private readonly OpponentTracking _opponentTracking;
 
         private readonly Game _game;
-
-        private Direction _lastDirection;
 
         public ReactAgent(Game game)
         {
             _myPlayer = game.Me;
             _game = game;
-            OpponentTracking = new OpponentTracking(_game.Map);
-            OpponentTracking.InitializePossibleOptions();
-
+            _opponentTracking = new OpponentTracking(_game.Map);
+            _opponentTracking.InitializePossibleOptions();
+            _floodFill = new FloodFill(_game.Map);
         }
 
         public string GetAction()
@@ -36,42 +35,38 @@ namespace OceanOfCode.Agent
             //    return $"TORPEDO {_game.Opponent.Position.X} {_game.Opponent.Position.Y}";
             //}
 
-            MoveInSameDirection(actions);
-
-            if (!actions.Any())
+            var direction = GetMoveDirection();
+            if (direction == Direction.Unknown)
             {
-                MoveInNewDirection(actions);
-            }
-
-            if (!actions.Any())
-            {
-                _myPlayer.PreviousPositions.Clear();
                 actions.Add(new Surface());
+                _myPlayer.PreviousPositions.Clear();
+            }
+            else
+            {
+                actions.Add(new Move(direction));
             }
 
-            actions.Add(new Torpedo());
 
             var ret = string.Empty;
             for (var index = 0; index < actions.Count; index++)
             {
                 var action = actions[index];
+                ret += action.GetAction();
                 if (index != actions.Count - 1)
                 {
-                    ret = action.GetAction();
+                    ret += " ";
                 }
-
-                ret += " ";
             }
 
             return ret;
             //return "MOVE N TORPEDO";
         }
 
-        private bool ShouldFireTorpedo()
-        {
-            Io.Debug(_game.Opponent.ToString());
-            return _myPlayer.IsTorpedoCharged() && ManhattanDistance(_myPlayer.Position, _game.Opponent.Position) <= 4;
-        }
+        //private bool ShouldFireTorpedo()
+        //{
+        //    Io.Debug(_game.Opponent.ToString());
+        //    return _myPlayer.IsTorpedoCharged() && ManhattanDistance(_myPlayer.Position, _game.Opponent.Position) <= 4;
+        //}
 
         public float ManhattanDistance(Cell position1, Cell position2)
         {
@@ -80,73 +75,68 @@ namespace OceanOfCode.Agent
             return Math.Abs(position1.X - position1.X) + Math.Abs(position1.Y - position2.Y);
         }
 
-        private void MoveInNewDirection(ICollection<IAction> action)
+        private Direction GetMoveDirection()
         {
-            var position = _game.Map.GetNorthPosition(_myPlayer.Position);
-            if (CanMove(position))
-            {
-                _lastDirection = Direction.North;
-                action.Add(new MoveNorth());
-                return;
-            }
+            var bestScore = int.MinValue;
+            var bestDirection = Direction.Unknown;
 
-            position = _game.Map.GetEastPosition(_myPlayer.Position);
+            var previousPositions = new HashSet<Cell>(_myPlayer.PreviousPositions);
+            var position = _game.Map.GetNorthPosition(_myPlayer.Position);
+            previousPositions.Add(_myPlayer.Position);
             if (CanMove(position))
             {
-                _lastDirection = Direction.East;
-                action.Add(new MoveEast());
-                return;
+                var size = _floodFill.FindOpenArea(position, previousPositions);
+                Io.Debug($"North {bestScore} {size}");
+                if (size > bestScore)
+                {
+                    bestScore = size;
+                    bestDirection = Direction.North;
+                }
             }
 
             position = _game.Map.GetSouthPosition(_myPlayer.Position);
             if (CanMove(position))
             {
-                _lastDirection = Direction.South;
-                action.Add(new MoveSouth());
-                return;
+                var size = _floodFill.FindOpenArea(position, previousPositions);
+                Io.Debug($"South {bestScore} {size}");
+                if (size > bestScore)
+                {
+                    bestScore = size;
+                    bestDirection = Direction.South;
+                }
+            }
+
+            position = _game.Map.GetEastPosition(_myPlayer.Position);
+            if (CanMove(position))
+            {
+                var size = _floodFill.FindOpenArea(position, previousPositions);
+                Io.Debug($"East {bestScore} {size}");
+                if (size > bestScore)
+                {
+                    bestScore = size;
+                    bestDirection = Direction.East;
+                }
             }
 
             position = _game.Map.GetWestPosition(_myPlayer.Position);
             if (CanMove(position))
             {
-                _lastDirection = Direction.West;
-                action.Add(new MoveWest());
+                var size = _floodFill.FindOpenArea(position, previousPositions);
+                Io.Debug($"West {bestScore} {size}");
+
+                if (size > bestScore)
+                {
+                    bestScore = size;
+                    bestDirection = Direction.West;
+                }
             }
+
+            return bestDirection;
         }
 
-        private void MoveInSameDirection(ICollection<IAction> action)
+        public void ParseOpponentOrders(string opponentOrders)
         {
-            switch (_lastDirection)
-            {
-                case Direction.North:
-                    if (CanMove(_game.Map.GetNorthPosition(_myPlayer.Position)))
-                    {
-                        action.Add(new MoveNorth());
-                    }
-
-                    break;
-                case Direction.South:
-                    if (CanMove(_game.Map.GetSouthPosition(_myPlayer.Position)))
-                    {
-                        action.Add(new MoveSouth());
-                    }
-
-                    break;
-                case Direction.East:
-                    if (CanMove(_game.Map.GetEastPosition(_myPlayer.Position)))
-                    {
-                        action.Add(new MoveEast());
-                    }
-
-                    break;
-                case Direction.West:
-                    if (CanMove(_game.Map.GetWestPosition(_myPlayer.Position)))
-                    {
-                        action.Add(new MoveWest());
-                    }
-
-                    break;
-            }
+            //_opponentTracking.ParseOrders(opponentOrders);
         }
 
         private bool CanMove(Cell position)

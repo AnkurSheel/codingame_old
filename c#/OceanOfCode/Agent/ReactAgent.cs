@@ -86,7 +86,6 @@ namespace OceanOfCode.Agent
             if (CanMove(position))
             {
                 var size = _floodFill.FindOpenArea(position, previousPositions);
-                Io.Debug($"North {bestScore} {size}");
                 if (size > bestScore)
                 {
                     bestScore = size;
@@ -98,7 +97,6 @@ namespace OceanOfCode.Agent
             if (CanMove(position))
             {
                 var size = _floodFill.FindOpenArea(position, previousPositions);
-                Io.Debug($"South {bestScore} {size}");
                 if (size > bestScore)
                 {
                     bestScore = size;
@@ -110,7 +108,6 @@ namespace OceanOfCode.Agent
             if (CanMove(position))
             {
                 var size = _floodFill.FindOpenArea(position, previousPositions);
-                Io.Debug($"East {bestScore} {size}");
                 if (size > bestScore)
                 {
                     bestScore = size;
@@ -122,7 +119,6 @@ namespace OceanOfCode.Agent
             if (CanMove(position))
             {
                 var size = _floodFill.FindOpenArea(position, previousPositions);
-                Io.Debug($"West {bestScore} {size}");
 
                 if (size > bestScore)
                 {
@@ -136,25 +132,12 @@ namespace OceanOfCode.Agent
 
         public void ParseOpponentOrders(string opponentOrders)
         {
-            //_opponentTracking.ParseOrders(opponentOrders);
+            _opponentTracking.ParseOrders(opponentOrders);
         }
 
         private bool CanMove(Cell position)
         {
             return !_myPlayer.PreviousPositions.Contains(position) && _game.Map.IsValid(position);
         }
-    }
-
-    public enum Direction
-    {
-        Unknown = 0,
-
-        North = 1,
-
-        South = 2,
-
-        East = 3,
-
-        West = 4
     }
 }

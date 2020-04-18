@@ -1,4 +1,5 @@
 ﻿using OceanOfCode.Agent;
+using OceanOfCode.Model;
 
 namespace OceanOfCode.Actions
 {
@@ -13,7 +14,7 @@ namespace OceanOfCode.Actions
 
         public string GetAction()
         {
-            return $"MOVE {_direction.ToString()[0]}";
+            return $"{Constants.Move} {_direction.ToString()[0]}";
         }
     }
 }

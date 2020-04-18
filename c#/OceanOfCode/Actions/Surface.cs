@@ -4,7 +4,7 @@
     {
         public string GetAction()
         {
-            return "SURFACE";
+            return Constants.Surface;
         }
     }
 }

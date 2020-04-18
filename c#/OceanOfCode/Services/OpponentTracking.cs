@@ -20,13 +20,13 @@ namespace OceanOfCode.Services
 
         public void ParseOrders(string orders)
         {
-            var tokens = orders.Split(' ');
+            var tokens = orders.Split(new char[]{' ', '|'}, StringSplitOptions.RemoveEmptyEntries);
             foreach (var token in tokens)
             {
                 Io.Debug(token);
             }
 
-            if (tokens[0] == "MOVE")
+            if (tokens[0] == Constants.Move)
             {
                 ParseMove(tokens[1]);
                 Io.Debug($"possible positions {_possiblePositions.Count}");
@@ -35,7 +35,7 @@ namespace OceanOfCode.Services
                     DebugPositions(_possiblePositions);
                 }
             }
-            else if (tokens[0] == "SURFACE")
+            else if (tokens[0] == Constants.Surface)
             {
                 Io.Debug($"SURFACE possible positions {_possiblePositions.Count}");
                 var region = Convert.ToInt32(tokens[1]);
@@ -100,11 +100,15 @@ namespace OceanOfCode.Services
 
         public void InitializePossibleOptions()
         {
-            foreach (var cell in _map.Cells)
+            for (var j = 0; j < _map.Height; j++)
             {
-                if (_map.IsValid(cell))
+                for (var i = 0; i < _map.Width; i++)
                 {
-                    _possiblePositions.Add(cell);
+                    var cell = _map.Cells[i, j];
+                    if (_map.IsValid(cell))
+                    {
+                        _possiblePositions.Add(cell);
+                    }
                 }
             }
 

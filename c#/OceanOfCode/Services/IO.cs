@@ -1,19 +1,27 @@
 ﻿using System;
+using System.IO;
 
+using OceanOfCode.Agent;
 using OceanOfCode.Model;
 
 namespace OceanOfCode.Services
 {
     public static class Io
     {
+        private static StreamReader file;
+
         public static void Initialize(Game game)
         {
+            if (Constants.Local)
+            {
+                file = new StreamReader(@".\in.txt");
+            }
+
             var inputs = ReadLine().Split(' ');
             var width = int.Parse(inputs[0]);
             var height = int.Parse(inputs[1]);
 
             var myId = int.Parse(inputs[2]);
-            game.SetMe(myId);
 
             game.Map = new Map(width, height);
 
@@ -22,9 +30,11 @@ namespace OceanOfCode.Services
                 var line = ReadLine();
                 game.Map.Build(i, line);
             }
+
+            game.SetMe(myId);
         }
 
-        public static void ReadTurn(Game game)
+        public static void ReadTurn(Game game, ReactAgent agent)
         {
             var inputs = ReadLine().Split(' ');
             var x = int.Parse(inputs[0]);
@@ -37,12 +47,22 @@ namespace OceanOfCode.Services
             var mineCooldown = int.Parse(inputs[7]);
             var sonarResult = ReadLine();
             var opponentOrders = ReadLine();
-            game.Me.Initialize(x, y, myLife, torpedoCooldown, sonarCooldown, silenceCooldown, mineCooldown);
+            game.Me.Initialize(x,
+                               y,
+                               myLife,
+                               torpedoCooldown,
+                               sonarCooldown,
+                               silenceCooldown,
+                               mineCooldown);
+            agent.ParseOpponentOrders(opponentOrders);
         }
 
         public static void Debug(string output)
         {
-            Console.Error.WriteLine(output);
+            if (Constants.DebugOn)
+            {
+                Console.Error.WriteLine(output);
+            }
         }
 
         public static void WriteLine(string output)
@@ -52,9 +72,26 @@ namespace OceanOfCode.Services
 
         private static string ReadLine()
         {
-            var input = Console.ReadLine();
-            Debug(input);
-            return input;
+            if (Constants.Local)
+            {
+                return file.ReadLine();
+            }
+            else
+            {
+                var input = Console.ReadLine();
+                if (Constants.ForInput)
+                {
+                    Debug("IN");
+                    Debug(input);
+                    Debug("/IN");
+                }
+                else
+                {
+                    Debug(input);
+                }
+
+                return input;
+            }
         }
     }
 }

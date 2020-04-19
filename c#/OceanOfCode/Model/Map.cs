@@ -58,7 +58,7 @@ namespace OceanOfCode.Model
 
         public bool IsValid(Cell cell)
         {
-            if (cell.Y < 0 || cell.Y >= 15 || cell.X < 0 || cell.X >= 15)
+            if (IsOutOfBounds(cell.X, cell.Y))
             {
                 return false;
             }
@@ -68,24 +68,42 @@ namespace OceanOfCode.Model
             return cellType == CellType.Sea;
         }
 
-        public Cell GetWestPosition(Cell position)
+        public void SetupCells()
         {
-            return new Cell(position.X - 1, position.Y);
+            for (var i = 0; i < Height; i++)
+            {
+                for (var j = 0; j < Width; j++)
+                {
+                    CheckAndAddNeighbour(Cells[i, j], j, i - 1, Direction.North);
+                    CheckAndAddNeighbour(Cells[i, j], j, i + 1, Direction.South);
+                    CheckAndAddNeighbour(Cells[i, j], j - 1, i, Direction.West);
+                    CheckAndAddNeighbour(Cells[i, j], j + 1, i, Direction.East);
+                }
+            }
         }
 
-        public Cell GetSouthPosition(Cell position)
+        private void CheckAndAddNeighbour(Cell currentCell, int x, int y, Direction direction)
         {
-            return new Cell(position.X, position.Y + 1);
+            if (IsOutOfBounds(x, y))
+            {
+                return;
+            }
+
+            var newCell = Cells[y, x];
+            if (IsValid(newCell))
+            {
+                currentCell.Neighbours.Add(direction, newCell);
+            }
         }
 
-        public Cell GetEastPosition(Cell position)
+        private bool IsOutOfBounds(int x, int y)
         {
-            return new Cell(position.X + 1, position.Y);
-        }
+            if (y < 0 || y >= 15 || x < 0 || x >= 15)
+            {
+                return true;
+            }
 
-        public Cell GetNorthPosition(Cell position)
-        {
-            return new Cell(position.X, position.Y - 1);
+            return false;
         }
     }
 }

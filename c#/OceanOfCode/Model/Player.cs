@@ -24,15 +24,14 @@ namespace OceanOfCode.Model
         public HashSet<Cell> PreviousPositions { get; }
 
         public void Initialize(
-            int x,
-            int y,
+            Cell position,
             int life,
             int torpedoCooldown,
             int sonarCooldown,
             int silenceCooldown,
             int mineCooldown)
         {
-            Position = new Cell(x, y);
+            Position = position;
             Life = life;
             TorpedoCooldown = torpedoCooldown;
 

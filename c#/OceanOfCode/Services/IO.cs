@@ -31,6 +31,7 @@ namespace OceanOfCode.Services
                 game.Map.Build(i, line);
             }
 
+            game.Map.SetupCells();
             game.SetMe(myId);
         }
 
@@ -47,8 +48,7 @@ namespace OceanOfCode.Services
             var mineCooldown = int.Parse(inputs[7]);
             var sonarResult = ReadLine();
             var opponentOrders = ReadLine();
-            game.Me.Initialize(x,
-                               y,
+            game.Me.Initialize(game.Map.Cells[y,x],
                                myLife,
                                torpedoCooldown,
                                sonarCooldown,

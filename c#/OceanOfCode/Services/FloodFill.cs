@@ -26,25 +26,18 @@ namespace OceanOfCode.Services
             {
                 var nextCell = open.First();
                 open.RemoveAt(0);
-                AddIfCanVisit(previousPositions, _map.GetNorthPosition(nextCell), seen, open);
-                AddIfCanVisit(previousPositions, _map.GetSouthPosition(nextCell), seen, open);
-                AddIfCanVisit(previousPositions, _map.GetEastPosition(nextCell), seen, open);
-                AddIfCanVisit(previousPositions, _map.GetWestPosition(nextCell), seen, open);
+
+                foreach (var neighbour in nextCell.Neighbours)
+                {
+                    var cell = neighbour.Value;
+                    if (!previousPositions.Contains(cell) && seen.Add(cell))
+                    {
+                        open.Add(cell);
+                    }
+                }
             }
 
             return seen.Count;
-        }
-
-        private void AddIfCanVisit(
-            IReadOnlyCollection<Cell> previousPositions,
-            Cell newPos,
-            ISet<Cell> seen,
-            ICollection<Cell> open)
-        {
-            if (_map.IsValid(newPos) && !previousPositions.Contains(newPos) && seen.Add(newPos))
-            {
-                open.Add(newPos);
-            }
         }
     }
 }

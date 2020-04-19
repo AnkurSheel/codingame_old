@@ -20,7 +20,7 @@ namespace OceanOfCode.Services
 
         public void ParseOrders(string orders)
         {
-            var tokens = orders.Split(new char[]{' ', '|'}, StringSplitOptions.RemoveEmptyEntries);
+            var tokens = orders.Split(new[] { ' ', '|' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var token in tokens)
             {
                 Io.Debug(token);
@@ -49,7 +49,7 @@ namespace OceanOfCode.Services
                 {
                     for (var j = yMin; j < yMax; j++)
                     {
-                        positions.Add(_map.Cells[i, j]);
+                        positions.Add(_map.Cells[j, i]);
                     }
                 }
 
@@ -69,29 +69,12 @@ namespace OceanOfCode.Services
         private void ParseMove(string moveDirection)
         {
             var next = new HashSet<Cell>();
+            var dir = DirectionExtensions.FromChar(moveDirection[0]);
             foreach (var possiblePosition in _possiblePositions)
             {
-                var position = new Cell(-1, -1);
-                if (moveDirection == "E")
+                if (possiblePosition.Neighbours.ContainsKey(dir))
                 {
-                    position = _map.GetEastPosition(possiblePosition);
-                }
-                else if (moveDirection == "W")
-                {
-                    position = _map.GetWestPosition(possiblePosition);
-                }
-                else if (moveDirection == "N")
-                {
-                    position = _map.GetNorthPosition(possiblePosition);
-                }
-                else if (moveDirection == "S")
-                {
-                    position = _map.GetSouthPosition(possiblePosition);
-                }
-
-                if (_map.IsValid(position))
-                {
-                    next.Add(position);
+                    next.Add(possiblePosition.Neighbours[dir]);
                 }
             }
 

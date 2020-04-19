@@ -80,53 +80,19 @@ namespace OceanOfCode.Agent
             var bestScore = int.MinValue;
             var bestDirection = Direction.Unknown;
 
-            var previousPositions = new HashSet<Cell>(_myPlayer.PreviousPositions);
-            var position = _game.Map.GetNorthPosition(_myPlayer.Position);
-            previousPositions.Add(_myPlayer.Position);
-            if (CanMove(position))
+            foreach (var neighbour in _myPlayer.Position.Neighbours)
             {
-                var size = _floodFill.FindOpenArea(position, previousPositions);
+                if (_myPlayer.PreviousPositions.Contains(neighbour.Value))
+                {
+                    continue;
+                }
+                var size = _floodFill.FindOpenArea(neighbour.Value, _myPlayer.PreviousPositions);
                 if (size > bestScore)
                 {
                     bestScore = size;
-                    bestDirection = Direction.North;
+                    bestDirection = neighbour.Key;
                 }
             }
-
-            position = _game.Map.GetSouthPosition(_myPlayer.Position);
-            if (CanMove(position))
-            {
-                var size = _floodFill.FindOpenArea(position, previousPositions);
-                if (size > bestScore)
-                {
-                    bestScore = size;
-                    bestDirection = Direction.South;
-                }
-            }
-
-            position = _game.Map.GetEastPosition(_myPlayer.Position);
-            if (CanMove(position))
-            {
-                var size = _floodFill.FindOpenArea(position, previousPositions);
-                if (size > bestScore)
-                {
-                    bestScore = size;
-                    bestDirection = Direction.East;
-                }
-            }
-
-            position = _game.Map.GetWestPosition(_myPlayer.Position);
-            if (CanMove(position))
-            {
-                var size = _floodFill.FindOpenArea(position, previousPositions);
-
-                if (size > bestScore)
-                {
-                    bestScore = size;
-                    bestDirection = Direction.West;
-                }
-            }
-
             return bestDirection;
         }
 

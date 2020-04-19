@@ -1,4 +1,7 @@
-﻿namespace OceanOfCode.Model
+﻿using System.Collections;
+using System.Collections.Generic;
+
+namespace OceanOfCode.Model
 {
     public class Cell
     {
@@ -14,6 +17,7 @@
             X = x;
             Y = y;
             Type = type;
+            Neighbours = new Dictionary<Direction, Cell>();
         }
 
         public int X { get; }
@@ -21,6 +25,8 @@
         public int Y { get; }
 
         public CellType Type { get; }
+
+        public Dictionary<Direction, Cell> Neighbours { get; }
 
         public override string ToString()
         {
@@ -56,5 +62,7 @@
         {
             return 31 * X + 17 * Y;
         }
+
+        
     }
 }

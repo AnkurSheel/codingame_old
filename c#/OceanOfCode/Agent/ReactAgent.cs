@@ -100,10 +100,5 @@ namespace OceanOfCode.Agent
         {
             _opponentTracking.ParseOrders(opponentOrders);
         }
-
-        private bool CanMove(Cell position)
-        {
-            return !_myPlayer.PreviousPositions.Contains(position) && _game.Map.IsValid(position);
-        }
     }
 }

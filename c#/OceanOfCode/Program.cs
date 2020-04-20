@@ -28,29 +28,29 @@ namespace OceanOfCode
         private static Cell GetStartingPosition(Game game)
         {
             Cell position = new Cell(0,0);
-            if (game.Map.IsValid(position))
+            if (game.Map.IsValid(position, position.X, position.Y))
             {
                 return position;
             }
             position = new Cell(0, 14);
-            if (game.Map.IsValid(position))
+            if (game.Map.IsValid(position, position.X, position.Y))
             {
                 return position;
             }
             position = new Cell(14, 0);
-            if (game.Map.IsValid(position))
+            if (game.Map.IsValid(position, position.X, position.Y))
             {
                 return position;
             }
             position = new Cell(14, 14);
-            if (game.Map.IsValid(position))
+            if (game.Map.IsValid(position, position.X, position.Y))
             {
                 return position;
             }
             while (true)
             {
                 position = new Cell(Constants.Random.Next(15), Constants.Random.Next(15));
-                if (game.Map.IsValid(position))
+                if (game.Map.IsValid(position, position.X, position.Y))
                 {
                     return position;
                 }

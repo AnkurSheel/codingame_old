@@ -18,6 +18,7 @@ namespace OceanOfCode.Model
             Y = y;
             Type = type;
             Neighbours = new Dictionary<Direction, Cell>();
+            TorpedoTargets = new HashSet<Cell>();
         }
 
         public int X { get; }
@@ -27,6 +28,8 @@ namespace OceanOfCode.Model
         public CellType Type { get; }
 
         public Dictionary<Direction, Cell> Neighbours { get; }
+
+        public HashSet<Cell> TorpedoTargets { get; }
 
         public override string ToString()
         {

@@ -1,5 +1,7 @@
 ﻿using System.Text;
 
+using OceanOfCode.Services;
+
 namespace OceanOfCode.Model
 {
     public class Map
@@ -56,14 +58,14 @@ namespace OceanOfCode.Model
             return sb.ToString();
         }
 
-        public bool IsValid(Cell cell)
+        public bool IsValid(int x, int y)
         {
-            if (IsOutOfBounds(cell.X, cell.Y))
+            if (IsOutOfBounds(x, y))
             {
                 return false;
             }
 
-            var cellType = Cells[cell.Y, cell.X].Type;
+            var cellType = Cells[y, x].Type;
 
             return cellType == CellType.Sea;
         }
@@ -78,25 +80,71 @@ namespace OceanOfCode.Model
                     CheckAndAddNeighbour(Cells[i, j], j, i + 1, Direction.South);
                     CheckAndAddNeighbour(Cells[i, j], j - 1, i, Direction.West);
                     CheckAndAddNeighbour(Cells[i, j], j + 1, i, Direction.East);
+                    CheckAndAddTorpedoLocations(Cells[i, j], Direction.North);
+                    CheckAndAddTorpedoLocations(Cells[i, j], Direction.South);
+                    CheckAndAddTorpedoLocations(Cells[i, j], Direction.West);
+                    CheckAndAddTorpedoLocations(Cells[i, j], Direction.East);
                 }
             }
+
+            var sb = new StringBuilder();
+            for (var i = 0; i < Height; i++)
+            {
+                for (var j = 0; j < Width; j++)
+                {
+                    sb.Append($"{Cells[i, j].TorpedoTargets.Count}  ");
+                }
+
+                sb.AppendLine();
+            }
+
+            Io.Debug(sb.ToString());
         }
 
-        private void CheckAndAddNeighbour(Cell currentCell, int x, int y, Direction direction)
+        private void CheckAndAddNeighbour(
+            Cell currentCell,
+            int x,
+            int y,
+            Direction direction)
         {
-            if (IsOutOfBounds(x, y))
+            if (IsValid(x, y))
             {
-                return;
-            }
-
-            var newCell = Cells[y, x];
-            if (IsValid(newCell))
-            {
-                currentCell.Neighbours.Add(direction, newCell);
+                currentCell.Neighbours.Add(direction, Cells[y, x]);
             }
         }
 
-        private bool IsOutOfBounds(int x, int y)
+        private void CheckAndAddTorpedoLocations(Cell currentCell, Direction direction)
+        {
+            var x = currentCell.X;
+            var y = currentCell.Y;
+            for (var i = 1; i <= 4; i++)
+            {
+                switch (direction)
+                {
+                    case Direction.North:
+                        y = currentCell.Y - i;
+                        break;
+                    case Direction.South:
+                        y = currentCell.Y + i;
+                        break;
+                    case Direction.East:
+                        x = currentCell.X + i;
+                        break;
+                    case Direction.West:
+                        x = currentCell.X - i;
+                        break;
+                }
+
+                if (!IsValid(x, y))
+                {
+                    return;
+                }
+
+                currentCell.TorpedoTargets.Add(Cells[y, x]);
+            }
+        }
+
+        public bool IsOutOfBounds(int x, int y)
         {
             if (y < 0 || y >= 15 || x < 0 || x >= 15)
             {

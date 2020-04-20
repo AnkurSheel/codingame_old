@@ -88,7 +88,7 @@ namespace OceanOfCode.Services
                 for (var i = 0; i < _map.Width; i++)
                 {
                     var cell = _map.Cells[i, j];
-                    if (_map.IsValid(cell))
+                    if (_map.IsValid(cell, cell.X, cell.Y))
                     {
                         _possiblePositions.Add(cell);
                     }

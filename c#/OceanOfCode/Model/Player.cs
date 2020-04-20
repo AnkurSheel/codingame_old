@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 
-using OceanOfCode.Agent;
-
 namespace OceanOfCode.Model
 {
     public class Player
     {
+        private int _silenceCooldown;
+
+        private int _torpedoCooldown;
+
+        private int _sonarCooldown;
 
         public Player(int id)
         {
@@ -14,8 +17,6 @@ namespace OceanOfCode.Model
         }
 
         public int Id { get; }
-
-        public int TorpedoCooldown { get; set; }
 
         public int Life { get; set; }
 
@@ -33,9 +34,26 @@ namespace OceanOfCode.Model
         {
             Position = position;
             Life = life;
-            TorpedoCooldown = torpedoCooldown;
+            _torpedoCooldown = torpedoCooldown;
+            _sonarCooldown = sonarCooldown;
+            _silenceCooldown = silenceCooldown;
 
             PreviousPositions.Add(Position);
+        }
+
+        public bool IsTorpedoCharged()
+        {
+            return _torpedoCooldown == 0;
+        }
+
+        public bool IsSonarCharged()
+        {
+            return _sonarCooldown == 0;
+        }
+
+        public bool IsSilenceCharged()
+        {
+            return _silenceCooldown == 0;
         }
     }
 }
